@@ -84,10 +84,10 @@ extension _DirectFoods on BackendApi {
       require(f['donorId'] == uid, 'Món không thuộc tài khoản này.');
       final pending = rows(await matching('orders', 'donorId', uid))
           .where((o) => o['foodId'] == p['id'] && o['status'] == 'awaiting');
-      await db.ref().update({
-        'demo/foods/${p['id']}/status': 'closed',
-        for (final o in pending) 'demo/orders/${o['id']}/status': 'cancelled',
-      });
+      await db.ref('demo/foods/${p['id']}/status').set('closed');
+      for (final o in pending) {
+        await _cancelOrder('${o['id']}', 'Người cho đã đóng tin món ăn.');
+      }
       return {};
     }
     await account('charity');

@@ -39,8 +39,12 @@ firebase-debug.log
 **/GoogleService-Info.plist
 **/*service-account*.json
 **/*service_account*.json
+**/*serviceAccount*.json
 **/*firebase-adminsdk*.json
 **/*cloudinary*secret*
+**/*cloudinary*key*
+**/*credentials*.json
+**/*secrets*.json
 **/.env
 **/.env.*
 !**/.env.example
@@ -55,3 +59,4 @@ firebase-debug.log
 **/build/
 **/__pycache__/
 **/*.pyc
+/tooling/*-access.json

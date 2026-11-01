@@ -86,39 +86,22 @@ extension _DirectOrders on BackendApi {
     final path = 'demo/orders/$key';
     if (command == 'transitionOrder') {
       final status = p['status'];
+      if (status == 'accepted') return _acceptOrder('$key');
+      if (status == 'cancelled') {
+        return _cancelOrder('$key', '${p['reason'] ?? ''}');
+      }
       final previous = o['status'];
       final update = <String, Object?>{
         '$path/status': status,
         '$path/updatedAt': now
       };
-      if (status == 'accepted' || status == 'rejected') {
+      if (status == 'rejected') {
         await account('donor');
-        require(o['donorId'] == uid && previous == 'awaiting',
-            'Chỉ xử lý yêu cầu đang chờ của bạn.');
-        if (status == 'accepted') {
-          final f = await read('demo/foods/${o['foodId']}');
-          require(
-              f['status'] == 'open' &&
-                  (f['expiresAtMs'] as num) >
-                      DateTime.now().millisecondsSinceEpoch,
-              'Món đã đóng hoặc hết hạn.');
-          final next = ((f['reserved'] as num?)?.toInt() ?? 0) +
-              (o['quantity'] as num).toInt();
-          require(next <= (f['quantity'] as num), 'Không đủ số lượng.');
-          update['demo/foods/${o['foodId']}/reserved'] = next;
-          update['demo/foods/${o['foodId']}/lastStockOrderId'] = key;
-        }
-      } else if (status == 'cancelled') {
         require(
-            [o['donorId'], o['organizationId']].contains(uid) &&
-                ['awaiting', 'accepted', 'assigned'].contains(previous),
-            'Không thể hủy đơn này.');
-        if (previous != 'awaiting') {
-          final f = await read('demo/foods/${o['foodId']}');
-          update['demo/foods/${o['foodId']}/reserved'] =
-              (f['reserved'] as num).toInt() - (o['quantity'] as num).toInt();
-          update['demo/foods/${o['foodId']}/lastStockOrderId'] = key;
-        }
+            o['donorId'] == uid &&
+                previous == 'awaiting' &&
+                o['stockState'] != 'reserving',
+            'Chỉ xử lý yêu cầu đang chờ của bạn.');
       } else if (status == 'assigned') {
         final u = await account('volunteer');
         require(

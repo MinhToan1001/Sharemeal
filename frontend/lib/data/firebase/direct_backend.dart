@@ -4,14 +4,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'firebase_services.dart';
 import '../cloudinary/cloudinary_storage.dart';
+import '../repositories/order_stock_protocol.dart';
 
 part '../repositories/direct_accounts.dart';
 part '../repositories/direct_foods.dart';
 part '../repositories/direct_orders.dart';
+part '../repositories/direct_order_stock.dart';
 part '../repositories/direct_community.dart';
 
 /// Direct Firebase adapter. Database Rules authorize every write.
 class BackendApi {
+  static final Map<String, Future<void>> _stockQueues = {};
   BackendApi(FirebaseServices services)
       : auth = services.auth,
         db = services.database;
@@ -221,7 +224,33 @@ class BackendApi {
     final available = auth.currentUser!.emailVerified &&
         u.isNotEmpty &&
         u['disabled'] != true;
-    final data = available ? await loadData(u, admin) : <String, dynamic>{};
+    var data = available ? await loadData(u, admin) : <String, dynamic>{};
+    // Resume a committed cancellation after a lost connection/app restart.
+    // Only participants with cancellation authority (or admin) finish it.
+    var recovered = false;
+    for (final o in rows(data['orders'])) {
+      if (o['status'] == 'awaiting' &&
+          o['stockState'] == 'reserving' &&
+          o['donorId'] == uid) {
+        try {
+          await _acceptOrder('${o['id']}');
+          recovered = true;
+        } catch (_) {
+          // Insufficient stock restores awaiting/idle; transport errors retry.
+        }
+      }
+      if (o['status'] == 'cancelled' &&
+          o['stockState'] == 'releasePending' &&
+          (admin || [o['donorId'], o['organizationId']].contains(uid))) {
+        try {
+          await _finishCancellation(o);
+          recovered = true;
+        } catch (_) {
+          // Keep the visible pending flag; a later refresh/manual retry resumes.
+        }
+      }
+    }
+    if (recovered) data = await loadData(u, admin);
     List<Map<String, dynamic>> all(String key) => rows(data[key]);
     final orders = all('orders')
         .where((o) =>

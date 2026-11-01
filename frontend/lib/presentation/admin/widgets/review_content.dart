@@ -7,14 +7,36 @@ import '../../shared/interaction/frontend_actions.dart';
 import '../../shared/interaction/live_screen_data.dart';
 import '../../shared/interaction/media_gallery.dart';
 
-class AdminReviewContent extends StatelessWidget {
+class AdminReviewContent extends StatefulWidget {
   const AdminReviewContent({super.key, required this.frame});
   final String frame;
   @override
+  State<AdminReviewContent> createState() => _AdminReviewContentState();
+}
+
+class _AdminReviewContentState extends State<AdminReviewContent> {
+  String? _id, _kind;
+  String get frame => widget.frame;
+  String get _audit => 'admin.audit.$frame.$_kind.$_id';
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_id != null) return;
+    final s = FigmaPrototypeScope.of(context).frontend as FirebaseAppState;
+    final args = ModalRoute.of(context)?.settings.arguments;
+    final record = args is Map ? args : const {};
+    // Identity belongs to this route, not a shared selection that another
+    // stacked review or a refresh can replace while this page is inactive.
+    _id = '${record['id'] ?? s.get('admin.selection.id', '')}';
+    _kind =
+        '${record['table'] ?? s.get('admin.selection.kind', 'applications')}';
+  }
+
+  @override
   Widget build(BuildContext context) {
     final s = FigmaPrototypeScope.of(context).frontend as FirebaseAppState;
-    final row = LiveScreenData.selected(s);
-    final kind = s.get('admin.selection.kind', 'applications');
+    final kind = _kind ?? 'applications';
+    final row = s.rows(kind).where((r) => r['id'] == _id).firstOrNull ?? {};
     final food = kind == 'foods', need = kind == 'needs';
     final role = '${row['role'] ?? ''}';
     Map<String, dynamic> d = {};
@@ -143,10 +165,16 @@ class AdminReviewContent extends StatelessWidget {
     final labels = (d['documentLabels'] as Map?) ?? {};
     final pending = row['status'] == 'pending';
     final ready = pending &&
-        List.generate(3, (i) => s.get('admin.audit.$frame.$i', false))
-            .every((v) => v);
-    Future<void> decide(String label) => FrontendActions.run(context, frame,
-        {'kind': 'action', 'action': 'navigate', 'label': label});
+        List.generate(3, (i) => s.get('$_audit.$i', false)).every((v) => v);
+    Future<void> decide(String label) => FrontendActions.run(context, frame, {
+          'kind': 'action',
+          'action': 'navigate',
+          'label': label,
+          'source': 'review/$_kind/$_id',
+          'recordId': _id,
+          'recordKind': kind,
+          'auditPrefix': _audit
+        });
     Widget card(Widget child) => Padding(
         padding: const EdgeInsets.only(bottom: 16),
         child: Material(
@@ -242,10 +270,9 @@ class AdminReviewContent extends StatelessWidget {
                           contentPadding: EdgeInsets.zero,
                           controlAffinity: ListTileControlAffinity.leading,
                           activeColor: mealGreen,
-                          value: s.get('admin.audit.$frame.$i', false),
+                          value: s.get('$_audit.$i', false),
                           onChanged: pending
-                              ? (v) =>
-                                  s.set('admin.audit.$frame.$i', v ?? false)
+                              ? (v) => s.set('$_audit.$i', v ?? false)
                               : null,
                           title: Text(checks[i],
                               style: const TextStyle(

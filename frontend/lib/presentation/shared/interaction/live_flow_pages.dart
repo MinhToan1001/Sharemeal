@@ -465,6 +465,34 @@ class OrderTrackingContent extends StatelessWidget {
           ] else if (s.role == 'donor' &&
               ['accepted', 'assigned'].contains(o.status))
             button('Xem mã bàn giao', () => go('/user/donor/handover-qr')),
+          if (['awaiting', 'accepted', 'assigned'].contains(o.status) &&
+              (s.role == 'admin' ||
+                  [record['donorId'], record['organizationId']]
+                      .contains(s.user?.uid)))
+            button(
+                'Hủy đơn',
+                () => FrontendActions.run(context, 'order-tracking', {
+                      'kind': 'action',
+                      'action': 'cancelOrder',
+                      'id': o.id,
+                      'stay': true,
+                    })),
+          if (o.status == 'cancelled' && record['cancelReason'] != null)
+            Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Text('Lý do hủy: ${record['cancelReason']}')),
+          if (o.status == 'cancelled' &&
+              record['stockState'] == 'releasePending') ...[
+            const Text('Đã khóa đơn. Việc nhả suất đang chờ đồng bộ.'),
+            button(
+                'Thử lại nhả suất',
+                () => FrontendActions.run(context, 'order-tracking', {
+                      'kind': 'action',
+                      'action': 'cancelOrder',
+                      'id': o.id,
+                      'stay': true,
+                    })),
+          ],
           button('Nhắn tin về đơn nhận', () => go('/shared/chat')),
           button('Báo vấn đề / Yêu cầu hỗ trợ',
               () => go('/shared/report-discrepancy')),

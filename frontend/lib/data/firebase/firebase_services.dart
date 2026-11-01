@@ -5,11 +5,11 @@ import '../../core/config/firebase_config.dart';
 
 /// Chỉ tạo sau khi bootstrapFirebase trả về ready.
 class FirebaseServices {
-  FirebaseServices(FirebaseApp app)
+  FirebaseServices(FirebaseApp app, {String? databaseUrl})
       : auth = FirebaseAuth.instanceFor(app: app),
         database = FirebaseDatabase.instanceFor(
           app: app,
-          databaseURL: FirebaseConfig.databaseUrl,
+          databaseURL: databaseUrl ?? FirebaseConfig.databaseUrl,
         );
   final FirebaseAuth auth;
   final FirebaseDatabase database;

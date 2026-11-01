@@ -27,14 +27,14 @@ abstract final class BackendActions {
         s.get('food.address', '').trim().isEmpty) {
       throw StateError('Hãy nhập địa chỉ lấy thực phẩm.');
     }
-    void go(String path) {
+    void go(String path, {Object? arguments}) {
       if (context.mounted) {
         if (path.startsWith('/auth/') ||
             frame == '6:246' ||
             frame == '46:526') {
           Navigator.pushNamedAndRemoveUntil(context, path, (_) => false);
         } else {
-          Navigator.pushNamed(context, path);
+          Navigator.pushNamed(context, path, arguments: arguments);
         }
       }
     }
@@ -311,7 +311,7 @@ abstract final class BackendActions {
       message('Đã cập nhật kết quả từ Firebase.');
       return true;
     }
-    final id = s.selectedOrderId;
+    final id = spec['id']?.toString() ?? s.selectedOrderId;
     switch (action) {
       case 'openOrder':
         s.selectOrder('${spec['id']}');
@@ -346,11 +346,48 @@ abstract final class BackendActions {
             'Chuyến giao',
             s
                 .rows('orders')
-                .where((o) =>
-                    ['accepted', 'assigned', 'pickedUp'].contains(o['status']))
+                .where((o) => ['awaiting', 'accepted', 'assigned', 'pickedUp']
+                    .contains(o['status']))
                 .toList(),
             'id');
-        if (selected != null) s.selectOrder(selected);
+        if (selected != null) {
+          s.selectOrder(selected);
+          if (!context.mounted) return true;
+          final order =
+              s.rows('orders').where((o) => o['id'] == selected).first;
+          final cancel = await showDialog<bool>(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title: const Text('Chi tiết đơn nhận'),
+                    content: Text(
+                        '$selected\n${order['quantity']} suất · ${order['status']}'),
+                    actions: [
+                      TextButton(
+                          onPressed: () => Navigator.pop(context, false),
+                          child: const Text('Đóng')),
+                      if (['awaiting', 'accepted', 'assigned']
+                          .contains(order['status']))
+                        OutlinedButton(
+                            onPressed: () => Navigator.pop(context, true),
+                            child: const Text('Hủy đơn')),
+                      if (order['status'] == 'pickedUp')
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context, false);
+                              go('/admin/food-safety-incident');
+                            },
+                            child: const Text('Xử lý qua hỗ trợ')),
+                    ],
+                  ));
+          if (cancel == true && context.mounted) {
+            await FrontendActions.run(context, frame, {
+              'kind': 'action',
+              'action': 'cancelOrder',
+              'id': selected,
+              'stay': true,
+            });
+          }
+        }
         return true;
       case 'assignVolunteer':
         await s
@@ -398,7 +435,9 @@ abstract final class BackendActions {
         s.values['admin.selection.id'] = spec['id'];
         s.values['admin.selection.kind'] = spec['table'];
         s.changed();
-        go('/admin/${spec['role'] == 'charity' ? 'organization' : spec['role'] == 'volunteer' ? 'volunteer' : 'donor'}-review');
+        go(
+            '/admin/${spec['role'] == 'charity' ? 'organization' : spec['role'] == 'volunteer' ? 'volunteer' : 'donor'}-review',
+            arguments: {'id': spec['id'], 'table': spec['table']});
         return true;
       case 'openDocument':
         final uri = Uri.tryParse('${spec['url']}');
@@ -502,9 +541,26 @@ abstract final class BackendActions {
         s.values.removeWhere((k, _) => k.startsWith('request.'));
         go('/user/organization/request-pending');
         return true;
+      case 'cancelOrder':
+        final reason = await FrontendActions.edit(context, 'Lý do hủy đơn', '');
+        if (reason == null) return true;
+        if (reason.isEmpty) throw StateError('Hãy nhập lý do hủy đơn.');
+        await s.command('transitionOrder',
+            {'id': id, 'status': 'cancelled', 'reason': reason});
+        if (id == s.selectedOrderId) {
+          s.values.remove('handover.pin');
+          s.values.remove('receipt.pin');
+        }
+        if (spec['stay'] != true) {
+          go(s.role == 'admin'
+              ? '/admin/dispatch-map'
+              : s.role == 'donor'
+                  ? '/user/donor/incoming-requests'
+                  : '/user/organization/orders');
+        }
+        return true;
       case 'acceptOrder':
       case 'rejectOrder':
-      case 'cancelOrder':
       case 'acceptJob':
       case 'confirmReceipt':
         if (action == 'confirmReceipt' &&
@@ -517,7 +573,6 @@ abstract final class BackendActions {
           'status': switch (action) {
             'acceptOrder' => 'accepted',
             'rejectOrder' => 'rejected',
-            'cancelOrder' => 'cancelled',
             'acceptJob' => 'assigned',
             _ => 'completed'
           },
@@ -649,14 +704,16 @@ abstract final class BackendActions {
     if (label == 'Phê duyệt hồ sơ' ||
         label == 'Từ chối' ||
         label == 'Yêu cầu bổ sung') {
-      final kind = s.get('admin.selection.kind', 'applications');
-      final selected = s.get('admin.selection.id', '');
+      final kind =
+          spec['recordKind'] ?? s.get('admin.selection.kind', 'applications');
+      final selected = spec['recordId'] ?? s.get('admin.selection.id', '');
       if (selected.isEmpty) {
         throw StateError('Hãy chọn một hồ sơ trong hàng đợi.');
       }
       final approved = label == 'Phê duyệt hồ sơ';
       if (approved &&
-          List.generate(3, (i) => 'admin.audit.$frame.$i')
+          List.generate(
+                  3, (i) => '${spec['auditPrefix'] ?? 'admin.audit.$frame'}.$i')
               .any((k) => !s.get(k, false))) {
         throw StateError('Hãy đối chiếu đủ các điều kiện.');
       }

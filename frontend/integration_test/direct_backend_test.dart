@@ -312,8 +312,11 @@ void main() {
       expect(results.where((r) => r).length, 1,
           reason: 'Two acceptances must never oversell 10 servings');
       final acceptedRace = results[0] ? race1 : race2;
-      await donor.command(
-          'transitionOrder', {'id': acceptedRace, 'status': 'cancelled'});
+      await donor.command('transitionOrder', {
+        'id': acceptedRace,
+        'status': 'cancelled',
+        'reason': 'DEMO hủy yêu cầu trong kiểm thử'
+      });
       await donor.command('transitionOrder',
           {'id': results[0] ? race2 : race1, 'status': 'rejected'});
       await until(
