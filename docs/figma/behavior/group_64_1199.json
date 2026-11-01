@@ -1,0 +1,323 @@
+{
+  "frames": [
+    {
+      "id": "64:1199",
+      "nodes": [
+        {
+          "id": "64:1206",
+          "name": "go/back",
+          "type": "INSTANCE",
+          "parentId": "64:1202",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "64:1228",
+          "name": "go/login",
+          "type": "INSTANCE",
+          "parentId": "64:1208",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 646,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "64:1230",
+      "nodes": [
+        {
+          "id": "64:1237",
+          "name": "go/back",
+          "type": "INSTANCE",
+          "parentId": "64:1233",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "64:1246",
+          "name": "go/donorHome",
+          "type": "INSTANCE",
+          "parentId": "64:1240",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 397,
+            "width": 326,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "64:1253",
+          "name": "go/U02",
+          "type": "INSTANCE",
+          "parentId": "64:1248",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 613,
+            "width": 326,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "64:1257",
+          "name": "go/U03",
+          "type": "FRAME",
+          "parentId": "64:1255",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 743,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:246",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1172",
+        "variableValue": {
+          "value": "donor",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:319",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:80:1173"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "approved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:4055",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1173"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "approved",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "NOT"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "64:880",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "64:933",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

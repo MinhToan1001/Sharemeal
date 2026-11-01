@@ -1,0 +1,3 @@
+# Copy to maps.properties (ignored by Git). Never commit a real key.
+# Enable Maps SDK for Android and restrict this key to package + SHA-1.
+MAPS_API_KEY=

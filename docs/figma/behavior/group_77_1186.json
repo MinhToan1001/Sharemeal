@@ -1,0 +1,440 @@
+{
+  "frames": [
+    {
+      "id": "77:1186",
+      "nodes": [
+        {
+          "id": "77:1193",
+          "name": "go/notifications",
+          "type": "INSTANCE",
+          "parentId": "77:1189",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 340,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "77:1274",
+          "name": "go/A04",
+          "type": "INSTANCE",
+          "parentId": "77:1195",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 676,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1196;60:570",
+          "name": "go/A01",
+          "type": "FRAME",
+          "parentId": "77:1196",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 0,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1196;60:574",
+          "name": "go/A02",
+          "type": "FRAME",
+          "parentId": "77:1196",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 80.4000244140625,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1196;60:580",
+          "name": "go/A04",
+          "type": "FRAME",
+          "parentId": "77:1196",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 160.800048828125,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1196;60:586",
+          "name": "go/A05",
+          "type": "FRAME",
+          "parentId": "77:1196",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 241.199951171875,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1196;60:590",
+          "name": "go/A06",
+          "type": "FRAME",
+          "parentId": "77:1196",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 321.5999755859375,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "77:1321",
+      "nodes": [
+        {
+          "id": "77:1328",
+          "name": "go/notifications",
+          "type": "INSTANCE",
+          "parentId": "77:1324",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 340,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "77:1367",
+          "name": "go/approve",
+          "type": "INSTANCE",
+          "parentId": "77:1366",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 746,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "77:1369",
+          "name": "go/supplement",
+          "type": "INSTANCE",
+          "parentId": "77:1368",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 804,
+            "width": 174,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 7
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "77:1370",
+          "name": "go/reject",
+          "type": "INSTANCE",
+          "parentId": "77:1368",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 206,
+            "y": 804,
+            "width": 174,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 8
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "NODE",
+        "destinationId": "77:1018",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:994",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3641",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3712",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1079",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1152",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1174",
+        "variableValue": {
+          "value": "approved",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "62:1405",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1174",
+        "variableValue": {
+          "value": "supplement",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "77:1090",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1174",
+        "variableValue": {
+          "value": "rejected",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "77:1141",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

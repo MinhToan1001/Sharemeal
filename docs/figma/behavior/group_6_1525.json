@@ -1,0 +1,2162 @@
+{
+  "frames": [
+    {
+      "id": "6:1525",
+      "nodes": [
+        {
+          "id": "110:1160",
+          "name": "Về danh sách đơn nhận",
+          "type": "INSTANCE",
+          "parentId": "110:1159",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 61,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "110:1196",
+          "name": "35%",
+          "type": "TEXT",
+          "parentId": "110:1195",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 402,
+            "width": 95,
+            "height": 45
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1144"
+            }
+          }
+        },
+        {
+          "id": "110:1197",
+          "name": "Đang tìm tình nguyện viên",
+          "type": "TEXT",
+          "parentId": "110:1195",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 145,
+            "y": 412.5,
+            "width": 219,
+            "height": 24
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1143"
+            }
+          }
+        },
+        {
+          "id": "110:1199",
+          "name": "Rectangle",
+          "type": "RECTANGLE",
+          "parentId": "110:1198",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 459,
+            "width": 114,
+            "height": 10
+          },
+          "reactions": [],
+          "bindings": {
+            "width": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1145"
+            }
+          }
+        },
+        {
+          "id": "110:1206",
+          "name": "Đang điều phối tình nguyện viên",
+          "type": "TEXT",
+          "parentId": "110:1193",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 506,
+            "width": 326,
+            "height": 17
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1147"
+            }
+          }
+        },
+        {
+          "id": "110:1212",
+          "name": "15 suất cơm gà",
+          "type": "TEXT",
+          "parentId": "110:1211",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 144,
+            "y": 616,
+            "width": 220,
+            "height": 22
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1154"
+            }
+          }
+        },
+        {
+          "id": "110:1214",
+          "name": "Frame",
+          "type": "FRAME",
+          "parentId": "110:1165",
+          "order": 3,
+          "visible": false,
+          "bounds": {
+            "x": 22,
+            "y": 721,
+            "width": 358,
+            "height": 54
+          },
+          "reactions": [],
+          "bindings": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1149"
+            }
+          }
+        },
+        {
+          "id": "110:1220",
+          "name": "Trần Quốc Bảo",
+          "type": "TEXT",
+          "parentId": "110:1219",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 58,
+            "y": 721,
+            "width": 260,
+            "height": 20
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1148"
+            }
+          }
+        },
+        {
+          "id": "110:1223",
+          "name": "Xem mã nhận / DN-367",
+          "type": "INSTANCE",
+          "parentId": "110:1165",
+          "order": 4,
+          "visible": false,
+          "bounds": {
+            "x": 22,
+            "y": 721,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1150"
+            }
+          }
+        },
+        {
+          "id": "110:1225",
+          "name": "action/Gửi lời cảm ơn",
+          "type": "INSTANCE",
+          "parentId": "110:1165",
+          "order": 5,
+          "visible": false,
+          "bounds": {
+            "x": 22,
+            "y": 721,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1151"
+            }
+          }
+        },
+        {
+          "id": "110:1227",
+          "name": "action/Xem yêu cầu đang chờ xác nhận",
+          "type": "INSTANCE",
+          "parentId": "110:1165",
+          "order": 6,
+          "visible": false,
+          "bounds": {
+            "x": 22,
+            "y": 721,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1152"
+            }
+          }
+        },
+        {
+          "id": "110:1229",
+          "name": "action/Xem tình trạng tìm người giao",
+          "type": "INSTANCE",
+          "parentId": "110:1165",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 721,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {
+            "visible": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:110:1153"
+            }
+          }
+        },
+        {
+          "id": "110:1231",
+          "name": "action/Nhắn tin về đơn nhận",
+          "type": "INSTANCE",
+          "parentId": "110:1165",
+          "order": 8,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 785,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "110:1233",
+          "name": "action/Báo vấn đề / Yêu cầu hỗ trợ",
+          "type": "INSTANCE",
+          "parentId": "110:1165",
+          "order": 9,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 849,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1143",
+                "variableValue": {
+                  "value": "Yêu cầu nhận đã được hủy",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1144",
+                "variableValue": {
+                  "value": "0%",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1145",
+                "variableValue": {
+                  "value": 1,
+                  "type": "FLOAT",
+                  "resolvedType": "FLOAT"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1146",
+                "variableValue": {
+                  "value": "Đã hủy",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1147",
+                "variableValue": {
+                  "value": "Số lượng đã được mở lại cho tổ chức khác",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1149",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1150",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1151",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1152",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1153",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1148",
+                "variableValue": {
+                  "value": "Trần Quốc Bảo",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1154",
+                "variableValue": {
+                  "value": "15 suất cơm gà",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:80:1176"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "cancelled",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1143",
+                "variableValue": {
+                  "value": "Đã bàn giao thành công",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1144",
+                "variableValue": {
+                  "value": "100%",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1145",
+                "variableValue": {
+                  "value": 326,
+                  "type": "FLOAT",
+                  "resolvedType": "FLOAT"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1146",
+                "variableValue": {
+                  "value": "Hoàn tất",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1147",
+                "variableValue": {
+                  "value": "Tổ chức đã xác nhận nhận hàng",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1149",
+                "variableValue": {
+                  "value": true,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1150",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1151",
+                "variableValue": {
+                  "value": true,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1152",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1153",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1148",
+                "variableValue": {
+                  "value": "Trần Quốc Bảo",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1154",
+                "variableValue": {
+                  "value": "15 suất cơm gà",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1176"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "STRING"
+                              },
+                              {
+                                "value": "cancelled",
+                                "type": "STRING",
+                                "resolvedType": "STRING"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "NOT"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1180"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": true,
+                          "type": "BOOLEAN",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1143",
+                "variableValue": {
+                  "value": "Chờ người cho xác nhận",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1144",
+                "variableValue": {
+                  "value": "15%",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1145",
+                "variableValue": {
+                  "value": 48.900001525878906,
+                  "type": "FLOAT",
+                  "resolvedType": "FLOAT"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1146",
+                "variableValue": {
+                  "value": "Chờ duyệt",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1147",
+                "variableValue": {
+                  "value": "Giờ nhận sẽ cập nhật khi yêu cầu được chấp nhận",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1149",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1150",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1151",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1152",
+                "variableValue": {
+                  "value": true,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1153",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1148",
+                "variableValue": {
+                  "value": "Trần Quốc Bảo",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1154",
+                "variableValue": {
+                  "value": "15 suất cơm gà",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "type": "VARIABLE_ALIAS",
+                                        "id": "VariableID:80:1176"
+                                      },
+                                      "type": "VARIABLE_ALIAS",
+                                      "resolvedType": "STRING"
+                                    },
+                                    {
+                                      "value": "cancelled",
+                                      "type": "STRING",
+                                      "resolvedType": "STRING"
+                                    }
+                                  ],
+                                  "expressionFunction": "EQUALS"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "type": "VARIABLE_ALIAS",
+                                        "id": "VariableID:80:1180"
+                                      },
+                                      "type": "VARIABLE_ALIAS",
+                                      "resolvedType": "BOOLEAN"
+                                    },
+                                    {
+                                      "value": true,
+                                      "type": "BOOLEAN",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "EQUALS"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1176"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "STRING"
+                              },
+                              {
+                                "value": "awaiting",
+                                "type": "STRING",
+                                "resolvedType": "STRING"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1176"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "STRING"
+                              },
+                              {
+                                "value": "none",
+                                "type": "STRING",
+                                "resolvedType": "STRING"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "OR"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1143",
+                "variableValue": {
+                  "value": "Đang giao đến tổ chức",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1144",
+                "variableValue": {
+                  "value": "80%",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1145",
+                "variableValue": {
+                  "value": 260.79998779296875,
+                  "type": "FLOAT",
+                  "resolvedType": "FLOAT"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1146",
+                "variableValue": {
+                  "value": "Đang giao",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1147",
+                "variableValue": {
+                  "value": "Quốc Bảo · dự kiến đến lúc 19:40",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1149",
+                "variableValue": {
+                  "value": true,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1150",
+                "variableValue": {
+                  "value": true,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1151",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1152",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1153",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1148",
+                "variableValue": {
+                  "value": "Trần Quốc Bảo",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1154",
+                "variableValue": {
+                  "value": "15 suất cơm gà",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "type": "VARIABLE_ALIAS",
+                                              "id": "VariableID:80:1176"
+                                            },
+                                            "type": "VARIABLE_ALIAS",
+                                            "resolvedType": "STRING"
+                                          },
+                                          {
+                                            "value": "cancelled",
+                                            "type": "STRING",
+                                            "resolvedType": "STRING"
+                                          }
+                                        ],
+                                        "expressionFunction": "EQUALS"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "NOT"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              },
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "type": "VARIABLE_ALIAS",
+                                              "id": "VariableID:80:1180"
+                                            },
+                                            "type": "VARIABLE_ALIAS",
+                                            "resolvedType": "BOOLEAN"
+                                          },
+                                          {
+                                            "value": true,
+                                            "type": "BOOLEAN",
+                                            "resolvedType": "BOOLEAN"
+                                          }
+                                        ],
+                                        "expressionFunction": "EQUALS"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "NOT"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "AND"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "type": "VARIABLE_ALIAS",
+                                              "id": "VariableID:80:1176"
+                                            },
+                                            "type": "VARIABLE_ALIAS",
+                                            "resolvedType": "STRING"
+                                          },
+                                          {
+                                            "value": "awaiting",
+                                            "type": "STRING",
+                                            "resolvedType": "STRING"
+                                          }
+                                        ],
+                                        "expressionFunction": "EQUALS"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    },
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "type": "VARIABLE_ALIAS",
+                                              "id": "VariableID:80:1176"
+                                            },
+                                            "type": "VARIABLE_ALIAS",
+                                            "resolvedType": "STRING"
+                                          },
+                                          {
+                                            "value": "none",
+                                            "type": "STRING",
+                                            "resolvedType": "STRING"
+                                          }
+                                        ],
+                                        "expressionFunction": "EQUALS"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "OR"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1178"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": true,
+                          "type": "BOOLEAN",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1143",
+                "variableValue": {
+                  "value": "Tình nguyện viên đang đi lấy hàng",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1144",
+                "variableValue": {
+                  "value": "55%",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1145",
+                "variableValue": {
+                  "value": 179.3000030517578,
+                  "type": "FLOAT",
+                  "resolvedType": "FLOAT"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1146",
+                "variableValue": {
+                  "value": "Đi lấy",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1147",
+                "variableValue": {
+                  "value": "Quốc Bảo đang tới Bếp Nhà Lan",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1149",
+                "variableValue": {
+                  "value": true,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1150",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1151",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1152",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1153",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1148",
+                "variableValue": {
+                  "value": "Trần Quốc Bảo",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1154",
+                "variableValue": {
+                  "value": "15 suất cơm gà",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1176"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "STRING"
+                                                },
+                                                {
+                                                  "value": "cancelled",
+                                                  "type": "STRING",
+                                                  "resolvedType": "STRING"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          }
+                                        ],
+                                        "expressionFunction": "NOT"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    },
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1180"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "BOOLEAN"
+                                                },
+                                                {
+                                                  "value": true,
+                                                  "type": "BOOLEAN",
+                                                  "resolvedType": "BOOLEAN"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          }
+                                        ],
+                                        "expressionFunction": "NOT"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "AND"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              },
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1176"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "STRING"
+                                                },
+                                                {
+                                                  "value": "awaiting",
+                                                  "type": "STRING",
+                                                  "resolvedType": "STRING"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          },
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1176"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "STRING"
+                                                },
+                                                {
+                                                  "value": "none",
+                                                  "type": "STRING",
+                                                  "resolvedType": "STRING"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          }
+                                        ],
+                                        "expressionFunction": "OR"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "NOT"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "AND"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "type": "VARIABLE_ALIAS",
+                                        "id": "VariableID:80:1178"
+                                      },
+                                      "type": "VARIABLE_ALIAS",
+                                      "resolvedType": "BOOLEAN"
+                                    },
+                                    {
+                                      "value": true,
+                                      "type": "BOOLEAN",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "EQUALS"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1177"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": true,
+                          "type": "BOOLEAN",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1143",
+                "variableValue": {
+                  "value": "Đang tìm tình nguyện viên",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1144",
+                "variableValue": {
+                  "value": "35%",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1145",
+                "variableValue": {
+                  "value": 114.0999984741211,
+                  "type": "FLOAT",
+                  "resolvedType": "FLOAT"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1146",
+                "variableValue": {
+                  "value": "Tìm người",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1147",
+                "variableValue": {
+                  "value": "Đang điều phối tình nguyện viên phù hợp",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1149",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1150",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1151",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1152",
+                "variableValue": {
+                  "value": false,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1153",
+                "variableValue": {
+                  "value": true,
+                  "type": "BOOLEAN",
+                  "resolvedType": "BOOLEAN"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1148",
+                "variableValue": {
+                  "value": "Trần Quốc Bảo",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1154",
+                "variableValue": {
+                  "value": "15 suất cơm gà",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1176"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "STRING"
+                                                },
+                                                {
+                                                  "value": "cancelled",
+                                                  "type": "STRING",
+                                                  "resolvedType": "STRING"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          }
+                                        ],
+                                        "expressionFunction": "NOT"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    },
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1180"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "BOOLEAN"
+                                                },
+                                                {
+                                                  "value": true,
+                                                  "type": "BOOLEAN",
+                                                  "resolvedType": "BOOLEAN"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          }
+                                        ],
+                                        "expressionFunction": "NOT"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "AND"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              },
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "expressionArguments": [
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1176"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "STRING"
+                                                },
+                                                {
+                                                  "value": "awaiting",
+                                                  "type": "STRING",
+                                                  "resolvedType": "STRING"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          },
+                                          {
+                                            "value": {
+                                              "expressionArguments": [
+                                                {
+                                                  "value": {
+                                                    "type": "VARIABLE_ALIAS",
+                                                    "id": "VariableID:80:1176"
+                                                  },
+                                                  "type": "VARIABLE_ALIAS",
+                                                  "resolvedType": "STRING"
+                                                },
+                                                {
+                                                  "value": "none",
+                                                  "type": "STRING",
+                                                  "resolvedType": "STRING"
+                                                }
+                                              ],
+                                              "expressionFunction": "EQUALS"
+                                            },
+                                            "type": "EXPRESSION",
+                                            "resolvedType": "BOOLEAN"
+                                          }
+                                        ],
+                                        "expressionFunction": "OR"
+                                      },
+                                      "type": "EXPRESSION",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "NOT"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "AND"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "type": "VARIABLE_ALIAS",
+                                        "id": "VariableID:80:1178"
+                                      },
+                                      "type": "VARIABLE_ALIAS",
+                                      "resolvedType": "BOOLEAN"
+                                    },
+                                    {
+                                      "value": true,
+                                      "type": "BOOLEAN",
+                                      "resolvedType": "BOOLEAN"
+                                    }
+                                  ],
+                                  "expressionFunction": "EQUALS"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1177"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "BOOLEAN"
+                              },
+                              {
+                                "value": true,
+                                "type": "BOOLEAN",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "NOT"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1143",
+                "variableValue": {
+                  "value": "Hoàn tất · đã đối soát",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              },
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1154",
+                "variableValue": {
+                  "value": "13 suất cơm gà",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "expressionArguments": [
+                                    {
+                                      "value": {
+                                        "type": "VARIABLE_ALIAS",
+                                        "id": "VariableID:80:1176"
+                                      },
+                                      "type": "VARIABLE_ALIAS",
+                                      "resolvedType": "STRING"
+                                    },
+                                    {
+                                      "value": "cancelled",
+                                      "type": "STRING",
+                                      "resolvedType": "STRING"
+                                    }
+                                  ],
+                                  "expressionFunction": "EQUALS"
+                                },
+                                "type": "EXPRESSION",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "NOT"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1180"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "BOOLEAN"
+                              },
+                              {
+                                "value": true,
+                                "type": "BOOLEAN",
+                                "resolvedType": "BOOLEAN"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "AND"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1181"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "BOOLEAN"
+                        },
+                        {
+                          "value": true,
+                          "type": "BOOLEAN",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "SET_VARIABLE",
+                "variableId": "VariableID:110:1148",
+                "variableValue": {
+                  "value": "Minh Toàn",
+                  "type": "STRING",
+                  "resolvedType": "STRING"
+                }
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:80:1184"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "Minh Toàn đã nhận chuyển giao",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "NODE",
+        "destinationId": "6:1470",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1098",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:1702",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:965",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1000",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2352",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1260",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

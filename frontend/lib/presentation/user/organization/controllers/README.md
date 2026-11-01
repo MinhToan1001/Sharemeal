@@ -1,0 +1,3 @@
+# Tổ chức từ thiện / controllers
+
+Quản lý trạng thái và gọi repository cho cụm này. Không truy cập Firebase trực tiếp từ page.

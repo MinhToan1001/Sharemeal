@@ -1,0 +1,422 @@
+﻿[
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\account_management_page.dart",
+        "Hash":  "DA9958F88E8FEDF203D89FB371804F16F66452B4D635578BC14EE45293B77C42"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\approval_queue_page.dart",
+        "Hash":  "7E98B3A112DD28D4938D09E1C9C9C29AF7FAA569BA13E87D4F51C57BA185208C"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\approval_result_page.dart",
+        "Hash":  "6776C24E7768BDD94459E13B4D0808C0CE0FC3109F3E956C280D523D7012A992"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\case_resolution_page.dart",
+        "Hash":  "1C7FA5ACEA2D2E20C025BA70A8973F6F9D41672FF92548256A7AD411DBDF11DE"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\complaint_review_page.dart",
+        "Hash":  "72F5861C699E857FBE5C0D5C095F81470C333E5028386DB930D9AA4FF42AFC00"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\dashboard_page.dart",
+        "Hash":  "37319F88864C5A6AE7ACD6B9CFA2A98EEE1D54017BFAEC8A0CEBE493FFBB5812"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\dispatch_map_page.dart",
+        "Hash":  "717CE75FB0FBEBD0CB8692E416D861399E9D21629E1ADE3EA14834D5FAEB9948"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\donor_review_page.dart",
+        "Hash":  "D2B06D71792829A137975B176F4DDBB5E2076506AAC0A3B5D7A97C515E8586BE"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\food_safety_incident_page.dart",
+        "Hash":  "22E1C597D119C853E0D92CC81BAD2C3178B34D65FC1C77295BA821FEEDA2966A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\notifications_page.dart",
+        "Hash":  "4E5F4DF3C1B9BABBBAB4B4C6138D7419539F5459F18751B5C9EE6DF56F7E9F98"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\organization_review_page.dart",
+        "Hash":  "F453C6E69D1BCF297AA8193FED62BC0D6C8B40FF0F8A92A22C8472C1ED2E7947"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\reassignment_result_page.dart",
+        "Hash":  "07AA88CAA51438558EC34003B4AEC9482142AE5FEA59E9165065DEA1CB6DEC40"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\rejection_result_page.dart",
+        "Hash":  "DCACCCE74862A30C74F60DCC6D8EAF1C498DB783921CEBC3021C6EE502089892"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\reports_page.dart",
+        "Hash":  "A5288BAFD873940686CC13EA4AEAB215A7AE40DCB806F601F2C795DD2CCCFC34"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\supplement_request_page.dart",
+        "Hash":  "13989E29C8FE7A15389A36EA74E21540BF3753A09EE7B942AE56A673F97E872E"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\admin\\pages\\volunteer_review_page.dart",
+        "Hash":  "416F14A007E6EA764A9437CF6C22D0E04E0E7F2B8AD103504FD054B762F43E28"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\auth\\pages\\email_verification_page.dart",
+        "Hash":  "FAA5AF51C217A1D8CC84C67A22414AE5DE49DB00626DBFD77490391920C373CE"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\auth\\pages\\forgot_password_page.dart",
+        "Hash":  "4F19B334195A1BA7047E5830C21EC362FB623C76302B9F40E8DFDB639C489E93"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\auth\\pages\\login_page.dart",
+        "Hash":  "37BC8DA4A9B438B7ED9C4191374D53E67A9CF332846E3A45B25FB427B84F7F3D"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\auth\\pages\\register_page.dart",
+        "Hash":  "54C92BED360158B1540E8DF55C1BE2E397910AECB932C96AE2B5D1B59F94A327"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\auth\\pages\\role_selection_page.dart",
+        "Hash":  "EB609F0FC4214B01D885ABA851841CE1BC60463467EDBF07A73F0DCED37E3EA1"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\auth\\pages\\splash_page.dart",
+        "Hash":  "9C87B480808547BD13B719678B4565439EB741864E15DFB3C5C7DC9A56CB5D85"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\auth\\pages\\welcome_page.dart",
+        "Hash":  "D20A5833154A5F45E2345EB50EC1F0AA9F0663B637F5DD0D20851E43286F7AAF"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\browse_only_page.dart",
+        "Hash":  "C38BE8E87086FBBD470CCCB2581773BA0A8073DE10C84C1EF87B9C481B5D21BF"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\chat_page.dart",
+        "Hash":  "EB9062818DC2801441497C145C737E8B9035F61B5B6CD0DFF261D0982E9C487A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\community_report_page.dart",
+        "Hash":  "1B3A45C99451F09F0AC6D8495EC69212A37990B3065E7156FB8B3419A8DFEE91"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\handover_receipt_page.dart",
+        "Hash":  "0630D73A0F749390B6FCEB60E6960441C8F9BA591FF54D18A22D482603A4BD5F"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\location_picker_page.dart",
+        "Hash":  "63911DD147A4B049C03D7D3A160B686E39E0471CEA8922EC1E3387CDBDE59D67"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\notifications_page.dart",
+        "Hash":  "ED1D8D2CD273B6E30DAF1C405253812A5E29DEF076E4F63CB5939CB557053C66"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\packaging_guide_page.dart",
+        "Hash":  "3C0C9EBCC119AD54E3A6ADA77185BEAE00B24374BCC9FC9C91472D53E5E2E490"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\profile_page.dart",
+        "Hash":  "D87AC884DC9D2EADAE40E24DE185DB2165915BE8B176C0ABD2DBE985D9E461B2"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\report_discrepancy_page.dart",
+        "Hash":  "FE86CE607E285954F59F55AB2CA2F0E10D5F5AE45B0A8349DA70C1B1384C7B3A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\report_issue_page.dart",
+        "Hash":  "E28CA7301F320E6D1A01F2DDCD904CC7A9EC9FBD17E70C7B764F37287B7CBABB"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\role_management_page.dart",
+        "Hash":  "D07BCCFEBF8DC321FF8D60B64110627772E2109BA3AD516C8EB0CE73DCF108E4"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\settings_page.dart",
+        "Hash":  "9AF00B28163927253D23C70039AA870D7FE265F26E906EC4B27CFC2DD87A6AF3"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\support_page.dart",
+        "Hash":  "D140890353D20967EE9A8FEE89EC21A5EAFE610B992F7F09AF07E031409B1B3F"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\support_resolved_page.dart",
+        "Hash":  "CDA5C2817252D54194D3EEE4A90262DEA8ED3176BB896565703A40E80EEDEC73"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\support_status_page.dart",
+        "Hash":  "DDAD6106D44396F4A36E534E71BD6E8288E5B751F32701C53FD1BD662AEBF29A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\support_ticket_page.dart",
+        "Hash":  "350286CBF5C8FDA048EF2171D190DB0270DA0B96983C26ACA7F54911D138F1A7"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\transfer_delivery_page.dart",
+        "Hash":  "B4DF3505933D825BFC55E7D36F368E9665F2996AB4B874A8AAB7B35F4FEB5C2F"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\verification_approved_page.dart",
+        "Hash":  "3694B2B084EF890F1B7A9BBFD9F7B4552D80FDE40853F8A06077678CAA5F3306"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\verification_pending_page.dart",
+        "Hash":  "8116D4E92124072495F715B8F703353EE1BB9096DE892C321321014926CD2C57"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\verification_rejected_page.dart",
+        "Hash":  "2EF7EBABCBE826FB24A94453A6664996FB2833FC00D77285264F872F830EE381"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\shared\\pages\\verification_supplement_page.dart",
+        "Hash":  "53617A9E83DFC8C2A17F56B896F05AAD1E43651541C2E8BB265DAA369B37AC7A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\availability_page.dart",
+        "Hash":  "116BF079B4142297BE542AF64AD1D569F186F26BFD92A545C9E8987F71B61550"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\business_license_page.dart",
+        "Hash":  "ED974288D1198FF1844E8BFA597C6628EEAE451DAC4E337062CCBF710B411619"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\business_verification_page.dart",
+        "Hash":  "B0E07A13E3E1E3DB2AFD7E7F3711393C940B3CB2B56EAAADB50239F661D91E63"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\close_listing_page.dart",
+        "Hash":  "40425CE50977C84E63734FE9FAFEF7ADA2CE20B57681EEEC4E052F3E22DFBE76"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\commitment_page.dart",
+        "Hash":  "FA1C8436ED03A9846E6B93A2C67DEAE9D12097720ABB19EDE980EE0C6E8043AD"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\create_listing_page.dart",
+        "Hash":  "049884F4BCA47AC7F4CF42D943ADDE05F899B46DCB2FB025D880835D2ADB5B80"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\dashboard_page.dart",
+        "Hash":  "F463A5A7409C01300E2F10EB5BE1BBC23A95EACC529D78A750E4E9B4011D6407"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\donation_history_page.dart",
+        "Hash":  "85A0F829419A4AC7FA23E38B6C31228153CCCA2CBE8FDC7F81BEF472D28CEDC0"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\donor_type_page.dart",
+        "Hash":  "9C72D8B6C2C284F3E03C7573C787BF2201023D9AEAA70DC4ACABE5969F13F283"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\edit_listing_page.dart",
+        "Hash":  "9792E65753C8C4E55F11D551279D8795467EA14A88FFBC1BB2ADBC7BB467EAE2"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\facility_photos_page.dart",
+        "Hash":  "C2A9F21268C9A90A0DF5C4A6FC849B81ECAF9D91638568DAE06C7ACB910E60E8"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\food_safety_page.dart",
+        "Hash":  "EA411350547236B0ECB9CED9E7697646F0F0A2F485639A9FED93A74581B404C6"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\handover_qr_page.dart",
+        "Hash":  "316BF5DDD5C9AB54559ADF7CD80D8833C2CFE86E95F0B6FCAD97A00E64A127A5"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\impact_report_page.dart",
+        "Hash":  "A750700126B68CAE885FA9997D4E8B173E82171335AFC78E7B6A3C065D94200A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\incoming_requests_page.dart",
+        "Hash":  "4798B9D060779F4CE503EE48D53604F4DBD4EDDD889589C1FA373235251D1478"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\individual_verification_page.dart",
+        "Hash":  "D700D8BDEE2FD5508039D923883C21E298676DEDFEC799C73A5643499644DC81"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\listing_detail_page.dart",
+        "Hash":  "3137063A7150E67ACA9D135DFACDDD120060E011FD6393F4B062F695FA4F4B8D"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\listing_preview_page.dart",
+        "Hash":  "F04080957A6E7A9AAA299082CD05E0EF72BB51BE4F307F82E09814DDAE11756B"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\matching_page.dart",
+        "Hash":  "9EECB34B89CCDA385E29F27DB7E3D6D7863EA73BA492F1F8AB9F76674BC0A72C"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\match_success_page.dart",
+        "Hash":  "E7A1D65C6528B51965B26BA07189F6887D2BE5D22D7059501D18A8BB5DE51AB5"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\my_listings_page.dart",
+        "Hash":  "793F386EE834D9CCB566FC1FF3809B518228E5801CF3CA85EB3E1C11D35FF202"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\order_tracking_page.dart",
+        "Hash":  "A46EA93904CA5D299D7AE26BE788B5E921B65AEB510DEF071AB1A9594C54AD00"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\pickup_location_page.dart",
+        "Hash":  "4CD023DA1CD2FB2475E320A74ABC26AA92A18CADC32275DD2379F346068A4C15"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\pickup_schedule_page.dart",
+        "Hash":  "D785EC7CE8ABA0C1EE57F5D535F88A5C3F660A736AA13CA9EC7EF6FE685EC872"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\publish_success_page.dart",
+        "Hash":  "DDFC71FC49F210F87145F7C60AFF7CB43B1245175611FF5BDCD5DE034686ED50"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\donor\\pages\\recipient_review_page.dart",
+        "Hash":  "4F1A830FD477AF21183A908189130D3870F13D63F14822B54211998A3913BE16"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\awaiting_courier_page.dart",
+        "Hash":  "1D04545BFB2382CB901C5A4B19E45EA90D82D4236954A05C7F609F7EC516696E"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\cancel_request_page.dart",
+        "Hash":  "FB7CE9EF47D9D8E22BC10657068820127BBB975972F49BB7C57F9250295A99AB"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\confirm_receipt_page.dart",
+        "Hash":  "302E2129407873FF5AFDA1DC97ACE62A439358D5272131E617BF291930A74E01"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\create_need_page.dart",
+        "Hash":  "76EA4B82A24C1BD58426B2296B53ED16432C7C47308A4D641110FE2BE0D96322"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\dashboard_page.dart",
+        "Hash":  "AD754547A0A5CE9D848122100B4C57408E1E8F4EC7DCA851E5A332E257839AD2"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\distribution_page.dart",
+        "Hash":  "2E93EFAC6B730FF78EF132FCE344A53A39054DE367C0B1EE07D5339382FC149A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\food_detail_page.dart",
+        "Hash":  "393C2FDAD4BD60C2BB8157EB538D3118AE6C32F56126644771A400EEAB6B16C3"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\food_discovery_page.dart",
+        "Hash":  "2AFB8DE191752FF5C15FABC1C8FF54033E1BB44987C0C9856EAD7B59E225BA47"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\impact_report_page.dart",
+        "Hash":  "063C461AE71F8C7473A472A4B0EB85E1C1389BFD1BC6867F2FBCFD4B5ECA250A"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\needs_page.dart",
+        "Hash":  "4F77D58F4127DE3ABA194B0C70590E5AA1C34859190E21D5176C057AF71A381B"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\orders_page.dart",
+        "Hash":  "B4780329109F988B51270DC760392125A4A1898E62B8973B6F92001DD987C425"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\order_tracking_page.dart",
+        "Hash":  "B89C373ECB4E3141CC5CC3BE6626A7DD5CEDB3F621F046C8EC50A1F5B47C96B3"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\organization_profile_page.dart",
+        "Hash":  "9997A0B5241D108C35D703216C90A12325F32DCF043545507C09F2AC979E2B53"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\receipt_code_page.dart",
+        "Hash":  "1BE363061D95E81160AA07465D8B1E810005C0867ED4099D5253666282FA846B"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\record_distribution_page.dart",
+        "Hash":  "19345B07974C33F1633936D1D148E379CC9671EF512E785126ED7AF2FDB7389F"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\request_food_page.dart",
+        "Hash":  "DD02D17E4D9F7B950C6300559FDB47CE84BBFEC32747C310AB5CAB4928D2A7D6"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\request_pending_page.dart",
+        "Hash":  "225589C8E12E0CFFB641BFBB08680B4A0853B95CF32FE07B0B50E3A5225ECC0C"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\thank_you_page.dart",
+        "Hash":  "5FE777C5BF5647BE6D9D2695377522B53D09F75189D54CF78A35CABDC4C9DCB3"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\thank_you_sent_page.dart",
+        "Hash":  "3A2CEADA1DF6C04443E7E1AEA30B6764F6F205D559CCBFABEACA026F0261AB15"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\organization\\pages\\warehouse_page.dart",
+        "Hash":  "F689D17B3AA62C7568F57E68C0B7D9ACAB40AD2E1F04A55304A550BA9151CC62"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\accept_job_page.dart",
+        "Hash":  "47C4AC702466F999C99B8F84C28DB693A4582A10AA85C6188E23331ECD292CFD"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\available_jobs_page.dart",
+        "Hash":  "3C6AA62DC2EE3C809AD2EEECB10518D46D8832FCCE22DDF8B9ED0A029B54EF96"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\awaiting_receipt_page.dart",
+        "Hash":  "92945C20A07E856142A7A5DD1C7EF8AED0DC125BBA9CAC3C5C923E219EEAEDBE"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\badges_page.dart",
+        "Hash":  "7C5387AC62F6CAFC9F5B683E77A354947044D5FB8039B26AD2814B1DB27B7634"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\calendar_page.dart",
+        "Hash":  "3DBFA6E491B236A61EF7541372C1DB7E322CE4E83D161583E7109EC2712CE210"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\dashboard_page.dart",
+        "Hash":  "938790DA4D06A62D4BDCD6F4DF710EB18C5F9A64E075C03E27EAA95473383566"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\delivery_complete_page.dart",
+        "Hash":  "13E189025123CA7842701D1D79A045405C4BD6A120B8D9BBF259C3FB3A1795F0"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\delivery_tracking_page.dart",
+        "Hash":  "48C233F60B8A325B259191AF6377E34A4D715F89653425B8D0F80717409B0B9E"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\handover_scanner_page.dart",
+        "Hash":  "5B3A97B53D4BE67BB866383C8818857B225864CF126389789EB64E1BC4834AF3"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\job_detail_page.dart",
+        "Hash":  "9E17915BF2A151290E1630AA31C8E641310C68D813E5B4797962F2BA34F5A4D2"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\pickup_page.dart",
+        "Hash":  "9E41C00978E62C3C48AB739BE02FDD5668466371125C4B84218E881C037C2A58"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\pickup_photo_page.dart",
+        "Hash":  "7E2A23C9909338DA00A91E9FD2B6A3540BAA82F7E66A76F4BF361AB17139226B"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\shift_registered_page.dart",
+        "Hash":  "2D814E660FC1D0D1FDA4286E92DA7381C38239B6C90FC2705036B14384D9AFD4"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\shift_registration_page.dart",
+        "Hash":  "23C22FEED25E469BF6CD1F55D349FFBC776314EEF170D3D845F2A160DDD34B60"
+    },
+    {
+        "Path":  "C:\\Users\\ADMIN\\AndroidStudioProjects\\ShareMeal\\frontend\\lib\\presentation\\user\\volunteer\\pages\\volunteer_profile_page.dart",
+        "Hash":  "68726C49C795E50926F13D2BF817667629B66163A1735B4EEC5B91C84DE32768"
+    }
+]

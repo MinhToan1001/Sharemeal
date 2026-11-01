@@ -1,0 +1,5095 @@
+{
+  "id": "6:1525",
+  "name": "C03 · Theo dõi đơn nhận",
+  "tag": "div",
+  "fixedHeight": true,
+  "x": 0,
+  "y": 0,
+  "width": 402,
+  "height": 874,
+  "style": {
+    "display": "block",
+    "position": "relative",
+    "direction": "row",
+    "align": "normal",
+    "justify": "normal",
+    "gap": 0,
+    "rowGap": 0,
+    "columnGap": 0,
+    "overflowX": "visible",
+    "overflowY": "visible",
+    "background": "rgb(245, 248, 245)",
+    "backgroundImage": "none",
+    "radius": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "borderWidths": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "borderColors": [
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)"
+    ],
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "opacity": 1,
+    "shadow": "none",
+    "color": "rgb(0, 0, 0)",
+    "fontSize": 16,
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "lineHeight": "24px",
+    "textAlign": "start",
+    "whiteSpace": "normal",
+    "letterSpacing": 0,
+    "transform": "none",
+    "decoration": "none",
+    "objectFit": "fill"
+  },
+  "children": [
+    {
+      "id": "110:1157",
+      "name": "",
+      "tag": "p",
+      "fixedHeight": true,
+      "x": 22,
+      "y": 13,
+      "width": 25,
+      "height": 17,
+      "style": {
+        "display": "block",
+        "position": "absolute",
+        "direction": "row",
+        "align": "normal",
+        "justify": "normal",
+        "gap": 0,
+        "rowGap": 0,
+        "columnGap": 0,
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "radius": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderWidths": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderColors": [
+          "rgb(23, 58, 48)",
+          "rgb(23, 58, 48)",
+          "rgb(23, 58, 48)",
+          "rgb(23, 58, 48)"
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opacity": 1,
+        "shadow": "none",
+        "color": "rgb(23, 58, 48)",
+        "fontSize": 12,
+        "fontFamily": "Inter",
+        "fontWeight": 600,
+        "lineHeight": "16.8px",
+        "textAlign": "start",
+        "whiteSpace": "nowrap",
+        "letterSpacing": 0,
+        "transform": "none",
+        "decoration": "none",
+        "objectFit": "fill"
+      },
+      "text": "9:41",
+      "children": []
+    },
+    {
+      "id": "110:1158",
+      "name": "",
+      "tag": "p",
+      "fixedHeight": true,
+      "x": 302,
+      "y": 15,
+      "width": 52,
+      "height": 14,
+      "style": {
+        "display": "block",
+        "position": "absolute",
+        "direction": "row",
+        "align": "normal",
+        "justify": "normal",
+        "gap": 0,
+        "rowGap": 0,
+        "columnGap": 0,
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "radius": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderWidths": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderColors": [
+          "rgb(104, 124, 116)",
+          "rgb(104, 124, 116)",
+          "rgb(104, 124, 116)",
+          "rgb(104, 124, 116)"
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opacity": 1,
+        "shadow": "none",
+        "color": "rgb(104, 124, 116)",
+        "fontSize": 10,
+        "fontFamily": "Inter",
+        "fontWeight": 600,
+        "lineHeight": "14px",
+        "textAlign": "start",
+        "whiteSpace": "nowrap",
+        "letterSpacing": 0,
+        "transform": "none",
+        "decoration": "none",
+        "objectFit": "fill"
+      },
+      "text": "LTE   100%",
+      "children": []
+    },
+    {
+      "id": "110:1159",
+      "name": "Frame",
+      "tag": "div",
+      "fixedHeight": false,
+      "x": 22,
+      "y": 48,
+      "width": 358,
+      "height": 50,
+      "style": {
+        "display": "flex",
+        "position": "absolute",
+        "direction": "row",
+        "align": "center",
+        "justify": "normal",
+        "gap": 10,
+        "rowGap": 10,
+        "columnGap": 10,
+        "overflowX": "clip",
+        "overflowY": "clip",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "radius": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderWidths": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderColors": [
+          "rgb(0, 0, 0)",
+          "rgb(0, 0, 0)",
+          "rgb(0, 0, 0)",
+          "rgb(0, 0, 0)"
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opacity": 1,
+        "shadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 16,
+        "fontFamily": "Inter",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "textAlign": "start",
+        "whiteSpace": "normal",
+        "letterSpacing": 0,
+        "transform": "none",
+        "decoration": "none",
+        "objectFit": "fill"
+      },
+      "children": [
+        {
+          "id": "6:140",
+          "name": "",
+          "tag": "div",
+          "fixedHeight": true,
+          "x": 0,
+          "y": 13,
+          "width": 24,
+          "height": 24,
+          "style": {
+            "display": "block",
+            "position": "relative",
+            "direction": "row",
+            "align": "normal",
+            "justify": "normal",
+            "gap": 0,
+            "rowGap": 0,
+            "columnGap": 0,
+            "overflowX": "visible",
+            "overflowY": "visible",
+            "background": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "radius": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderWidths": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderColors": [
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)"
+            ],
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "24px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": null,
+              "name": "",
+              "tag": "img",
+              "fixedHeight": true,
+              "x": 0,
+              "y": 0,
+              "width": 24,
+              "height": 24,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "clip",
+                "overflowY": "clip",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/8a9786f9-b21e-4906-b9db-263ae08b605e.svg"
+            }
+          ]
+        },
+        {
+          "id": "110:1162",
+          "name": "Frame",
+          "tag": "div",
+          "fixedHeight": false,
+          "x": 34,
+          "y": 0,
+          "width": 314,
+          "height": 50,
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "direction": "column",
+            "align": "flex-start",
+            "justify": "normal",
+            "gap": 3,
+            "rowGap": 3,
+            "columnGap": 3,
+            "overflowX": "clip",
+            "overflowY": "clip",
+            "background": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "radius": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderWidths": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderColors": [
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)"
+            ],
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "22.4px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": "110:1163",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 0,
+              "y": 0,
+              "width": 314,
+              "height": 32,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(23, 58, 48)",
+                "fontSize": 23,
+                "fontFamily": "Inter",
+                "fontWeight": 700,
+                "lineHeight": "32.2px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Theo dõi đơn nhận",
+              "children": []
+            },
+            {
+              "id": "110:1164",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 0,
+              "y": 35,
+              "width": 314,
+              "height": 15,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(104, 124, 116)",
+                "fontSize": 11,
+                "fontFamily": "Inter",
+                "fontWeight": 500,
+                "lineHeight": "15.4px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "DN-367 · Bếp Nhà Lan → Hoa Sen",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "110:1165",
+      "name": "Content",
+      "tag": "div",
+      "fixedHeight": true,
+      "x": 22,
+      "y": 128,
+      "width": 358,
+      "height": 722,
+      "style": {
+        "display": "flex",
+        "position": "absolute",
+        "direction": "column",
+        "align": "flex-start",
+        "justify": "normal",
+        "gap": 14,
+        "rowGap": 14,
+        "columnGap": 14,
+        "overflowX": "clip",
+        "overflowY": "auto",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "radius": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderWidths": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderColors": [
+          "rgb(0, 0, 0)",
+          "rgb(0, 0, 0)",
+          "rgb(0, 0, 0)",
+          "rgb(0, 0, 0)"
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opacity": 1,
+        "shadow": "none",
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 16,
+        "fontFamily": "Inter",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "textAlign": "start",
+        "whiteSpace": "normal",
+        "letterSpacing": 0,
+        "transform": "none",
+        "decoration": "none",
+        "objectFit": "fill"
+      },
+      "children": [
+        {
+          "id": "110:1166",
+          "name": "Frame",
+          "tag": "div",
+          "fixedHeight": true,
+          "x": 0,
+          "y": 0,
+          "width": 358,
+          "height": 210,
+          "style": {
+            "display": "block",
+            "position": "relative",
+            "direction": "row",
+            "align": "normal",
+            "justify": "normal",
+            "gap": 0,
+            "rowGap": 0,
+            "columnGap": 0,
+            "overflowX": "clip",
+            "overflowY": "clip",
+            "background": "rgb(227, 242, 233)",
+            "backgroundImage": "none",
+            "radius": [
+              24,
+              24,
+              24,
+              24
+            ],
+            "borderWidths": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderColors": [
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)"
+            ],
+            "padding": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "24px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": "110:1167",
+              "name": "",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 150,
+              "y": -30,
+              "width": 154.78125,
+              "height": 309.046875,
+              "style": {
+                "display": "flex",
+                "position": "absolute",
+                "direction": "row",
+                "align": "center",
+                "justify": "center",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": 39.890625,
+                  "y": 4.515625,
+                  "width": 75,
+                  "height": 300,
+                  "style": {
+                    "display": "block",
+                    "position": "static",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "matrix(0.961262, 0.275637, -0.275637, 0.961262, 0, 0)",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "Rectangle",
+                      "tag": "div",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 75,
+                      "height": 300,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgb(233, 243, 248)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "text": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "110:1168",
+              "name": "",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": -21.65625,
+              "y": 35,
+              "width": 435.40625,
+              "height": 72.828125,
+              "style": {
+                "display": "flex",
+                "position": "absolute",
+                "direction": "row",
+                "align": "center",
+                "justify": "center",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": -1.296875,
+                  "y": 30.40625,
+                  "width": 438,
+                  "height": 12,
+                  "style": {
+                    "display": "block",
+                    "position": "static",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "matrix(0.990268, 0.139173, -0.139173, 0.990268, 0, 0)",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "Rectangle",
+                      "tag": "div",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 438,
+                      "height": 12,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgb(255, 255, 255)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "text": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "110:1169",
+              "name": "",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": -20,
+              "y": -2.0625,
+              "width": 430.921875,
+              "height": 102.796875,
+              "style": {
+                "display": "flex",
+                "position": "absolute",
+                "direction": "row",
+                "align": "center",
+                "justify": "center",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": -3.53125,
+                  "y": 45.390625,
+                  "width": 438,
+                  "height": 12,
+                  "style": {
+                    "display": "block",
+                    "position": "static",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "matrix(0.978148, -0.207912, 0.207912, 0.978148, 0, 0)",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "Rectangle",
+                      "tag": "div",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 438,
+                      "height": 12,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgb(255, 255, 255)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "text": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "110:1170",
+              "name": "",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": -21.65625,
+              "y": 143,
+              "width": 435.40625,
+              "height": 72.828125,
+              "style": {
+                "display": "flex",
+                "position": "absolute",
+                "direction": "row",
+                "align": "center",
+                "justify": "center",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": -1.296875,
+                  "y": 30.40625,
+                  "width": 438,
+                  "height": 12,
+                  "style": {
+                    "display": "block",
+                    "position": "static",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "matrix(0.990268, 0.139173, -0.139173, 0.990268, 0, 0)",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "Rectangle",
+                      "tag": "div",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 438,
+                      "height": 12,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgb(255, 255, 255)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "text": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "110:1171",
+              "name": "",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": -20,
+              "y": 105.921875,
+              "width": 430.921875,
+              "height": 102.796875,
+              "style": {
+                "display": "flex",
+                "position": "absolute",
+                "direction": "row",
+                "align": "center",
+                "justify": "center",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": -3.53125,
+                  "y": 45.390625,
+                  "width": 438,
+                  "height": 12,
+                  "style": {
+                    "display": "block",
+                    "position": "static",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "matrix(0.978148, -0.207912, 0.207912, 0.978148, 0, 0)",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "Rectangle",
+                      "tag": "div",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 438,
+                      "height": 12,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgb(255, 255, 255)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "text": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "110:1172",
+              "name": "",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": -21.65625,
+              "y": 251,
+              "width": 435.40625,
+              "height": 72.828125,
+              "style": {
+                "display": "flex",
+                "position": "absolute",
+                "direction": "row",
+                "align": "center",
+                "justify": "center",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": -1.296875,
+                  "y": 30.40625,
+                  "width": 438,
+                  "height": 12,
+                  "style": {
+                    "display": "block",
+                    "position": "static",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "matrix(0.990268, 0.139173, -0.139173, 0.990268, 0, 0)",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "Rectangle",
+                      "tag": "div",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 438,
+                      "height": 12,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgb(255, 255, 255)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "text": "",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "110:1173",
+              "name": "Rectangle",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 40,
+              "y": -20,
+              "width": 10,
+              "height": 270,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "",
+              "children": []
+            },
+            {
+              "id": "110:1174",
+              "name": "Rectangle",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 124,
+              "y": -20,
+              "width": 10,
+              "height": 270,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "",
+              "children": []
+            },
+            {
+              "id": "110:1175",
+              "name": "Rectangle",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 208,
+              "y": -20,
+              "width": 10,
+              "height": 270,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "",
+              "children": []
+            },
+            {
+              "id": "110:1176",
+              "name": "Rectangle",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 292,
+              "y": -20,
+              "width": 10,
+              "height": 270,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "",
+              "children": []
+            },
+            {
+              "id": "110:1177",
+              "name": "Ellipse",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 55,
+              "y": 70,
+              "width": 42,
+              "height": 42,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "img",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 42,
+                  "height": 42,
+                  "style": {
+                    "display": "block",
+                    "position": "absolute",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "clip",
+                    "overflowY": "clip",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/643e7cc7-216a-4308-9b1a-f87e61054a9a.svg"
+                }
+              ]
+            },
+            {
+              "id": "110:1178",
+              "name": "Icon",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 65,
+              "y": 80,
+              "width": 22,
+              "height": 22,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "clip",
+                "overflowY": "clip",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": "I110:1178;6:110",
+                  "name": "Group",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": 2.75,
+                  "y": 2.09375,
+                  "width": 16.5,
+                  "height": 18.078125,
+                  "style": {
+                    "display": "block",
+                    "position": "absolute",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "",
+                      "tag": "div",
+                      "fixedHeight": false,
+                      "x": -0.984375,
+                      "y": -0.984375,
+                      "width": 18.46875,
+                      "height": 19.796875,
+                      "style": {
+                        "display": "block",
+                        "position": "absolute",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgba(0, 0, 0, 0)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "children": [
+                        {
+                          "id": null,
+                          "name": "",
+                          "tag": "img",
+                          "fixedHeight": true,
+                          "x": 0,
+                          "y": 0,
+                          "width": 18.46875,
+                          "height": 19.796875,
+                          "style": {
+                            "display": "block",
+                            "position": "static",
+                            "direction": "row",
+                            "align": "normal",
+                            "justify": "normal",
+                            "gap": 0,
+                            "rowGap": 0,
+                            "columnGap": 0,
+                            "overflowX": "clip",
+                            "overflowY": "clip",
+                            "background": "rgba(0, 0, 0, 0)",
+                            "backgroundImage": "none",
+                            "radius": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "borderWidths": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "borderColors": [
+                              "rgb(0, 0, 0)",
+                              "rgb(0, 0, 0)",
+                              "rgb(0, 0, 0)",
+                              "rgb(0, 0, 0)"
+                            ],
+                            "padding": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "opacity": 1,
+                            "shadow": "none",
+                            "color": "rgb(0, 0, 0)",
+                            "fontSize": 16,
+                            "fontFamily": "Inter",
+                            "fontWeight": 400,
+                            "lineHeight": "24px",
+                            "textAlign": "start",
+                            "whiteSpace": "normal",
+                            "letterSpacing": 0,
+                            "transform": "none",
+                            "decoration": "none",
+                            "objectFit": "fill"
+                          },
+                          "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/d0aa278f-5b11-406a-8ef1-dc89659f53c4.svg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "110:1183",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 71,
+              "y": 49,
+              "width": 9,
+              "height": 15,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 102, 66)",
+                "fontSize": 11,
+                "fontFamily": "Inter",
+                "fontWeight": 700,
+                "lineHeight": "15.4px",
+                "textAlign": "start",
+                "whiteSpace": "nowrap",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "A",
+              "children": []
+            },
+            {
+              "id": "110:1184",
+              "name": "Ellipse",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 245,
+              "y": 154,
+              "width": 42,
+              "height": 42,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "img",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 42,
+                  "height": 42,
+                  "style": {
+                    "display": "block",
+                    "position": "absolute",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "clip",
+                    "overflowY": "clip",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/643e7cc7-216a-4308-9b1a-f87e61054a9a.svg"
+                }
+              ]
+            },
+            {
+              "id": "110:1185",
+              "name": "Icon",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 255,
+              "y": 164,
+              "width": 22,
+              "height": 22,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "img",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 22,
+                  "height": 22,
+                  "style": {
+                    "display": "block",
+                    "position": "absolute",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "clip",
+                    "overflowY": "clip",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/54d20052-d902-4e1f-8641-5b385ca4ced5.svg"
+                }
+              ]
+            },
+            {
+              "id": "110:1187",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 261,
+              "y": 133,
+              "width": 8,
+              "height": 15,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 102, 66)",
+                "fontSize": 11,
+                "fontFamily": "Inter",
+                "fontWeight": 700,
+                "lineHeight": "15.4px",
+                "textAlign": "start",
+                "whiteSpace": "nowrap",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "B",
+              "children": []
+            },
+            {
+              "id": "110:1188",
+              "name": "Ellipse",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 160,
+              "y": 120,
+              "width": 42,
+              "height": 42,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "img",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 42,
+                  "height": 42,
+                  "style": {
+                    "display": "block",
+                    "position": "absolute",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "clip",
+                    "overflowY": "clip",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/7fa18c42-936c-484b-ab02-7a6510831f93.svg"
+                }
+              ]
+            },
+            {
+              "id": "110:1189",
+              "name": "Icon",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 170,
+              "y": 130,
+              "width": 22,
+              "height": 22,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": null,
+                  "name": "",
+                  "tag": "img",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 22,
+                  "height": 22,
+                  "style": {
+                    "display": "block",
+                    "position": "absolute",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "clip",
+                    "overflowY": "clip",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/0f9c8c0d-e5bd-460e-a37e-f2ac478c271f.svg"
+                }
+              ]
+            },
+            {
+              "id": "110:1191",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 22,
+              "y": 18,
+              "width": 36,
+              "height": 15,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(104, 124, 116)",
+                "fontSize": 11,
+                "fontFamily": "Inter",
+                "fontWeight": 500,
+                "lineHeight": "15.4px",
+                "textAlign": "start",
+                "whiteSpace": "nowrap",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Quận 1",
+              "children": []
+            },
+            {
+              "id": "110:1192",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 24,
+              "y": 180,
+              "width": 38,
+              "height": 15,
+              "style": {
+                "display": "block",
+                "position": "absolute",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(104, 124, 116)",
+                "fontSize": 11,
+                "fontFamily": "Inter",
+                "fontWeight": 500,
+                "lineHeight": "15.4px",
+                "textAlign": "start",
+                "whiteSpace": "nowrap",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Quận 5",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "110:1193",
+          "name": "Frame",
+          "tag": "div",
+          "fixedHeight": false,
+          "x": 0,
+          "y": 224,
+          "width": 358,
+          "height": 187,
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "direction": "column",
+            "align": "flex-start",
+            "justify": "normal",
+            "gap": 12,
+            "rowGap": 12,
+            "columnGap": 12,
+            "overflowX": "clip",
+            "overflowY": "clip",
+            "background": "rgb(255, 255, 255)",
+            "backgroundImage": "none",
+            "radius": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "borderWidths": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderColors": [
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)"
+            ],
+            "padding": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "24px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": "110:1194",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 16,
+              "y": 16,
+              "width": 326,
+              "height": 22,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(23, 58, 48)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 600,
+                "lineHeight": "22.4px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Tiến trình đơn nhận",
+              "children": []
+            },
+            {
+              "id": "110:1195",
+              "name": "Frame",
+              "tag": "div",
+              "fixedHeight": false,
+              "x": 16,
+              "y": 50,
+              "width": 326,
+              "height": 45,
+              "style": {
+                "display": "flex",
+                "position": "relative",
+                "direction": "row",
+                "align": "center",
+                "justify": "normal",
+                "gap": 12,
+                "rowGap": 12,
+                "columnGap": 12,
+                "overflowX": "clip",
+                "overflowY": "clip",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "22.4px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": "110:1196",
+                  "name": "",
+                  "tag": "p",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 95,
+                  "height": 45,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 102, 66)",
+                      "rgb(0, 102, 66)",
+                      "rgb(0, 102, 66)",
+                      "rgb(0, 102, 66)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 102, 66)",
+                    "fontSize": 32,
+                    "fontFamily": "Inter",
+                    "fontWeight": 700,
+                    "lineHeight": "44.8px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "35%",
+                  "children": []
+                },
+                {
+                  "id": "110:1197",
+                  "name": "",
+                  "tag": "p",
+                  "fixedHeight": true,
+                  "x": 107,
+                  "y": 10.5,
+                  "width": 219,
+                  "height": 24,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(23, 58, 48)",
+                      "rgb(23, 58, 48)",
+                      "rgb(23, 58, 48)",
+                      "rgb(23, 58, 48)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(23, 58, 48)",
+                    "fontSize": 17,
+                    "fontFamily": "Inter",
+                    "fontWeight": 600,
+                    "lineHeight": "23.8px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "Đang tìm tình nguyện viên",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "110:1198",
+              "name": "Frame",
+              "tag": "div",
+              "fixedHeight": true,
+              "x": 16,
+              "y": 107,
+              "width": 326,
+              "height": 10,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "clip",
+                "overflowY": "clip",
+                "background": "rgb(227, 242, 233)",
+                "backgroundImage": "none",
+                "radius": [
+                  12,
+                  12,
+                  12,
+                  12
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": "110:1199",
+                  "name": "Rectangle",
+                  "tag": "div",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 114,
+                  "height": 10,
+                  "style": {
+                    "display": "block",
+                    "position": "absolute",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgb(0, 102, 66)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      5,
+                      5,
+                      5,
+                      5
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "110:1200",
+              "name": "Frame",
+              "tag": "div",
+              "fixedHeight": false,
+              "x": 16,
+              "y": 129,
+              "width": 326,
+              "height": 13,
+              "style": {
+                "display": "flex",
+                "position": "relative",
+                "direction": "row",
+                "align": "center",
+                "justify": "normal",
+                "gap": 6,
+                "rowGap": 6,
+                "columnGap": 6,
+                "overflowX": "clip",
+                "overflowY": "clip",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(104, 124, 116)",
+                "fontSize": 9,
+                "fontFamily": "Inter",
+                "fontWeight": 500,
+                "lineHeight": "12.6px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": "110:1201",
+                  "name": "",
+                  "tag": "p",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 60,
+                  "height": 13,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(104, 124, 116)",
+                    "fontSize": 9,
+                    "fontFamily": "Inter",
+                    "fontWeight": 500,
+                    "lineHeight": "12.6px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "Yêu cầu",
+                  "children": []
+                },
+                {
+                  "id": "110:1202",
+                  "name": "",
+                  "tag": "p",
+                  "fixedHeight": true,
+                  "x": 66,
+                  "y": 0,
+                  "width": 60,
+                  "height": 13,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(104, 124, 116)",
+                    "fontSize": 9,
+                    "fontFamily": "Inter",
+                    "fontWeight": 500,
+                    "lineHeight": "12.6px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "Ghép cặp",
+                  "children": []
+                },
+                {
+                  "id": "110:1203",
+                  "name": "",
+                  "tag": "p",
+                  "fixedHeight": true,
+                  "x": 132,
+                  "y": 0,
+                  "width": 60,
+                  "height": 13,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(104, 124, 116)",
+                    "fontSize": 9,
+                    "fontFamily": "Inter",
+                    "fontWeight": 500,
+                    "lineHeight": "12.6px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "Nhận việc",
+                  "children": []
+                },
+                {
+                  "id": "110:1204",
+                  "name": "",
+                  "tag": "p",
+                  "fixedHeight": true,
+                  "x": 198,
+                  "y": 0,
+                  "width": 60,
+                  "height": 13,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(104, 124, 116)",
+                    "fontSize": 9,
+                    "fontFamily": "Inter",
+                    "fontWeight": 500,
+                    "lineHeight": "12.6px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "Đang giao",
+                  "children": []
+                },
+                {
+                  "id": "110:1205",
+                  "name": "",
+                  "tag": "p",
+                  "fixedHeight": true,
+                  "x": 264,
+                  "y": 0,
+                  "width": 60,
+                  "height": 13,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)",
+                      "rgb(104, 124, 116)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(104, 124, 116)",
+                    "fontSize": 9,
+                    "fontFamily": "Inter",
+                    "fontWeight": 500,
+                    "lineHeight": "12.6px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "text": "Bàn giao",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": "110:1206",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 16,
+              "y": 154,
+              "width": 326,
+              "height": 17,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)",
+                  "rgb(104, 124, 116)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(104, 124, 116)",
+                "fontSize": 12,
+                "fontFamily": "Inter",
+                "fontWeight": 500,
+                "lineHeight": "16.8px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Đang điều phối tình nguyện viên",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "110:1207",
+          "name": "Frame",
+          "tag": "div",
+          "fixedHeight": false,
+          "x": 0,
+          "y": 425,
+          "width": 358,
+          "height": 154,
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "direction": "column",
+            "align": "flex-start",
+            "justify": "normal",
+            "gap": 12,
+            "rowGap": 12,
+            "columnGap": 12,
+            "overflowX": "clip",
+            "overflowY": "clip",
+            "background": "rgb(255, 255, 255)",
+            "backgroundImage": "none",
+            "radius": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "borderWidths": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "borderColors": [
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)",
+              "rgb(0, 0, 0)"
+            ],
+            "padding": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "24px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": "110:1208",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 16,
+              "y": 16,
+              "width": 326,
+              "height": 22,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)",
+                  "rgb(23, 58, 48)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(23, 58, 48)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 600,
+                "lineHeight": "22.4px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Bữa ăn đang được trao",
+              "children": []
+            },
+            {
+              "id": "110:1209",
+              "name": "Frame",
+              "tag": "div",
+              "fixedHeight": false,
+              "x": 16,
+              "y": 50,
+              "width": 326,
+              "height": 88,
+              "style": {
+                "display": "flex",
+                "position": "relative",
+                "direction": "row",
+                "align": "center",
+                "justify": "normal",
+                "gap": 12,
+                "rowGap": 12,
+                "columnGap": 12,
+                "overflowX": "clip",
+                "overflowY": "clip",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)",
+                  "rgb(0, 0, 0)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 0, 0)",
+                "fontSize": 16,
+                "fontFamily": "Inter",
+                "fontWeight": 400,
+                "lineHeight": "24px",
+                "textAlign": "start",
+                "whiteSpace": "normal",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "children": [
+                {
+                  "id": "110:1210",
+                  "name": "Rectangle",
+                  "tag": "div",
+                  "fixedHeight": true,
+                  "x": 0,
+                  "y": 0,
+                  "width": 94,
+                  "height": 88,
+                  "style": {
+                    "display": "block",
+                    "position": "relative",
+                    "direction": "row",
+                    "align": "normal",
+                    "justify": "normal",
+                    "gap": 0,
+                    "rowGap": 0,
+                    "columnGap": 0,
+                    "overflowX": "visible",
+                    "overflowY": "visible",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      14,
+                      14,
+                      14,
+                      14
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": null,
+                      "name": "",
+                      "tag": "img",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 94,
+                      "height": 88,
+                      "style": {
+                        "display": "block",
+                        "position": "absolute",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "clip",
+                        "overflowY": "clip",
+                        "background": "rgba(0, 0, 0, 0)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          14,
+                          14,
+                          14,
+                          14
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)",
+                          "rgb(0, 0, 0)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(0, 0, 0)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "24px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "cover"
+                      },
+                      "src": "file:///C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/frontend/assets/figma/33a87728-b63a-46b3-a2ca-18ec36c88d4c.png"
+                    }
+                  ]
+                },
+                {
+                  "id": "110:1211",
+                  "name": "Frame",
+                  "tag": "div",
+                  "fixedHeight": false,
+                  "x": 106,
+                  "y": 13,
+                  "width": 220,
+                  "height": 62,
+                  "style": {
+                    "display": "flex",
+                    "position": "relative",
+                    "direction": "column",
+                    "align": "flex-start",
+                    "justify": "normal",
+                    "gap": 6,
+                    "rowGap": 6,
+                    "columnGap": 6,
+                    "overflowX": "clip",
+                    "overflowY": "clip",
+                    "background": "rgba(0, 0, 0, 0)",
+                    "backgroundImage": "none",
+                    "radius": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderWidths": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "borderColors": [
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)",
+                      "rgb(0, 0, 0)"
+                    ],
+                    "padding": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "opacity": 1,
+                    "shadow": "none",
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Inter",
+                    "fontWeight": 400,
+                    "lineHeight": "24px",
+                    "textAlign": "start",
+                    "whiteSpace": "normal",
+                    "letterSpacing": 0,
+                    "transform": "none",
+                    "decoration": "none",
+                    "objectFit": "fill"
+                  },
+                  "children": [
+                    {
+                      "id": "110:1212",
+                      "name": "",
+                      "tag": "p",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 0,
+                      "width": 220,
+                      "height": 22,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgba(0, 0, 0, 0)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(23, 58, 48)",
+                          "rgb(23, 58, 48)",
+                          "rgb(23, 58, 48)",
+                          "rgb(23, 58, 48)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(23, 58, 48)",
+                        "fontSize": 16,
+                        "fontFamily": "Inter",
+                        "fontWeight": 600,
+                        "lineHeight": "22.4px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "text": "15 suất cơm gà",
+                      "children": []
+                    },
+                    {
+                      "id": "110:1213",
+                      "name": "",
+                      "tag": "div",
+                      "fixedHeight": true,
+                      "x": 0,
+                      "y": 28,
+                      "width": 220,
+                      "height": 34,
+                      "style": {
+                        "display": "block",
+                        "position": "relative",
+                        "direction": "row",
+                        "align": "normal",
+                        "justify": "normal",
+                        "gap": 0,
+                        "rowGap": 0,
+                        "columnGap": 0,
+                        "overflowX": "visible",
+                        "overflowY": "visible",
+                        "background": "rgba(0, 0, 0, 0)",
+                        "backgroundImage": "none",
+                        "radius": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderWidths": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "borderColors": [
+                          "rgb(104, 124, 116)",
+                          "rgb(104, 124, 116)",
+                          "rgb(104, 124, 116)",
+                          "rgb(104, 124, 116)"
+                        ],
+                        "padding": [
+                          0,
+                          0,
+                          0,
+                          0
+                        ],
+                        "opacity": 1,
+                        "shadow": "none",
+                        "color": "rgb(104, 124, 116)",
+                        "fontSize": 12,
+                        "fontFamily": "Inter",
+                        "fontWeight": 400,
+                        "lineHeight": "0px",
+                        "textAlign": "start",
+                        "whiteSpace": "normal",
+                        "letterSpacing": 0,
+                        "transform": "none",
+                        "decoration": "none",
+                        "objectFit": "fill"
+                      },
+                      "children": [
+                        {
+                          "id": null,
+                          "name": "",
+                          "tag": "p",
+                          "fixedHeight": false,
+                          "x": 0,
+                          "y": 0,
+                          "width": 220,
+                          "height": 16.796875,
+                          "style": {
+                            "display": "block",
+                            "position": "static",
+                            "direction": "row",
+                            "align": "normal",
+                            "justify": "normal",
+                            "gap": 0,
+                            "rowGap": 0,
+                            "columnGap": 0,
+                            "overflowX": "visible",
+                            "overflowY": "visible",
+                            "background": "rgba(0, 0, 0, 0)",
+                            "backgroundImage": "none",
+                            "radius": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "borderWidths": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "borderColors": [
+                              "rgb(104, 124, 116)",
+                              "rgb(104, 124, 116)",
+                              "rgb(104, 124, 116)",
+                              "rgb(104, 124, 116)"
+                            ],
+                            "padding": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "opacity": 1,
+                            "shadow": "none",
+                            "color": "rgb(104, 124, 116)",
+                            "fontSize": 12,
+                            "fontFamily": "Inter",
+                            "fontWeight": 400,
+                            "lineHeight": "16.8px",
+                            "textAlign": "start",
+                            "whiteSpace": "normal",
+                            "letterSpacing": 0,
+                            "transform": "none",
+                            "decoration": "none",
+                            "objectFit": "fill"
+                          },
+                          "text": "Bếp Nhà Lan",
+                          "children": []
+                        },
+                        {
+                          "id": null,
+                          "name": "",
+                          "tag": "p",
+                          "fixedHeight": false,
+                          "x": 0,
+                          "y": 16.796875,
+                          "width": 220,
+                          "height": 16.796875,
+                          "style": {
+                            "display": "block",
+                            "position": "static",
+                            "direction": "row",
+                            "align": "normal",
+                            "justify": "normal",
+                            "gap": 0,
+                            "rowGap": 0,
+                            "columnGap": 0,
+                            "overflowX": "visible",
+                            "overflowY": "visible",
+                            "background": "rgba(0, 0, 0, 0)",
+                            "backgroundImage": "none",
+                            "radius": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "borderWidths": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "borderColors": [
+                              "rgb(104, 124, 116)",
+                              "rgb(104, 124, 116)",
+                              "rgb(104, 124, 116)",
+                              "rgb(104, 124, 116)"
+                            ],
+                            "padding": [
+                              0,
+                              0,
+                              0,
+                              0
+                            ],
+                            "opacity": 1,
+                            "shadow": "none",
+                            "color": "rgb(104, 124, 116)",
+                            "fontSize": 12,
+                            "fontFamily": "Inter",
+                            "fontWeight": 400,
+                            "lineHeight": "16.8px",
+                            "textAlign": "start",
+                            "whiteSpace": "normal",
+                            "letterSpacing": 0,
+                            "transform": "none",
+                            "decoration": "none",
+                            "objectFit": "fill"
+                          },
+                          "text": "Mái ấm Hoa Sen",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "110:1229",
+          "name": "action/Xem tình trạng tìm người giao",
+          "tag": "a",
+          "fixedHeight": true,
+          "x": 0,
+          "y": 593,
+          "width": 358,
+          "height": 50,
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "direction": "row",
+            "align": "center",
+            "justify": "center",
+            "gap": 0,
+            "rowGap": 0,
+            "columnGap": 0,
+            "overflowX": "clip",
+            "overflowY": "clip",
+            "background": "rgb(255, 255, 255)",
+            "backgroundImage": "none",
+            "radius": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "borderWidths": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "borderColors": [
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)"
+            ],
+            "padding": [
+              19,
+              82,
+              19,
+              82
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "24px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": "I110:1229;6:173",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 79,
+              "y": 16.5,
+              "width": 200,
+              "height": 17,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 102, 66)",
+                "fontSize": 14,
+                "fontFamily": "Inter",
+                "fontWeight": 600,
+                "lineHeight": "16.94px",
+                "textAlign": "left",
+                "whiteSpace": "nowrap",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Xem tình trạng tìm người giao",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "110:1231",
+          "name": "action/Nhắn tin về đơn nhận",
+          "tag": "a",
+          "fixedHeight": true,
+          "x": 0,
+          "y": 657,
+          "width": 358,
+          "height": 50,
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "direction": "row",
+            "align": "center",
+            "justify": "center",
+            "gap": 0,
+            "rowGap": 0,
+            "columnGap": 0,
+            "overflowX": "clip",
+            "overflowY": "clip",
+            "background": "rgb(255, 255, 255)",
+            "backgroundImage": "none",
+            "radius": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "borderWidths": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "borderColors": [
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)"
+            ],
+            "padding": [
+              19,
+              82,
+              19,
+              82
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "24px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": "I110:1231;6:173",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 107.5,
+              "y": 16.5,
+              "width": 143,
+              "height": 17,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 102, 66)",
+                "fontSize": 14,
+                "fontFamily": "Inter",
+                "fontWeight": 600,
+                "lineHeight": "16.94px",
+                "textAlign": "left",
+                "whiteSpace": "nowrap",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Nhắn tin về đơn nhận",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "110:1233",
+          "name": "action/Báo vấn đề / Yêu cầu hỗ trợ",
+          "tag": "a",
+          "fixedHeight": true,
+          "x": 0,
+          "y": 721,
+          "width": 358,
+          "height": 50,
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "direction": "row",
+            "align": "center",
+            "justify": "center",
+            "gap": 0,
+            "rowGap": 0,
+            "columnGap": 0,
+            "overflowX": "clip",
+            "overflowY": "clip",
+            "background": "rgb(255, 255, 255)",
+            "backgroundImage": "none",
+            "radius": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "borderWidths": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "borderColors": [
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)",
+              "rgb(220, 231, 223)"
+            ],
+            "padding": [
+              19,
+              82,
+              19,
+              82
+            ],
+            "opacity": 1,
+            "shadow": "none",
+            "color": "rgb(0, 0, 0)",
+            "fontSize": 16,
+            "fontFamily": "Inter",
+            "fontWeight": 400,
+            "lineHeight": "24px",
+            "textAlign": "start",
+            "whiteSpace": "normal",
+            "letterSpacing": 0,
+            "transform": "none",
+            "decoration": "none",
+            "objectFit": "fill"
+          },
+          "children": [
+            {
+              "id": "I110:1233;6:173",
+              "name": "",
+              "tag": "p",
+              "fixedHeight": true,
+              "x": 87,
+              "y": 16.5,
+              "width": 184,
+              "height": 17,
+              "style": {
+                "display": "block",
+                "position": "relative",
+                "direction": "row",
+                "align": "normal",
+                "justify": "normal",
+                "gap": 0,
+                "rowGap": 0,
+                "columnGap": 0,
+                "overflowX": "visible",
+                "overflowY": "visible",
+                "background": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "radius": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderWidths": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "borderColors": [
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)",
+                  "rgb(0, 102, 66)"
+                ],
+                "padding": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "opacity": 1,
+                "shadow": "none",
+                "color": "rgb(0, 102, 66)",
+                "fontSize": 14,
+                "fontFamily": "Inter",
+                "fontWeight": 600,
+                "lineHeight": "16.94px",
+                "textAlign": "left",
+                "whiteSpace": "nowrap",
+                "letterSpacing": 0,
+                "transform": "none",
+                "decoration": "none",
+                "objectFit": "fill"
+              },
+              "text": "Báo vấn đề / Yêu cầu hỗ trợ",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

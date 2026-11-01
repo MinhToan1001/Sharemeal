@@ -1,0 +1,163 @@
+{
+  "frames": [
+    {
+      "id": "6:2805",
+      "nodes": [
+        {
+          "id": "84:1648",
+          "name": "Prototype / Gửi hồ sơ xét duyệt",
+          "type": "RECTANGLE",
+          "parentId": "6:2805",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 30,
+            "y": 787,
+            "width": 342,
+            "height": 60
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1856",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:2805",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:2835",
+      "nodes": [
+        {
+          "id": "84:1646",
+          "name": "Prototype / Lưu & sang bước cam kết",
+          "type": "RECTANGLE",
+          "parentId": "6:2835",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 30,
+            "y": 787,
+            "width": 342,
+            "height": 60
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1854",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:2835",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1172",
+        "variableValue": {
+          "value": "donor",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1173",
+        "variableValue": {
+          "value": "pending",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "6:4055",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2805",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

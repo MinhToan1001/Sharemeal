@@ -1,0 +1,8 @@
+{
+  "channel": "stable",
+  "version": "3.47.8",
+  "revision": "737ba8f885",
+  "dart": "3.13.7",
+  "relativePath": "tooling/flutter",
+  "repository": "https://github.com/flutter/flutter.git"
+}

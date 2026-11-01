@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="49.7392" height="49.7392" viewBox="0 0 49.7392 49.7392" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Clip path group">
+<mask id="mask0_0_11" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+<g id="clip-path-corners-square-color-0-1-3">
+<path id="Vector" d="M0 49.7392H49.7391V3.43323e-05H0L0 49.7392ZM7.10558 42.6336L7.10558 7.10563H42.6335V42.6336H7.10558Z" fill-rule="evenodd" clip-rule="evenodd" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_0_11)">
+<path id="Vector_2" d="M49.7391 6.10352e-05H-3.26861e-05V49.7392H49.7391V6.10352e-05Z" fill="black"/>
+</g>
+</g>
+</svg>

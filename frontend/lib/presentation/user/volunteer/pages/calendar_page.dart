@@ -1,0 +1,12 @@
+// GENERATED from Figma 6:2232. Edit source/reference or regenerate this screen.
+// https://www.figma.com/design/0S8fvpt4DT4noT5gzCYnDk?node-id=6-2232
+import 'package:flutter/material.dart';
+import 'package:sharemeal/presentation/shared/figma/figma_primitives.dart';
+
+class UserVolunteerCalendarPage extends StatelessWidget {
+ const UserVolunteerCalendarPage({super.key});
+ static const routeName = "/user/volunteer/calendar";
+ @override Widget build(BuildContext context) => FigmaScreen(frameId:"6:2232",child:
+FigmaBox(nodeId:"6:2232",name:"44",width:402,height:874,fixedHeight:true,style:{"display":"block","position":"relative","direction":"row","align":"normal","justify":"normal","gap":0,"rowGap":0,"columnGap":0,"overflowX":"visible","overflowY":"visible","background":"rgb(246, 248, 245)","backgroundImage":"none","radius":[0,0,0,0],"borderWidths":[0,0,0,0],"borderColors":["rgb(0, 0, 0)","rgb(0, 0, 0)","rgb(0, 0, 0)","rgb(0, 0, 0)"],"padding":[0,0,0,0],"opacity":1,"shadow":"none","color":"rgb(0, 0, 0)","fontSize":16,"fontFamily":"Inter","fontWeight":400,"lineHeight":"24px","textAlign":"start","whiteSpace":"normal","letterSpacing":0,"transform":"none","decoration":"none","objectFit":"fill"},children:[FigmaBox(nodeId:"6:2240",control:{"label":"Trang chủ Việc giao Lịch Huy hiệu Tôi","kind":"bottomNav","role":"volunteer","page":"calendar","icons":["50570709-d8ac-4e85-b80d-cd084bae027a.svg","d65cbe0b-6b98-48a8-a654-c7e2912c21c3.svg","a5751f0c-9d05-4c36-bd67-0cdfb1a59083.svg","9c2ac380-764b-4fa2-9eae-8d4eab064a6f.svg","41679519-5382-4d22-b705-c33922b5b39b.svg",null]},name:"Bottom navigation / Tình nguyện viên",width:402,height:67,y:807,fixedHeight:true,style:{"display":"block","position":"absolute","direction":"row","align":"normal","justify":"normal","gap":0,"rowGap":0,"columnGap":0,"overflowX":"clip","overflowY":"clip","background":"rgb(255, 255, 255)","backgroundImage":"none","radius":[0,0,0,0],"borderWidths":[0,0,0,0],"borderColors":["rgb(0, 0, 0)","rgb(0, 0, 0)","rgb(0, 0, 0)","rgb(0, 0, 0)"],"padding":[0,0,0,0],"opacity":1,"shadow":"none","color":"rgb(0, 0, 0)","fontSize":16,"fontFamily":"Inter","fontWeight":400,"lineHeight":"24px","textAlign":"start","whiteSpace":"normal","letterSpacing":0,"transform":"none","decoration":"none","objectFit":"fill"}),
+FigmaBox(nodeId:"frontend:calendar",control:{"kind":"volunteerCalendar"},name:"Interactive volunteer calendar",width:402,height:807,fixedHeight:true,style:{"position":"absolute"})]));
+}

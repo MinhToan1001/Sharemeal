@@ -1,0 +1,126 @@
+{
+  "id": "110:1227",
+  "name": "action/Xem yêu cầu đang chờ xác nhận",
+  "tag": "a",
+  "fixedHeight": true,
+  "x": 0,
+  "y": 0,
+  "width": 358,
+  "height": 50,
+  "style": {
+    "display": "flex",
+    "position": "relative",
+    "direction": "row",
+    "align": "center",
+    "justify": "center",
+    "gap": 0,
+    "rowGap": 0,
+    "columnGap": 0,
+    "overflowX": "clip",
+    "overflowY": "clip",
+    "background": "rgb(255, 255, 255)",
+    "backgroundImage": "none",
+    "radius": [
+      12,
+      12,
+      12,
+      12
+    ],
+    "borderWidths": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "borderColors": [
+      "rgb(220, 231, 223)",
+      "rgb(220, 231, 223)",
+      "rgb(220, 231, 223)",
+      "rgb(220, 231, 223)"
+    ],
+    "padding": [
+      19,
+      82,
+      19,
+      82
+    ],
+    "opacity": 1,
+    "shadow": "none",
+    "color": "rgb(0, 0, 0)",
+    "fontSize": 16,
+    "fontFamily": "Inter",
+    "fontWeight": 400,
+    "lineHeight": "24px",
+    "textAlign": "start",
+    "whiteSpace": "normal",
+    "letterSpacing": 0,
+    "transform": "none",
+    "decoration": "none",
+    "objectFit": "fill"
+  },
+  "children": [
+    {
+      "id": "I110:1227;6:173",
+      "name": "",
+      "tag": "p",
+      "fixedHeight": false,
+      "x": 69.671875,
+      "y": 16.53125,
+      "width": 218.671875,
+      "height": 16.9375,
+      "style": {
+        "display": "block",
+        "position": "relative",
+        "direction": "row",
+        "align": "normal",
+        "justify": "normal",
+        "gap": 0,
+        "rowGap": 0,
+        "columnGap": 0,
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "background": "rgba(0, 0, 0, 0)",
+        "backgroundImage": "none",
+        "radius": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderWidths": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "borderColors": [
+          "rgb(0, 102, 66)",
+          "rgb(0, 102, 66)",
+          "rgb(0, 102, 66)",
+          "rgb(0, 102, 66)"
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opacity": 1,
+        "shadow": "none",
+        "color": "rgb(0, 102, 66)",
+        "fontSize": 14,
+        "fontFamily": "Inter",
+        "fontWeight": 600,
+        "lineHeight": "16.94px",
+        "textAlign": "left",
+        "whiteSpace": "nowrap",
+        "letterSpacing": 0,
+        "transform": "none",
+        "decoration": "none",
+        "objectFit": "fill"
+      },
+      "text": "Xem yêu cầu đang chờ xác nhận",
+      "children": []
+    }
+  ]
+}

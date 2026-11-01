@@ -1,0 +1,811 @@
+{
+  "frames": [
+    {
+      "id": "6:3567",
+      "nodes": [
+        {
+          "id": "6:3593",
+          "name": "Nhờ tình nguyện viên giao",
+          "type": "TEXT",
+          "parentId": "6:3591",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 191,
+            "y": 360,
+            "width": 178,
+            "height": 17
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:89:1171"
+            }
+          }
+        },
+        {
+          "id": "84:1672",
+          "name": "Prototype / Mở mã QR bàn giao",
+          "type": "RECTANGLE",
+          "parentId": "6:3567",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 30,
+            "y": 744,
+            "width": 342,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1674",
+          "name": "Prototype / Thêm vào lịch của tôi",
+          "type": "RECTANGLE",
+          "parentId": "6:3567",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 30,
+            "y": 798,
+            "width": 342,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1874",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:3567",
+          "order": 8,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:3641",
+      "nodes": [
+        {
+          "id": "62:623",
+          "name": "go/notifications",
+          "type": "INSTANCE",
+          "parentId": "62:619",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 340,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "62:666",
+          "name": "go/A03",
+          "type": "FRAME",
+          "parentId": "62:664",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 563,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "62:676",
+          "name": "go/A04",
+          "type": "FRAME",
+          "parentId": "62:664",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 628,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "62:684",
+          "name": "go/A05",
+          "type": "FRAME",
+          "parentId": "62:664",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 693,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "62:691",
+          "name": "go/A07",
+          "type": "FRAME",
+          "parentId": "62:625",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 763,
+            "width": 358,
+            "height": 166
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 7
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "98:1357",
+          "name": "auth/login",
+          "type": "INSTANCE",
+          "parentId": "62:625",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 943,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 8
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:626;60:574",
+          "name": "go/A02",
+          "type": "FRAME",
+          "parentId": "62:626",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 80.4000015258789,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 9
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:626;60:580",
+          "name": "go/A04",
+          "type": "FRAME",
+          "parentId": "62:626",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 160.8000030517578,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:626;60:586",
+          "name": "go/A05",
+          "type": "FRAME",
+          "parentId": "62:626",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 241.20001220703125,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:626;60:590",
+          "name": "go/A06",
+          "type": "FRAME",
+          "parentId": "62:626",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 321.6000061035156,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 10
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:843",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:80:1172"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "donor",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "65:1098",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1172"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "donor",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "NOT"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:661",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:80:1172"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "donor",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "65:1098",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1172"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "STRING"
+                              },
+                              {
+                                "value": "donor",
+                                "type": "STRING",
+                                "resolvedType": "STRING"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "NOT"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1183"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "self",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "65:1000",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1172"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "STRING"
+                              },
+                              {
+                                "value": "donor",
+                                "type": "STRING",
+                                "resolvedType": "STRING"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "NOT"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  },
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "expressionArguments": [
+                              {
+                                "value": {
+                                  "type": "VARIABLE_ALIAS",
+                                  "id": "VariableID:80:1183"
+                                },
+                                "type": "VARIABLE_ALIAS",
+                                "resolvedType": "STRING"
+                              },
+                              {
+                                "value": "self",
+                                "type": "STRING",
+                                "resolvedType": "STRING"
+                              }
+                            ],
+                            "expressionFunction": "EQUALS"
+                          },
+                          "type": "EXPRESSION",
+                          "resolvedType": "BOOLEAN"
+                        }
+                      ],
+                      "expressionFunction": "NOT"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "AND"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "77:1018",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3798",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:994",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1079",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1239",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:246",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3712",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1152",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

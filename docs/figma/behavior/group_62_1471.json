@@ -1,0 +1,535 @@
+{
+  "frames": [
+    {
+      "id": "62:1471",
+      "nodes": [
+        {
+          "id": "62:1478",
+          "name": "go/notifications",
+          "type": "INSTANCE",
+          "parentId": "62:1474",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 340,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "62:1522",
+          "name": "go/A01",
+          "type": "INSTANCE",
+          "parentId": "62:1480",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 674,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "62:1524",
+          "name": "go/A07",
+          "type": "INSTANCE",
+          "parentId": "62:1480",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 738,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:1481;60:570",
+          "name": "go/A01",
+          "type": "FRAME",
+          "parentId": "62:1481",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 0,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:1481;60:574",
+          "name": "go/A02",
+          "type": "FRAME",
+          "parentId": "62:1481",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 80.4000244140625,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:1481;60:580",
+          "name": "go/A04",
+          "type": "FRAME",
+          "parentId": "62:1481",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 160.800048828125,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:1481;60:586",
+          "name": "go/A05",
+          "type": "FRAME",
+          "parentId": "62:1481",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 241.199951171875,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I62:1481;60:590",
+          "name": "go/A06",
+          "type": "FRAME",
+          "parentId": "62:1481",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 321.60009765625,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "77:1018",
+      "nodes": [
+        {
+          "id": "77:1055",
+          "name": "go/A03",
+          "type": "FRAME",
+          "parentId": "77:1053",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 178,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 7
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "77:1065",
+          "name": "go/A04",
+          "type": "FRAME",
+          "parentId": "77:1053",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 243,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "77:1073",
+          "name": "go/A05",
+          "type": "FRAME",
+          "parentId": "77:1053",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 308,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "77:1082",
+          "name": "go/A07",
+          "type": "FRAME",
+          "parentId": "77:1080",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 428,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1028;60:570",
+          "name": "go/A01",
+          "type": "FRAME",
+          "parentId": "77:1028",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 0,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1028;60:574",
+          "name": "go/A02",
+          "type": "FRAME",
+          "parentId": "77:1028",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 80.4000015258789,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1028;60:580",
+          "name": "go/A04",
+          "type": "FRAME",
+          "parentId": "77:1028",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 160.8000030517578,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1028;60:586",
+          "name": "go/A05",
+          "type": "FRAME",
+          "parentId": "77:1028",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 241.20001220703125,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I77:1028;60:590",
+          "name": "go/A06",
+          "type": "FRAME",
+          "parentId": "77:1028",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 321.6000061035156,
+            "y": 811,
+            "width": 80.4000015258789,
+            "height": 54
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "NODE",
+        "destinationId": "77:1018",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3641",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1239",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3712",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:994",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1079",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "62:1152",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3798",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

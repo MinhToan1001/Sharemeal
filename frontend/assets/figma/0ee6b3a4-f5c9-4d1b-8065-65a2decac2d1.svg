@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="67.0691" height="65.0009" viewBox="0 0 67.0691 65.0009" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Logo">
+<mask id="stroke0_0_35" fill="white">
+<path d="M67.0093 31.5009C67.0093 50.0025 52.0109 65.0009 33.5093 65.0009C15.0078 65.0009 0.00934725 50.0025 0.00934725 31.5009C0.009357 25.0008 -1.49066 27.0007 33.5093 27.001C70.0093 27.0014 67.0093 25.5008 67.0093 31.5009Z"/>
+</mask>
+<path id="Ellipse 1" d="M67.0093 31.5009C67.0093 50.0025 52.0109 65.0009 33.5093 65.0009C15.0078 65.0009 0.00934725 50.0025 0.00934725 31.5009C0.009357 25.0008 -1.49066 27.0007 33.5093 27.001C70.0093 27.0014 67.0093 25.5008 67.0093 31.5009Z" stroke-width="10" stroke="#E69D00" mask="url(#stroke0_0_35)"/>
+<path id="Line 1" d="M21.0093 17.5005L21.0093 12.5005L26.0093 7.50048L27.0093 2.50048" stroke-width="5" stroke-linecap="round" stroke="#E69D00"/>
+<path id="Line 2" d="M41.5093 18.0005L41.5093 13.0005L46.5093 8.00048L47.5093 3.00048" stroke-width="5" stroke-linecap="round" stroke="#E69D00"/>
+</g>
+</svg>

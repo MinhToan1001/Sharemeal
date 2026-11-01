@@ -1,0 +1,145 @@
+{
+  "frames": [
+    {
+      "id": "6:2711",
+      "nodes": [
+        {
+          "id": "84:1641",
+          "name": "Prototype / Dùng ảnh này",
+          "type": "RECTANGLE",
+          "parentId": "6:2711",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 146,
+            "y": 795,
+            "width": 242,
+            "height": 55
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1850",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:2711",
+          "order": 9,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:2754",
+      "nodes": [
+        {
+          "id": "84:1644",
+          "name": "Prototype / Tiếp tục: Giờ hoạt động",
+          "type": "RECTANGLE",
+          "parentId": "6:2754",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 29,
+            "y": 785,
+            "width": 342,
+            "height": 60
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1852",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:2754",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2754",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2835",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

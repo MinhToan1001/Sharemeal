@@ -1,0 +1,6 @@
+{
+  "cloudinary": {
+    "cloudName": "toanvip",
+    "uploadPreset": "sharemeal_demo_unsigned"
+  }
+}

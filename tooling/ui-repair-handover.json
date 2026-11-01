@@ -1,0 +1,10 @@
+{
+    "entrypoint":  "lib/main.dart",
+    "firebaseEmulatorDefine":  false,
+    "bytes":  230540064,
+    "sha256":  "C8865E85931D4C5C40A51E2242B12F185B423E9CD4D964920D66BCF48EEB08B5",
+    "installedDevice":  "emulator-5554",
+    "wordGuidePages":  7,
+    "wordGuideSteps":  42,
+    "cloudinaryTestMediaRemaining":  0
+}

@@ -1,0 +1,202 @@
+{
+  "frames": [
+    {
+      "id": "6:1573",
+      "nodes": [
+        {
+          "id": "84:1600",
+          "name": "Prototype / Có vấn đề",
+          "type": "RECTANGLE",
+          "parentId": "6:1573",
+          "order": 13,
+          "visible": true,
+          "bounds": {
+            "x": 200,
+            "y": 382,
+            "width": 186,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1602",
+          "name": "Prototype / Xác nhận đã nhận",
+          "type": "RECTANGLE",
+          "parentId": "6:1573",
+          "order": 14,
+          "visible": true,
+          "bounds": {
+            "x": 59,
+            "y": 24,
+            "width": 224,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1818",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:1573",
+          "order": 15,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:1614",
+      "nodes": [
+        {
+          "id": "84:1692",
+          "name": "Prototype / Mở kho thực phẩm",
+          "type": "RECTANGLE",
+          "parentId": "6:1614",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 90,
+            "width": 358,
+            "height": 244
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1820",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:1614",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1172",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1180",
+        "variableValue": {
+          "value": true,
+          "type": "BOOLEAN",
+          "resolvedType": "BOOLEAN"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1184",
+        "variableValue": {
+          "value": "Tổ chức đã xác nhận nhận hàng",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "6:1702",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1332",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

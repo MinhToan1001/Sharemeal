@@ -1,0 +1,362 @@
+{
+  "frames": [
+    {
+      "id": "6:2105",
+      "nodes": [
+        {
+          "id": "84:1629",
+          "name": "Prototype / Tìm chuyến giao tiếp theo",
+          "type": "RECTANGLE",
+          "parentId": "6:2105",
+          "order": 24,
+          "visible": true,
+          "bounds": {
+            "x": 17,
+            "y": 745,
+            "width": 368,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1631",
+          "name": "Prototype / Xem huy hiệu cảu tôi",
+          "type": "RECTANGLE",
+          "parentId": "6:2105",
+          "order": 25,
+          "visible": true,
+          "bounds": {
+            "x": 99,
+            "y": 807,
+            "width": 205,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1836",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:2105",
+          "order": 26,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:2142",
+      "nodes": [
+        {
+          "id": "84:1778",
+          "name": "Prototype / Trang chủ",
+          "type": "RECTANGLE",
+          "parentId": "6:2142",
+          "order": 41,
+          "visible": true,
+          "bounds": {
+            "x": 0,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1780",
+          "name": "Prototype / Việc giao",
+          "type": "RECTANGLE",
+          "parentId": "6:2142",
+          "order": 42,
+          "visible": true,
+          "bounds": {
+            "x": 80.39990234375,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1782",
+          "name": "Prototype / Lịch",
+          "type": "RECTANGLE",
+          "parentId": "6:2142",
+          "order": 43,
+          "visible": true,
+          "bounds": {
+            "x": 160.7998046875,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1785",
+          "name": "Prototype / Tôi",
+          "type": "RECTANGLE",
+          "parentId": "6:2142",
+          "order": 45,
+          "visible": true,
+          "bounds": {
+            "x": 321.599609375,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:1801",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2142",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1172",
+        "variableValue": {
+          "value": "volunteer",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:1737",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:80:1175"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "approved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:4055",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1175"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "approved",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "NOT"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2232",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2504",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

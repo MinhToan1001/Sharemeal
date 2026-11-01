@@ -1,0 +1,680 @@
+{
+  "frames": [
+    {
+      "id": "6:2232",
+      "nodes": [
+        {
+          "id": "84:1633",
+          "name": "Prototype / Đăng ký",
+          "type": "RECTANGLE",
+          "parentId": "6:2232",
+          "order": 26,
+          "visible": true,
+          "bounds": {
+            "x": 274,
+            "y": 497,
+            "width": 78,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1635",
+          "name": "Prototype / Đăng ký",
+          "type": "RECTANGLE",
+          "parentId": "6:2232",
+          "order": 27,
+          "visible": true,
+          "bounds": {
+            "x": 274,
+            "y": 593,
+            "width": 78,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1637",
+          "name": "Prototype / Hủy ca",
+          "type": "RECTANGLE",
+          "parentId": "6:2232",
+          "order": 28,
+          "visible": true,
+          "bounds": {
+            "x": 31,
+            "y": 384,
+            "width": 78,
+            "height": 44
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1787",
+          "name": "Prototype / Trang chủ",
+          "type": "RECTANGLE",
+          "parentId": "6:2232",
+          "order": 29,
+          "visible": true,
+          "bounds": {
+            "x": 0,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1789",
+          "name": "Prototype / Việc giao",
+          "type": "RECTANGLE",
+          "parentId": "6:2232",
+          "order": 30,
+          "visible": true,
+          "bounds": {
+            "x": 80.400390625,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1792",
+          "name": "Prototype / Huy hiệu",
+          "type": "RECTANGLE",
+          "parentId": "6:2232",
+          "order": 32,
+          "visible": true,
+          "bounds": {
+            "x": 241.2001953125,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1794",
+          "name": "Prototype / Tôi",
+          "type": "RECTANGLE",
+          "parentId": "6:2232",
+          "order": 33,
+          "visible": true,
+          "bounds": {
+            "x": 321.599609375,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:1737",
+      "nodes": [
+        {
+          "id": "66:1538",
+          "name": "go/userNotifications",
+          "type": "INSTANCE",
+          "parentId": "66:1534",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 340,
+            "y": 52,
+            "width": 41,
+            "height": 41
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "66:1585",
+          "name": "go/jobDetail",
+          "type": "INSTANCE",
+          "parentId": "66:1574",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 775,
+            "width": 326,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "66:1588",
+          "name": "go/jobs",
+          "type": "INSTANCE",
+          "parentId": "66:1587",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 855,
+            "width": 173,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "66:1590",
+          "name": "go/U24",
+          "type": "INSTANCE",
+          "parentId": "66:1587",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 207,
+            "y": 855,
+            "width": 173,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1759",
+          "name": "Prototype / Trang chủ",
+          "type": "RECTANGLE",
+          "parentId": "6:1737",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 0,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 7
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1761",
+          "name": "Prototype / Việc giao",
+          "type": "RECTANGLE",
+          "parentId": "6:1737",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 80.39990234375,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1763",
+          "name": "Prototype / Lịch",
+          "type": "RECTANGLE",
+          "parentId": "6:1737",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 160.7998046875,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 8
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1765",
+          "name": "Prototype / Huy hiệu",
+          "type": "RECTANGLE",
+          "parentId": "6:1737",
+          "order": 8,
+          "visible": true,
+          "bounds": {
+            "x": 241.2001953125,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1767",
+          "name": "Prototype / Tôi",
+          "type": "RECTANGLE",
+          "parentId": "6:1737",
+          "order": 9,
+          "visible": true,
+          "bounds": {
+            "x": 321.60009765625,
+            "y": 807,
+            "width": 80.4000015258789,
+            "height": 67
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1427",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1172",
+        "variableValue": {
+          "value": "volunteer",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:1737",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "type": "VARIABLE_ALIAS",
+                      "id": "VariableID:80:1175"
+                    },
+                    "type": "VARIABLE_ALIAS",
+                    "resolvedType": "STRING"
+                  },
+                  {
+                    "value": "approved",
+                    "type": "STRING",
+                    "resolvedType": "STRING"
+                  }
+                ],
+                "expressionFunction": "EQUALS"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:4055",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1175"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "approved",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "NOT"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:1801",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2142",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2504",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2298",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:1890",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1172",
+        "variableValue": {
+          "value": "volunteer",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "CONDITIONAL",
+        "conditionalBlocks": [
+          {
+            "actions": [
+              {
+                "type": "NODE",
+                "destinationId": "6:4055",
+                "navigation": "NAVIGATE",
+                "transition": {
+                  "type": "DISSOLVE",
+                  "easing": {
+                    "type": "EASE_OUT"
+                  },
+                  "duration": 0.18000000715255737
+                },
+                "resetVideoPosition": false,
+                "resetScrollPosition": true
+              }
+            ],
+            "condition": {
+              "value": {
+                "expressionArguments": [
+                  {
+                    "value": {
+                      "expressionArguments": [
+                        {
+                          "value": {
+                            "type": "VARIABLE_ALIAS",
+                            "id": "VariableID:80:1175"
+                          },
+                          "type": "VARIABLE_ALIAS",
+                          "resolvedType": "STRING"
+                        },
+                        {
+                          "value": "approved",
+                          "type": "STRING",
+                          "resolvedType": "STRING"
+                        }
+                      ],
+                      "expressionFunction": "EQUALS"
+                    },
+                    "type": "EXPRESSION",
+                    "resolvedType": "BOOLEAN"
+                  }
+                ],
+                "expressionFunction": "NOT"
+              },
+              "type": "EXPRESSION",
+              "resolvedType": "BOOLEAN"
+            }
+          },
+          {
+            "actions": []
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:2232",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

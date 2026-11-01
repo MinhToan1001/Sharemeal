@@ -1,0 +1,326 @@
+[
+  {
+    "id": "VariableID:98:1173",
+    "name": "state/authDonor",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": true
+    }
+  },
+  {
+    "id": "VariableID:98:1174",
+    "name": "state/authCharity",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:98:1175",
+    "name": "state/authVolunteer",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:98:1176",
+    "name": "state/authAdmin",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:98:1171",
+    "name": "state/loginEmail",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "lan@bepnhalan.vn"
+    }
+  },
+  {
+    "id": "VariableID:98:1172",
+    "name": "state/authRoleLabel",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "Đang chọn: Người cho"
+    }
+  },
+  {
+    "id": "VariableID:80:1172",
+    "name": "state/role",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "donor"
+    }
+  },
+  {
+    "id": "VariableID:80:1173",
+    "name": "state/verifyDonor",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "approved"
+    }
+  },
+  {
+    "id": "VariableID:80:1174",
+    "name": "state/verifyCharity",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "approved"
+    }
+  },
+  {
+    "id": "VariableID:80:1175",
+    "name": "state/verifyVolunteer",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "approved"
+    }
+  },
+  {
+    "id": "VariableID:80:1176",
+    "name": "state/request",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "accepted"
+    }
+  },
+  {
+    "id": "VariableID:80:1184",
+    "name": "state/tripStatus",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "Đã ghép cặp · đang tìm người giao"
+    }
+  },
+  {
+    "id": "VariableID:110:1143",
+    "name": "state/trackingStatus",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "Đang tìm tình nguyện viên"
+    }
+  },
+  {
+    "id": "VariableID:110:1144",
+    "name": "state/trackingPercent",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "35%"
+    }
+  },
+  {
+    "id": "VariableID:110:1145",
+    "name": "state/trackingWidth",
+    "type": "FLOAT",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": 114
+    }
+  },
+  {
+    "id": "VariableID:110:1146",
+    "name": "state/trackingBadge",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "Tìm người"
+    }
+  },
+  {
+    "id": "VariableID:110:1147",
+    "name": "state/trackingEta",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "Đang điều phối tình nguyện viên"
+    }
+  },
+  {
+    "id": "VariableID:110:1149",
+    "name": "state/trackingDriverVisible",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:110:1150",
+    "name": "state/trackingCanReceive",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:110:1151",
+    "name": "state/trackingThanks",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:110:1152",
+    "name": "state/trackingRequest",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:110:1153",
+    "name": "state/trackingMatching",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": true
+    }
+  },
+  {
+    "id": "VariableID:110:1148",
+    "name": "state/trackingDriver",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "Trần Quốc Bảo"
+    }
+  },
+  {
+    "id": "VariableID:110:1154",
+    "name": "state/trackingQuantity",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "15 suất cơm gà"
+    }
+  },
+  {
+    "id": "VariableID:80:1180",
+    "name": "state/delivered",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:80:1178",
+    "name": "state/pickedUp",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:80:1177",
+    "name": "state/assigned",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:80:1181",
+    "name": "state/caseResolved",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:80:1183",
+    "name": "state/transport",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "volunteer"
+    }
+  },
+  {
+    "id": "VariableID:89:1171",
+    "name": "state/transportText",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "Nhờ tình nguyện viên giao"
+    }
+  },
+  {
+    "id": "VariableID:80:1179",
+    "name": "state/pickupQr",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:80:1182",
+    "name": "state/scanStage",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "pickup"
+    }
+  },
+  {
+    "id": "VariableID:89:1172",
+    "name": "state/stockBalance",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "15 suất"
+    }
+  },
+  {
+    "id": "VariableID:89:1173",
+    "name": "state/stockDetail",
+    "type": "STRING",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": "0 / 15 suất"
+    }
+  },
+  {
+    "id": "VariableID:80:1186",
+    "name": "state/distributed",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  },
+  {
+    "id": "VariableID:80:1185",
+    "name": "state/registered",
+    "type": "BOOLEAN",
+    "collectionId": "VariableCollectionId:80:1171",
+    "values": {
+      "80:0": false
+    }
+  }
+]

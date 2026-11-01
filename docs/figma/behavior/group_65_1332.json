@@ -1,0 +1,315 @@
+{
+  "frames": [
+    {
+      "id": "65:1332",
+      "nodes": [
+        {
+          "id": "65:1339",
+          "name": "go/back",
+          "type": "INSTANCE",
+          "parentId": "65:1335",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "I65:1343;60:567",
+          "name": "Value",
+          "type": "TEXT",
+          "parentId": "65:1343",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 161,
+            "width": 85,
+            "height": 34
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:89:1172"
+            }
+          }
+        },
+        {
+          "id": "65:1361",
+          "name": "0 / 15 suất",
+          "type": "TEXT",
+          "parentId": "65:1359",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 188,
+            "y": 572,
+            "width": 176,
+            "height": 17
+          },
+          "reactions": [],
+          "bindings": {
+            "characters": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:89:1173"
+            }
+          }
+        },
+        {
+          "id": "65:1362",
+          "name": "go/U23",
+          "type": "INSTANCE",
+          "parentId": "65:1351",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 601,
+            "width": 326,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "65:1366",
+          "name": "go/U23",
+          "type": "FRAME",
+          "parentId": "65:1364",
+          "order": 1,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 731,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "65:1376",
+          "name": "go/warehouse",
+          "type": "FRAME",
+          "parentId": "65:1364",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 38,
+            "y": 783,
+            "width": 326,
+            "height": 40
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "65:1385",
+      "nodes": [
+        {
+          "id": "65:1392",
+          "name": "go/back",
+          "type": "INSTANCE",
+          "parentId": "65:1388",
+          "order": 0,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 60.5,
+            "width": 24,
+            "height": 24
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "65:1423",
+          "name": "go/distribute",
+          "type": "INSTANCE",
+          "parentId": "65:1394",
+          "order": 2,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 630,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "65:1425",
+          "name": "go/U22",
+          "type": "INSTANCE",
+          "parentId": "65:1394",
+          "order": 3,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 694,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1385",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:1614",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1186",
+        "variableValue": {
+          "value": true,
+          "type": "BOOLEAN",
+          "resolvedType": "BOOLEAN"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:89:1172",
+        "variableValue": {
+          "value": "0 suất",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:89:1173",
+        "variableValue": {
+          "value": "15 / 0 suất",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "6:1654",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "65:1332",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

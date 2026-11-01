@@ -1,0 +1,572 @@
+{
+  "frames": [
+    {
+      "id": "6:295",
+      "nodes": [
+        {
+          "id": "98:1290",
+          "name": "auth/roles",
+          "type": "INSTANCE",
+          "parentId": "98:1258",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 346,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "98:1293",
+          "name": "auth/signup",
+          "type": "INSTANCE",
+          "parentId": "98:1258",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 408,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "46:526",
+      "nodes": [
+        {
+          "id": "98:1250",
+          "name": "auth/createAccount",
+          "type": "INSTANCE",
+          "parentId": "98:1230",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 587,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 2
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "98:1253",
+          "name": "auth/login",
+          "type": "INSTANCE",
+          "parentId": "98:1230",
+          "order": 8,
+          "visible": true,
+          "bounds": {
+            "x": 22,
+            "y": 649,
+            "width": 358,
+            "height": 50
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 3
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:560",
+      "nodes": [
+        {
+          "id": "84:1555",
+          "name": "Prototype / Xem",
+          "type": "RECTANGLE",
+          "parentId": "6:560",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 296,
+            "y": 594,
+            "width": 78,
+            "height": 43
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 4
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1557",
+          "name": "Prototype / Chỉnh sửa",
+          "type": "RECTANGLE",
+          "parentId": "6:560",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 36.5,
+            "y": 762,
+            "width": 156,
+            "height": 62
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 5
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1559",
+          "name": "Prototype / Đóng tin",
+          "type": "RECTANGLE",
+          "parentId": "6:560",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 209.5,
+            "y": 762,
+            "width": 156,
+            "height": 62
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1800",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:560",
+          "order": 8,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 7
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:609",
+      "nodes": [
+        {
+          "id": "84:1561",
+          "name": "Prototype / Chấp nhận",
+          "type": "RECTANGLE",
+          "parentId": "6:609",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 196.5,
+            "y": 257,
+            "width": 177,
+            "height": 57
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 8
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1563",
+          "name": "Prototype / Chấp nhận",
+          "type": "RECTANGLE",
+          "parentId": "6:609",
+          "order": 5,
+          "visible": true,
+          "bounds": {
+            "x": 196.5,
+            "y": 546,
+            "width": 177,
+            "height": 57
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 8
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1565",
+          "name": "Prototype / Từ chối",
+          "type": "RECTANGLE",
+          "parentId": "6:609",
+          "order": 6,
+          "visible": true,
+          "bounds": {
+            "x": 28.5,
+            "y": 255.5,
+            "width": 163,
+            "height": 60
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1567",
+          "name": "Prototype / Từ chối",
+          "type": "RECTANGLE",
+          "parentId": "6:609",
+          "order": 7,
+          "visible": true,
+          "bounds": {
+            "x": 28.5,
+            "y": 544.5,
+            "width": 163,
+            "height": 60
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 6
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1569",
+          "name": "Prototype / Xem gợi ý ghép cặp tự động",
+          "type": "RECTANGLE",
+          "parentId": "6:609",
+          "order": 8,
+          "visible": true,
+          "bounds": {
+            "x": 11,
+            "y": 765,
+            "width": 380,
+            "height": 59
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 9
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1802",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:609",
+          "order": 9,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 7
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:268",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "46:526",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1172",
+        "variableValue": {
+          "value": "donor",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:98:1171",
+        "variableValue": {
+          "value": "lan@bepnhalan.vn",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:98:1172",
+        "variableValue": {
+          "value": "Đang chọn: Người cho",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:98:1173",
+        "variableValue": {
+          "value": true,
+          "type": "BOOLEAN",
+          "resolvedType": "BOOLEAN"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:98:1174",
+        "variableValue": {
+          "value": false,
+          "type": "BOOLEAN",
+          "resolvedType": "BOOLEAN"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:98:1175",
+        "variableValue": {
+          "value": false,
+          "type": "BOOLEAN",
+          "resolvedType": "BOOLEAN"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:98:1176",
+        "variableValue": {
+          "value": false,
+          "type": "BOOLEAN",
+          "resolvedType": "BOOLEAN"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "6:295",
+        "navigation": "NAVIGATE",
+        "transition": null,
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:246",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:609",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3259",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:3305",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1176",
+        "variableValue": {
+          "value": "accepted",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "SET_VARIABLE",
+        "variableId": "VariableID:80:1184",
+        "variableValue": {
+          "value": "Đã ghép cặp · đang tìm người giao",
+          "type": "STRING",
+          "resolvedType": "STRING"
+        }
+      },
+      {
+        "type": "NODE",
+        "destinationId": "6:3516",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:1023",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}

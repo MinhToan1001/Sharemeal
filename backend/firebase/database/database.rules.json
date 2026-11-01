@@ -1,0 +1,574 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "config": {
+      "adminUid": {
+        ".read": "auth != null",
+        ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && !data.exists() && root.child('users').child(auth.uid).child('role').val() === 'admin' && newData.val() === auth.uid"
+      },
+      "public": {
+        ".read": "auth != null",
+        ".write": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')"
+      }
+    },
+    "users": {
+      ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')",
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && newData.exists() && ((auth.uid === $uid && (!data.exists() || data.child('disabled').val() !== true)) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && data.child('role').val() !== 'admin' && $uid !== auth.uid))",
+        ".validate": "newData.hasChildren([\"uid\", \"email\", \"name\", \"role\", \"verificationStatus\", \"disabled\", \"createdAt\"]) && (newData.child('uid').val() === $uid && ((!data.exists() && newData.child('role').val() === '' && newData.child('verificationStatus').val() === 'draft' && newData.child('disabled').val() === false && newData.child('email').val() === auth.token.email) || data.exists()))",
+        "uid": {
+          ".validate": "!data.exists() || newData.val() === data.val()"
+        },
+        "email": {
+          ".validate": "!data.exists() || newData.val() === data.val()"
+        },
+        "createdAt": {
+          ".validate": "!data.exists() || newData.val() === data.val()"
+        },
+        "name": {
+          ".validate": "newData.isString() && newData.val().length <= 100"
+        },
+        "phone": {
+          ".validate": "newData.isString() && newData.val().length <= 100"
+        },
+        "address": {
+          ".validate": "newData.isString() && newData.val().length <= 500"
+        },
+        "disabled": {
+          ".validate": "newData.isBoolean() && (!data.exists() && newData.val() === false || newData.val() === data.val() || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin'))"
+        },
+        "role": {
+          ".validate": "newData.val() === data.val() || (!data.exists() && newData.val() === '') || (auth.uid === $uid && data.val() === '' && (newData.val() === 'donor' || newData.val() === 'charity' || newData.val() === 'volunteer')) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && (newData.val() === 'donor' || newData.val() === 'charity' || newData.val() === 'volunteer'))"
+        },
+        "verificationStatus": {
+          ".validate": "newData.val() === data.val() || (!data.exists() && newData.val() === 'draft') || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && (newData.val() === 'approved' || newData.val() === 'rejected' || newData.val() === 'supplement')) || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && auth.uid === $uid && newData.val() === 'pending' && root.child('users').child($uid).child('role').val() !== 'admin' && newData.parent().parent().parent().child('demo/applications').child(newData.parent().child('applicationId').val()).child('uid').val() === $uid && newData.parent().parent().parent().child('demo/applications').child(newData.parent().child('applicationId').val()).child('status').val() === 'pending')"
+        },
+        "applicationId": {
+          ".validate": "newData.val() === data.val() || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && auth.uid === $uid && newData.parent().child('verificationStatus').val() === 'pending' && newData.parent().parent().parent().child('demo/applications').child(newData.val()).child('uid').val() === $uid)"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "demo": {
+      "applications": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && ((!data.exists() && newData.child('uid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() !== 'admin') || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && data.child('status').val() === 'pending'))",
+          ".validate": "newData.hasChildren([\"id\", \"uid\", \"name\", \"role\", \"details\", \"documents\", \"status\", \"createdAt\"]) && (newData.child('id').val() === $id && ((!data.exists() && newData.child('status').val() === 'pending') || data.exists()))",
+          "id": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "uid": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "name": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "role": {
+            ".validate": "(newData.val() === 'donor' || newData.val() === 'charity' || newData.val() === 'volunteer') && (!data.exists() || newData.val() === data.val())"
+          },
+          "createdAt": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "details": {
+            ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 8000 && (!data.exists() || newData.val() === data.val())"
+          },
+          "documents": {
+            ".validate": "newData.hasChildren(['0']) && !newData.child('10').exists()",
+            "$n": {
+              ".validate": "newData.isString() && newData.val().beginsWith('https://res.cloudinary.com/toanvip/') && (!data.exists() || newData.val() === data.val())"
+            }
+          },
+          "status": {
+            ".validate": "(!data.exists() && newData.val() === 'pending') || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && (newData.val() === 'approved' || newData.val() === 'rejected' || newData.val() === 'supplement'))"
+          },
+          "note": {
+            ".validate": "newData.isString() && newData.val().length <= 2000"
+          },
+          "reviewedAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "reviewedBy": {
+            ".validate": "newData.val() === auth.uid"
+          },
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && data.child('uid').val() === auth.uid)"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && query.orderByChild === 'uid' && query.equalTo === auth.uid)",
+        ".indexOn": [
+          "uid"
+        ]
+      },
+      "foods": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && ((!data.exists() && ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && newData.child('donorId').val() === auth.uid) || (data.exists() && (data.child('donorId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || (root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('foodId').val() === $id && root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('quantity').isNumber() && ((((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('donorId').val() === auth.uid && root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'awaiting' && newData.parent().parent().child('orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'accepted' && newData.child('reserved').val() === data.child('reserved').val() + root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('quantity').val()) || ((root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('donorId').val() === auth.uid || root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('organizationId').val() === auth.uid) && (root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'accepted' || root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'assigned') && newData.parent().parent().child('orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'cancelled' && newData.child('reserved').val() === data.child('reserved').val() - root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('quantity').val()))))))",
+          ".validate": "newData.hasChildren([\"id\", \"donorId\", \"donor\", \"name\", \"quantity\", \"reserved\", \"category\", \"storage\", \"address\", \"pickup\", \"expiresAt\", \"expiresAtMs\", \"status\", \"createdAt\", \"safe\"]) && (newData.child('id').val() === $id && newData.child('quantity').isNumber() && newData.child('quantity').val() > 0 && newData.child('quantity').val() <= 100000 && newData.child('reserved').isNumber() && newData.child('reserved').val() >= 0 && newData.child('reserved').val() <= newData.child('quantity').val() && ((!data.exists() && newData.child('status').val() === 'pending' && newData.child('reserved').val() === 0 && newData.child('expiresAtMs').val() > now) || (data.exists() && ((((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('donorId').val() === auth.uid && data.child('reserved').val() === 0 && newData.child('reserved').val() === 0 && newData.child('status').val() === 'pending') || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && data.child('status').val() === 'pending' && (newData.child('status').val() === 'open' || newData.child('status').val() === 'rejected')) || (data.child('donorId').val() === auth.uid && newData.child('status').val() === 'closed' && newData.child('reserved').val() === data.child('reserved').val()) || (newData.child('status').val() === data.child('status').val() && (root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('foodId').val() === $id && root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('quantity').isNumber() && ((((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('donorId').val() === auth.uid && root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'awaiting' && newData.parent().parent().child('orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'accepted' && newData.child('reserved').val() === data.child('reserved').val() + root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('quantity').val()) || ((root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('donorId').val() === auth.uid || root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('organizationId').val() === auth.uid) && (root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'accepted' || root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'assigned') && newData.parent().parent().child('orders').child(newData.child('lastStockOrderId').val()).child('status').val() === 'cancelled' && newData.child('reserved').val() === data.child('reserved').val() - root.child('demo/orders').child(newData.child('lastStockOrderId').val()).child('quantity').val()))))))))",
+          "id": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "donorId": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "donor": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "createdAt": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "quantity": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "reserved": {
+            ".validate": "newData.isNumber()"
+          },
+          "status": {
+            ".validate": "newData.isString() && newData.val().length <= 40"
+          },
+          "updatedAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "reviewNote": {
+            ".validate": "newData.val() === data.val() || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || newData.val() === ''"
+          },
+          "reviewedAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "reviewedBy": {
+            ".validate": "newData.val() === data.val() || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')"
+          },
+          "lastStockOrderId": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "name": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "category": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "storage": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "address": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "pickup": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "note": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "photo": {
+            ".validate": "(!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')) && newData.isString() && (newData.val() === '' || newData.val().beginsWith('https://res.cloudinary.com/toanvip/'))"
+          },
+          "expiresAt": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "expiresAtMs": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "safe": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending') && newData.val() === true"
+          },
+          "allergens": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "latitude": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "longitude": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending')"
+          },
+          "photos": {
+            ".validate": "newData.hasChildren(['0']) && !newData.child('6').exists() && (!data.exists() || newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.parent().child('donorId').val() === auth.uid && data.parent().child('reserved').val() === 0 && newData.parent().child('reserved').val() === 0 && newData.parent().child('status').val() === 'pending'))",
+            "$n": {
+              ".validate": "$n.matches(/^[0-5]$/) && newData.isString() && newData.val().beginsWith('https://res.cloudinary.com/toanvip/')"
+            }
+          },
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && (data.child('donorId').val() === auth.uid || data.child('status').val() === 'open' || root.child('foodAccess').child($id).child(auth.uid).exists()))"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && ((query.orderByChild === 'status' && query.equalTo === 'open') || (query.orderByChild === 'donorId' && query.equalTo === auth.uid)))",
+        ".indexOn": [
+          "donorId",
+          "status"
+        ]
+      },
+      "orders": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && ((!data.exists() && ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'charity' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && newData.child('organizationId').val() === auth.uid) || (data.exists() && ((data.child('donorId').val() === auth.uid || data.child('organizationId').val() === auth.uid || data.child('volunteerId').val() === auth.uid) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'volunteer' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('status').val() === 'accepted' && data.child('transport').val() === 'Nhờ giao hộ' && !data.child('volunteerId').exists() && newData.child('volunteerId').val() === auth.uid) || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin'))))",
+          ".validate": "newData.hasChildren([\"id\", \"foodId\", \"donorId\", \"organizationId\", \"organization\", \"quantity\", \"transport\", \"createdAt\", \"status\", \"received\", \"driver\", \"time\"]) && (newData.child('id').val() === $id && newData.child('quantity').isNumber() && newData.child('quantity').val() > 0 && ((!data.exists() && newData.child('status').val() === 'awaiting' && newData.child('donorId').val() === root.child('demo/foods').child(newData.child('foodId').val()).child('donorId').val() && root.child('demo/foods').child(newData.child('foodId').val()).child('status').val() === 'open' && root.child('demo/foods').child(newData.child('foodId').val()).child('expiresAtMs').val() > now && newData.child('quantity').val() <= root.child('demo/foods').child(newData.child('foodId').val()).child('quantity').val() - root.child('demo/foods').child(newData.child('foodId').val()).child('reserved').val() && newData.child('received').val() === 0 && !newData.child('volunteerId').exists() && !newData.child('deliveryConfirmed').exists() && !newData.child('proof').exists() && !newData.child('thanks').exists()) || (data.exists() && (newData.child('status').val() === data.child('status').val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'donor' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('donorId').val() === auth.uid && data.child('status').val() === 'awaiting' && newData.child('status').val() === 'accepted' && root.child('demo/foods').child(newData.child('foodId').val()).child('status').val() === 'open' && root.child('demo/foods').child(newData.child('foodId').val()).child('expiresAtMs').val() > now && newData.parent().parent().child('foods').child(newData.child('foodId').val()).child('lastStockOrderId').val() === $id && newData.parent().parent().child('foods').child(newData.child('foodId').val()).child('reserved').val() === root.child('demo/foods').child(newData.child('foodId').val()).child('reserved').val() + data.child('quantity').val()) || ((data.child('donorId').val() === auth.uid || data.child('organizationId').val() === auth.uid) && newData.child('status').val() === 'cancelled' && (data.child('status').val() === 'awaiting' || ((data.child('status').val() === 'accepted' || data.child('status').val() === 'assigned') && newData.parent().parent().child('foods').child(newData.child('foodId').val()).child('lastStockOrderId').val() === $id && newData.parent().parent().child('foods').child(newData.child('foodId').val()).child('reserved').val() === root.child('demo/foods').child(newData.child('foodId').val()).child('reserved').val() - data.child('quantity').val()))) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'charity' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('organizationId').val() === auth.uid && data.child('status').val() === 'pickedUp' && newData.child('status').val() === 'completed' && (data.child('transport').val() === 'Tự đến lấy' || data.child('deliveryConfirmed').val() === true) && newData.child('received').val() > 0 && newData.child('received').val() <= data.child('quantity').val() && newData.parent().parent().child('inventory').child(auth.uid).child('lastReceivedOrderId').val() === $id && newData.parent().parent().child('inventory').child(auth.uid).child('received').val() === (root.child('demo/inventory').child(auth.uid).child('received').exists() ? root.child('demo/inventory').child(auth.uid).child('received').val() : 0) + newData.child('received').val()) || (data.child('status').val() === 'awaiting' && newData.child('status').val() === 'rejected' && data.child('donorId').val() === auth.uid) || (newData.child('status').val() === 'assigned' && ((((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'volunteer' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('status').val() === 'accepted' && data.child('transport').val() === 'Nhờ giao hộ' && !data.child('volunteerId').exists() && newData.child('volunteerId').val() === auth.uid) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && data.child('status').val() === 'accepted'))) || (newData.child('status').val() === 'pickedUp' && ((data.child('volunteerId').val() === auth.uid && data.child('status').val() === 'assigned') || (data.child('organizationId').val() === auth.uid && data.child('transport').val() === 'Tự đến lấy' && data.child('status').val() === 'accepted')) && root.child('handover').child($id).child('pickup').child('used').val() === true && root.child('handover').child($id).child('pickup').child('verifierId').val() === auth.uid)) && (!data.child('volunteerId').exists() || newData.child('volunteerId').exists()) && (!data.child('deliveryConfirmed').exists() || newData.child('deliveryConfirmed').exists()))))",
+          "id": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "foodId": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "donorId": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "organizationId": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "organization": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "quantity": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "transport": {
+            ".validate": "(newData.val() === 'Nhờ giao hộ' || newData.val() === 'Tự đến lấy') && (!data.exists() || newData.val() === data.val())"
+          },
+          "createdAt": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "status": {
+            ".validate": "newData.isString() && newData.val().length <= 40"
+          },
+          "volunteerId": {
+            ".validate": "newData.val() === data.val() || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && root.child('users').child(newData.val()).child('role').val() === 'volunteer' && root.child('users').child(newData.val()).child('verificationStatus').val() === 'approved' && root.child('users').child(newData.val()).child('disabled').val() !== true) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'volunteer' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && !data.exists() && newData.val() === auth.uid && data.parent().child('status').val() === 'accepted' && newData.parent().child('status').val() === 'assigned')"
+          },
+          "driver": {
+            ".validate": "newData.val() === data.val() || (!data.exists() && newData.val() === '') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'volunteer' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && newData.parent().child('volunteerId').val() === auth.uid && data.parent().child('status').val() === 'accepted')"
+          },
+          "receiver": {
+            ".validate": "newData.isString() && newData.val().length <= 100 && (!data.exists() || newData.val() === data.val())"
+          },
+          "time": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (data.parent().child('donorId').val() === auth.uid && (data.parent().child('status').val() === 'accepted' || data.parent().child('status').val() === 'assigned'))"
+          },
+          "note": {
+            ".validate": "!data.exists() || newData.val() === data.val() || (data.parent().child('donorId').val() === auth.uid && (data.parent().child('status').val() === 'accepted' || data.parent().child('status').val() === 'assigned'))"
+          },
+          "received": {
+            ".validate": "(!data.exists() && newData.val() === 0) || newData.val() === data.val() || (data.parent().child('status').val() === 'pickedUp' && newData.parent().child('status').val() === 'completed' && data.parent().child('organizationId').val() === auth.uid)"
+          },
+          "deliveryConfirmed": {
+            ".validate": "newData.val() === data.val() || (data.parent().child('volunteerId').val() === auth.uid && data.parent().child('status').val() === 'pickedUp' && newData.val() === true && root.child('handover').child($id).child('receipt').child('used').val() === true && root.child('handover').child($id).child('receipt').child('verifierId').val() === auth.uid)"
+          },
+          "proof": {
+            ".validate": "newData.val() === data.val() || (data.parent().child('volunteerId').val() === auth.uid && data.parent().child('status').val() === 'pickedUp') && newData.isString() && newData.val().beginsWith('https://res.cloudinary.com/toanvip/')"
+          },
+          "proofAt": {
+            ".validate": "newData.val() === data.val() || (data.parent().child('volunteerId').val() === auth.uid && data.parent().child('status').val() === 'pickedUp')"
+          },
+          "thanks": {
+            ".validate": "newData.val() === data.val() || (data.parent().child('organizationId').val() === auth.uid && data.parent().child('status').val() === 'completed' && newData.isString() && newData.val().length <= 2000)"
+          },
+          "receiptPhoto": {
+            ".validate": "newData.val() === data.val() || (data.parent().child('organizationId').val() === auth.uid && data.parent().child('status').val() === 'pickedUp' && newData.parent().child('status').val() === 'completed' && newData.isString() && newData.val().beginsWith('https://res.cloudinary.com/toanvip/'))"
+          },
+          "thanksPhoto": {
+            ".validate": "newData.val() === data.val() || (data.parent().child('organizationId').val() === auth.uid && data.parent().child('status').val() === 'completed' && newData.isString() && newData.val().beginsWith('https://res.cloudinary.com/toanvip/'))"
+          },
+          "updatedAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "completedAt": {
+            ".validate": "newData.val() === data.val() || (data.parent().child('status').val() === 'pickedUp' && newData.parent().child('status').val() === 'completed' && data.parent().child('organizationId').val() === auth.uid)"
+          },
+          "$other": {
+            ".validate": false
+          },
+          ".read": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && ((data.child('donorId').val() === auth.uid || data.child('organizationId').val() === auth.uid || data.child('volunteerId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'volunteer' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && data.child('status').val() === 'accepted'))"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && (((query.orderByChild === 'donorId' || query.orderByChild === 'organizationId' || query.orderByChild === 'volunteerId') && query.equalTo === auth.uid) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'volunteer' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && query.orderByChild === 'status' && query.equalTo === 'accepted')))",
+        ".indexOn": [
+          "donorId",
+          "organizationId",
+          "volunteerId",
+          "status"
+        ]
+      },
+      "needs": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && ((!data.exists() && ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'charity' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && newData.child('uid').val() === auth.uid && newData.child('status').val() === 'pending') || (data.child('uid').val() === auth.uid && ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'charity' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && (newData.child('status').val() === 'pending' || newData.child('status').val() === 'closed')) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && data.child('status').val() === 'pending' && (newData.child('status').val() === 'open' || newData.child('status').val() === 'rejected')))",
+          "status": {
+            ".validate": "newData.isString() && newData.val().length <= 40"
+          },
+          "reviewNote": {
+            ".validate": "newData.isString() && newData.val().length <= 2000"
+          },
+          "reviewedAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "reviewedBy": {
+            ".validate": "newData.val() === data.val() || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')"
+          },
+          "id": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "uid": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "category": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "priority": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "createdAt": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "title": {
+            ".validate": "(!data.exists() || newData.val() === data.val() || (data.parent().child('uid').val() === auth.uid && newData.parent().child('status').val() === 'pending')) && newData.isString() && newData.val().length > 0 && newData.val().length <= 200"
+          },
+          "quantity": {
+            ".validate": "(!data.exists() || newData.val() === data.val() || (data.parent().child('uid').val() === auth.uid && newData.parent().child('status').val() === 'pending')) && newData.isNumber() && newData.val() > 0 && newData.val() <= 100000"
+          },
+          "updatedAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          ".validate": "newData.hasChildren([\"id\", \"uid\", \"title\", \"quantity\", \"category\", \"status\", \"createdAt\"])",
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && (data.child('uid').val() === auth.uid || data.child('status').val() === 'open'))"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && ((query.orderByChild === 'status' && query.equalTo === 'open') || (query.orderByChild === 'uid' && query.equalTo === auth.uid)))",
+        ".indexOn": [
+          "uid",
+          "status"
+        ]
+      },
+      "inventory": {
+        "$uid": {
+          ".write": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'charity' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && auth.uid === $uid && newData.exists()",
+          ".validate": "newData.hasChildren([\"received\", \"distributed\"]) && (newData.child('received').isNumber() && newData.child('distributed').isNumber() && newData.child('distributed').val() >= 0 && newData.child('received').val() >= newData.child('distributed').val() && ((root.child('demo/orders').child(newData.child('lastReceivedOrderId').val()).child('status').val() === 'pickedUp' && newData.parent().parent().child('orders').child(newData.child('lastReceivedOrderId').val()).child('status').val() === 'completed' && root.child('demo/orders').child(newData.child('lastReceivedOrderId').val()).child('organizationId').val() === $uid && newData.child('received').val() === (data.child('received').exists() ? data.child('received').val() : 0) + newData.parent().parent().child('orders').child(newData.child('lastReceivedOrderId').val()).child('received').val() && newData.child('distributed').val() === (data.child('distributed').exists() ? data.child('distributed').val() : 0)) || (newData.child('received').val() === (data.child('received').exists() ? data.child('received').val() : 0) && newData.parent().parent().child('distributions').child(newData.child('lastDistributionId').val()).child('uid').val() === $uid && !root.child('demo/distributions').child(newData.child('lastDistributionId').val()).exists() && newData.child('distributed').val() === (data.child('distributed').exists() ? data.child('distributed').val() : 0) + newData.parent().parent().child('distributions').child(newData.child('lastDistributionId').val()).child('quantity').val())))",
+          "received": {
+            ".validate": true
+          },
+          "distributed": {
+            ".validate": true
+          },
+          "lastReceivedOrderId": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "lastDistributionId": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && auth.uid === $uid)"
+        }
+      },
+      "distributions": {
+        "$id": {
+          ".write": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'charity' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && !data.exists() && newData.child('uid').val() === auth.uid",
+          ".validate": "newData.hasChildren([\"id\", \"uid\", \"quantity\", \"createdAt\"]) && (newData.child('id').val() === $id && newData.child('quantity').isNumber() && newData.child('quantity').val() > 0 && newData.parent().parent().child('inventory').child(auth.uid).child('lastDistributionId').val() === $id)",
+          "id": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "uid": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "quantity": {
+            ".validate": true
+          },
+          "createdAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && data.child('uid').val() === auth.uid)"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && query.orderByChild === 'uid' && query.equalTo === auth.uid)",
+        ".indexOn": [
+          "uid"
+        ]
+      },
+      "messages": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && !data.exists() && newData.child('uid').val() === auth.uid && (root.child('demo/orders').child(newData.child('orderId').val()).child('donorId').val() === auth.uid || root.child('demo/orders').child(newData.child('orderId').val()).child('organizationId').val() === auth.uid || root.child('demo/orders').child(newData.child('orderId').val()).child('volunteerId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin'))",
+          "uid": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "id": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "orderId": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "name": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "text": {
+            ".validate": "newData.isString() && newData.val().length <= 2000"
+          },
+          "time": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          ".validate": "newData.hasChildren([\"uid\", \"id\", \"orderId\", \"name\", \"text\", \"time\"])",
+          "$other": {
+            ".validate": false
+          },
+          ".read": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && (root.child('demo/orders').child(data.child('orderId').val()).child('donorId').val() === auth.uid || root.child('demo/orders').child(data.child('orderId').val()).child('organizationId').val() === auth.uid || root.child('demo/orders').child(data.child('orderId').val()).child('volunteerId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin'))"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && query.orderByChild === 'orderId' && query.equalTo !== null && (root.child('demo/orders').child(query.equalTo).child('donorId').val() === auth.uid || root.child('demo/orders').child(query.equalTo).child('organizationId').val() === auth.uid || root.child('demo/orders').child(query.equalTo).child('volunteerId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')))",
+        ".indexOn": [
+          "orderId"
+        ]
+      },
+      "tickets": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && ((!data.exists() && newData.child('uid').val() === auth.uid && newData.child('status').val() === 'open' && (newData.child('orderId').val() === '' || (root.child('demo/orders').child(newData.child('orderId').val()).child('donorId').val() === auth.uid || root.child('demo/orders').child(newData.child('orderId').val()).child('organizationId').val() === auth.uid || root.child('demo/orders').child(newData.child('orderId').val()).child('volunteerId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')))) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && (data.child('status').val() === 'open' || data.child('status').val() === 'investigating') && (newData.child('status').val() === 'investigating' || newData.child('status').val() === 'resolved' || newData.child('status').val() === 'rejected')))",
+          "status": {
+            ".validate": "newData.isString() && newData.val().length <= 40"
+          },
+          "resolution": {
+            ".validate": "newData.isString() && newData.val().length <= 2000"
+          },
+          "resolvedBy": {
+            ".validate": "newData.val() === auth.uid"
+          },
+          "id": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "uid": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "name": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "orderId": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "reason": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "detail": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "photo": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "createdAt": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "type": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          ".validate": "newData.hasChildren([\"id\", \"uid\", \"orderId\", \"detail\", \"status\", \"createdAt\"])",
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && data.child('uid').val() === auth.uid)"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && query.orderByChild === 'uid' && query.equalTo === auth.uid)",
+        ".indexOn": [
+          "uid"
+        ]
+      },
+      "reviews": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && newData.child('uid').val() === auth.uid && (data.child('uid').val() === auth.uid || !data.exists()) && root.child('demo/orders').child(newData.child('orderId').val()).child('status').val() === 'completed' && (root.child('demo/orders').child(newData.child('orderId').val()).child('donorId').val() === auth.uid || root.child('demo/orders').child(newData.child('orderId').val()).child('organizationId').val() === auth.uid)",
+          ".validate": "newData.hasChildren([\"orderId\", \"uid\", \"rating\", \"note\", \"createdAt\"]) && (newData.child('rating').isNumber() && newData.child('rating').val() >= 1 && newData.child('rating').val() <= 5 && $id === newData.child('orderId').val() + '_' + auth.uid)",
+          "orderId": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "uid": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "rating": {
+            ".validate": true
+          },
+          "note": {
+            ".validate": "newData.isString() && newData.val().length <= 2000"
+          },
+          "createdAt": {
+            ".validate": "newData.isString() && newData.val().length <= 100"
+          },
+          "$other": {
+            ".validate": false
+          },
+          ".read": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && (root.child('demo/orders').child(data.child('orderId').val()).child('donorId').val() === auth.uid || root.child('demo/orders').child(data.child('orderId').val()).child('organizationId').val() === auth.uid || root.child('demo/orders').child(data.child('orderId').val()).child('volunteerId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin'))"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && query.orderByChild === 'orderId' && query.equalTo !== null && (root.child('demo/orders').child(query.equalTo).child('donorId').val() === auth.uid || root.child('demo/orders').child(query.equalTo).child('organizationId').val() === auth.uid || root.child('demo/orders').child(query.equalTo).child('volunteerId').val() === auth.uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin')))",
+        ".indexOn": [
+          "orderId"
+        ]
+      },
+      "notifications": {
+        "$id": {
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && ((!data.exists() && newData.child('senderId').val() === auth.uid && newData.child('read').val() === false) || (data.child('uid').val() === auth.uid && newData.child('read').val() === true))",
+          "read": {
+            ".validate": "newData.isBoolean()"
+          },
+          "uid": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "senderId": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "title": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "body": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          "createdAt": {
+            ".validate": "!data.exists() || newData.val() === data.val()"
+          },
+          ".validate": "newData.hasChildren([\"uid\", \"senderId\", \"title\", \"body\", \"createdAt\", \"read\"])",
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && data.child('uid').val() === auth.uid)"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && query.orderByChild === 'uid' && query.equalTo === auth.uid)",
+        ".indexOn": [
+          "uid"
+        ]
+      },
+      "shifts": {
+        "$id": {
+          ".write": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('users').child(auth.uid).child('role').val() === 'volunteer' && root.child('users').child(auth.uid).child('verificationStatus').val() === 'approved') && ((!newData.exists() && data.child('uid').val() === auth.uid) || (newData.child('uid').val() === auth.uid && $id === auth.uid + '_' + newData.child('date').val()))",
+          ".validate": "newData.hasChildren(['id','uid','date']) && newData.child('date').isString() && newData.child('date').val().length === 10",
+          "id": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "uid": {
+            ".validate": "newData.isString() && newData.val().length <= 200"
+          },
+          "date": {
+            ".validate": "newData.isString() && newData.val().length <= 10"
+          },
+          "$other": {
+            ".validate": false
+          },
+          ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && data.child('uid').val() === auth.uid)"
+        },
+        ".read": "((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && query.orderByChild === 'uid' && query.equalTo === auth.uid)",
+        ".indexOn": [
+          "uid"
+        ]
+      }
+    },
+    "handover": {
+      "$order": {
+        "$stage": {
+          ".read": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && ((($stage === 'pickup' && root.child('demo/orders').child($order).child('donorId').val() === auth.uid && (root.child('demo/orders').child($order).child('status').val() === 'accepted' || root.child('demo/orders').child($order).child('status').val() === 'assigned')) || ($stage === 'receipt' && root.child('demo/orders').child($order).child('organizationId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'pickedUp')) || (($stage === 'pickup' && ((root.child('demo/orders').child($order).child('volunteerId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'assigned') || (root.child('demo/orders').child($order).child('organizationId').val() === auth.uid && root.child('demo/orders').child($order).child('transport').val() === 'Tự đến lấy' && root.child('demo/orders').child($order).child('status').val() === 'accepted'))) || ($stage === 'receipt' && root.child('demo/orders').child($order).child('volunteerId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'pickedUp')) || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin'))",
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && ((($stage === 'pickup' && root.child('demo/orders').child($order).child('donorId').val() === auth.uid && (root.child('demo/orders').child($order).child('status').val() === 'accepted' || root.child('demo/orders').child($order).child('status').val() === 'assigned')) || ($stage === 'receipt' && root.child('demo/orders').child($order).child('organizationId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'pickedUp')) || (($stage === 'pickup' && ((root.child('demo/orders').child($order).child('volunteerId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'assigned') || (root.child('demo/orders').child($order).child('organizationId').val() === auth.uid && root.child('demo/orders').child($order).child('transport').val() === 'Tự đến lấy' && root.child('demo/orders').child($order).child('status').val() === 'accepted'))) || ($stage === 'receipt' && root.child('demo/orders').child($order).child('volunteerId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'pickedUp')))",
+          ".validate": "newData.hasChildren(['pin','creatorId','expiresAt','attempts','used']) && (((($stage === 'pickup' && root.child('demo/orders').child($order).child('donorId').val() === auth.uid && (root.child('demo/orders').child($order).child('status').val() === 'accepted' || root.child('demo/orders').child($order).child('status').val() === 'assigned')) || ($stage === 'receipt' && root.child('demo/orders').child($order).child('organizationId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'pickedUp')) && newData.child('creatorId').val() === auth.uid && newData.child('pin').isString() && newData.child('pin').val().matches(/^[0-9]{6}$/) && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 610000 && newData.child('attempts').val() === 0 && newData.child('used').val() === false) || ((($stage === 'pickup' && ((root.child('demo/orders').child($order).child('volunteerId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'assigned') || (root.child('demo/orders').child($order).child('organizationId').val() === auth.uid && root.child('demo/orders').child($order).child('transport').val() === 'Tự đến lấy' && root.child('demo/orders').child($order).child('status').val() === 'accepted'))) || ($stage === 'receipt' && root.child('demo/orders').child($order).child('volunteerId').val() === auth.uid && root.child('demo/orders').child($order).child('status').val() === 'pickedUp')) && data.exists() && data.child('used').val() === false && data.child('attempts').val() < 5 && data.child('expiresAt').val() > now && newData.child('pin').val() === data.child('pin').val() && newData.child('creatorId').val() === data.child('creatorId').val() && newData.child('expiresAt').val() === data.child('expiresAt').val() && newData.child('attempts').val() === data.child('attempts').val() + 1 && newData.child('verifierId').val() === auth.uid && newData.child('used').val() === (newData.child('enteredPin').val() === data.child('pin').val())))"
+        }
+      }
+    },
+    "foodAccess": {
+      "$food": {
+        "$uid": {
+          ".read": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && (auth.uid === $uid || ((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin'))",
+          ".write": "(auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && newData.exists() && newData.parent().parent().parent().child('demo/orders').child(newData.child('orderId').val()).child('foodId').val() === $food && ((auth.uid === $uid && (newData.parent().parent().parent().child('demo/orders').child(newData.child('orderId').val()).child('organizationId').val() === auth.uid || newData.parent().parent().parent().child('demo/orders').child(newData.child('orderId').val()).child('volunteerId').val() === auth.uid)) || (((auth != null && auth.token.email_verified === true && root.child('users').child(auth.uid).exists() && root.child('users').child(auth.uid).child('disabled').val() !== true) && root.child('config/adminUid').val() === auth.uid && root.child('users').child(auth.uid).child('role').val() === 'admin') && newData.parent().parent().parent().child('demo/orders').child(newData.child('orderId').val()).child('volunteerId').val() === $uid))",
+          ".validate": "newData.hasChildren(['orderId'])"
+        }
+      }
+    }
+  }
+}

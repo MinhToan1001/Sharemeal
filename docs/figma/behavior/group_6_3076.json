@@ -1,0 +1,129 @@
+{
+  "frames": [
+    {
+      "id": "6:3076",
+      "nodes": [
+        {
+          "id": "84:1866",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:3076",
+          "order": 4,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    },
+    {
+      "id": "6:3259",
+      "nodes": [
+        {
+          "id": "84:1660",
+          "name": "Prototype / Lưu và thông báo",
+          "type": "RECTANGLE",
+          "parentId": "6:3259",
+          "order": 12,
+          "visible": true,
+          "bounds": {
+            "x": 164,
+            "y": 784.25,
+            "width": 227,
+            "height": 46
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1662",
+          "name": "Prototype / Hủy thay đổi",
+          "type": "RECTANGLE",
+          "parentId": "6:3259",
+          "order": 13,
+          "visible": true,
+          "bounds": {
+            "x": 11,
+            "y": 784.75,
+            "width": 153,
+            "height": 45
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 1
+            }
+          ],
+          "bindings": {}
+        },
+        {
+          "id": "84:1868",
+          "name": "Prototype / Quay lại",
+          "type": "RECTANGLE",
+          "parentId": "6:3259",
+          "order": 14,
+          "visible": true,
+          "bounds": {
+            "x": 6,
+            "y": 8,
+            "width": 46,
+            "height": 52
+          },
+          "reactions": [
+            {
+              "trigger": {
+                "type": "ON_CLICK"
+              },
+              "action": 0
+            }
+          ],
+          "bindings": {}
+        }
+      ]
+    }
+  ],
+  "actions": [
+    [
+      {
+        "type": "BACK"
+      }
+    ],
+    [
+      {
+        "type": "NODE",
+        "destinationId": "6:560",
+        "navigation": "NAVIGATE",
+        "transition": {
+          "type": "DISSOLVE",
+          "easing": {
+            "type": "EASE_OUT"
+          },
+          "duration": 0.18000000715255737
+        },
+        "resetVideoPosition": false,
+        "resetScrollPosition": true
+      }
+    ]
+  ]
+}
