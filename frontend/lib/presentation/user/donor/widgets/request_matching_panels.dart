@@ -122,10 +122,23 @@ class _RequestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = FigmaPrototypeScope.of(context).frontend;
     final food = s.foods.firstWhere((f) => f.id == order.foodId);
-    final enough = food.quantity >= order.quantity && food.status == 'open';
+    final row = s is FirebaseAppState
+        ? s.rows('foods').where((r) => r['id'] == food.id).firstOrNull
+        : null;
+    final expiry = row?['expiresAtMs'] is num
+        ? DateTime.fromMillisecondsSinceEpoch(
+            (row!['expiresAtMs'] as num).toInt())
+        : DateTime.tryParse('${row?['expiresAt'] ?? ''}');
+    final held = '${row?['stockJournal'] ?? ''}'.contains('|${order.id}:H|') &&
+        !'${row?['stockJournal'] ?? ''}'.contains('|${order.id}:R|');
+    final expired = !held && expiry != null && !expiry.isAfter(DateTime.now());
+    final enough = held ||
+        (food.quantity >= order.quantity && food.status == 'open' && !expired);
+    final busy = s is FirebaseAppState && s.busy;
     void accept() {
       s.selectOrder(order.id);
-      FrontendActions.run(context, '6:609', {'action': 'acceptOrder'});
+      FrontendActions.run(
+          context, '6:609', {'action': 'acceptOrder', 'id': order.id});
     }
 
     return Material(
@@ -230,7 +243,9 @@ class _RequestCard extends StatelessWidget {
                       Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: Text(
-                              'Tin còn ${food.quantity} suất · cần đối chiếu lại',
+                              expired
+                                  ? 'Món đã hết hạn, không thể chấp nhận thêm yêu cầu. Có thể từ chối để tổ chức chọn món khác.'
+                                  : 'Tin còn ${food.quantity} suất · cần đối chiếu lại',
                               style: const TextStyle(
                                   color: Color(0xFFAA5B00), fontSize: 12))),
                     const SizedBox(height: 14),
@@ -240,15 +255,17 @@ class _RequestCard extends StatelessWidget {
                             child: OutlinedButton(
                                 onPressed: () {
                                   s.selectOrder(order.id);
-                                  FrontendActions.run(context, '6:609',
-                                      {'action': 'rejectOrder'});
+                                  FrontendActions.run(context, '6:609', {
+                                    'action': 'rejectOrder',
+                                    'id': order.id
+                                  });
                                 },
                                 child: const Text('Từ chối'))),
                         const SizedBox(width: 10)
                       ],
                       Expanded(
                           child: FilledButton(
-                              onPressed: enough ? accept : null,
+                              onPressed: enough && !busy ? accept : null,
                               child: Text(matching
                                   ? 'Ghép tổ chức này'
                                   : 'Chấp nhận'))),

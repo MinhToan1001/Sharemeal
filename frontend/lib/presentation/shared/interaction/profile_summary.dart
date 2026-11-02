@@ -2,12 +2,24 @@ import 'package:flutter/material.dart';
 import '../figma/figma_prototype_controller.dart';
 import 'app_navigation.dart';
 import 'frontend_actions.dart';
+import '../../../data/repositories/firebase_app_state.dart';
 
 class ProfileSummary extends StatelessWidget {
   const ProfileSummary({super.key});
   @override
   Widget build(BuildContext context) {
     final state = FigmaPrototypeScope.of(context).frontend;
+    String display(String key, String sample) {
+      final value = state.get<String>('profile.$key', '').trim();
+      return value.isNotEmpty
+          ? value
+          : state is FirebaseAppState
+              ? (key == 'name'
+                  ? 'Chưa cập nhật họ tên'
+                  : 'Chưa cập nhật số điện thoại')
+              : sample;
+    }
+
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
@@ -50,15 +62,15 @@ class ProfileSummary extends StatelessWidget {
                               }),
                           child: Row(children: [
                             Expanded(
-                                child: Text(
-                                    state.get('profile.${field[0]}', field[2]),
-                                    maxLines: 1,
+                                child: Text(display(field[0], field[2]),
+                                    maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                         color: field[0] == 'name'
                                             ? mealInk
                                             : const Color(0xFF687C74),
-                                        fontSize: field[0] == 'name' ? 17 : 13,
+                                        fontSize: field[0] == 'name' ? 16 : 12,
+                                        height: 1.25,
                                         fontWeight: field[0] == 'name'
                                             ? FontWeight.w600
                                             : FontWeight.w400))),

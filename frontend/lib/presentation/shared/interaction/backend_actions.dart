@@ -28,22 +28,26 @@ abstract final class BackendActions {
         s.get('food.address', '').trim().isEmpty) {
       throw StateError('Hãy nhập địa chỉ lấy thực phẩm.');
     }
+    // A realtime update can remove a request card before its command ACK.
+    // Keep the route's navigator/messenger instead of that disposable row.
+    final navigation = Navigator.of(context);
+    final feedback = ScaffoldMessenger.of(context);
+    final origin = ModalRoute.of(context);
     void go(String path, {Object? arguments}) {
-      if (context.mounted) {
+      if (navigation.mounted && (origin?.isCurrent ?? true)) {
         if (path.startsWith('/auth/') ||
             frame == '6:246' ||
             frame == '46:526') {
-          Navigator.pushNamedAndRemoveUntil(context, path, (_) => false);
+          navigation.pushNamedAndRemoveUntil(path, (_) => false);
         } else {
-          Navigator.pushNamed(context, path, arguments: arguments);
+          navigation.pushNamed(path, arguments: arguments);
         }
       }
     }
 
     void message(String text) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(text)));
+      if (feedback.mounted && (origin?.isCurrent ?? true)) {
+        feedback.showSnackBar(SnackBar(content: Text(text)));
       }
     }
 
@@ -619,6 +623,10 @@ abstract final class BackendActions {
         if (action == 'acceptJob' || action == 'confirmReceipt') {
           await next();
         } else {
+          if (action == 'acceptOrder') {
+            s.selectOrder(id);
+            message('Đã chấp nhận yêu cầu. Suất ăn đã được giữ cho tổ chức.');
+          }
           go(action == 'acceptOrder'
               ? '/user/donor/pickup-schedule'
               : action == 'rejectOrder'

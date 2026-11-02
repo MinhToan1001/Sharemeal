@@ -599,6 +599,41 @@ class FigmaBox extends StatelessWidget {
               child: _readableText(
                   label, labelStyle, effectiveWidth - 20, boxHeight - 6,
                   align: TextAlign.center)));
+    } else if (kind == 'needCounter') {
+      content = Align(
+          alignment: Alignment.centerLeft,
+          child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text.rich(TextSpan(children: [
+                TextSpan(
+                    text: '${control['quantity']}',
+                    style: const TextStyle(
+                        color: mealGreen,
+                        fontSize: 40,
+                        height: 1.1,
+                        fontWeight: FontWeight.w700)),
+                TextSpan(
+                    text: ' / ${control['total']} suất đã được ghép',
+                    style: const TextStyle(
+                        color: mealInk, fontSize: 13, height: 1.2)),
+              ]))));
+    } else if (kind == 'needProgress') {
+      content = ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: LinearProgressIndicator(
+              value: (control['value'] as num).toDouble(),
+              minHeight: boxHeight,
+              color: mealGreen,
+              backgroundColor: Colors.white));
+    } else if (kind == 'dashboardBell') {
+      content = IconButton(
+          tooltip: 'Thông báo',
+          padding: EdgeInsets.zero,
+          onPressed: () => FrontendActions.run(context, frame,
+              {'action': 'route', 'route': '/shared/notifications'}),
+          icon: const Icon(Icons.notifications_none_outlined,
+              color: mealInk, size: 24));
     } else if (kind == 'boundRecords') {
       final rows = List<FigmaBox>.from(control['rows'] as List);
       content = ListView(children: [

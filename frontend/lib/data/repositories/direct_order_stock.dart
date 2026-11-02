@@ -64,6 +64,11 @@ extension _DirectOrderStock on BackendApi {
         .contains(existing['status'])) {
       return {'id': key};
     }
+    // Validate stock/expiry before recording an intent. The transaction repeats
+    // this check against the current server value, so this is not authority.
+    OrderStockProtocol.stock(
+        await read('demo/foods/${existing['foodId']}'), existing,
+        release: false, nowMs: DateTime.now().millisecondsSinceEpoch);
     final o = await _transaction(
         path, (o) => OrderStockProtocol.beginAccept(o, uid, now));
     try {

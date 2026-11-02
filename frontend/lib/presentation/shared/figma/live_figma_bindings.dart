@@ -107,6 +107,28 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
             ? 'Món được duyệt sẽ hiển thị tại đây'
             : '${available.storage} · ${available.pickup}'
       });
+      action(
+          '66:1412',
+          available == null ? 'route' : 'openFood',
+          available == null
+              ? {'route': '/user/organization/food-discovery'}
+              : {'foodId': available.id});
+      action('66:1394', 'route', {
+        'route': '/user/organization/food-discovery',
+        'label': quantity > 0
+            ? 'Tìm thêm ${(quantity - matched).clamp(0, 100000)} suất còn thiếu'
+            : 'Tìm thực phẩm'
+      });
+      controls['66:1389'] = {
+        'kind': 'needCounter',
+        'quantity': matched,
+        'total': quantity
+      };
+      controls['66:1392'] = {
+        'kind': 'needProgress',
+        'value': quantity > 0 ? (matched / quantity).clamp(0.0, 1.0) : 0.0
+      };
+      controls['6:101'] = {'kind': 'dashboardBell'};
       if (first != null) {
         action('66:1398', 'openOrder',
             {'id': first.id, 'route': '/user/organization/order-tracking'});

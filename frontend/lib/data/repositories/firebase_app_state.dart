@@ -19,6 +19,15 @@ class FirebaseAppState extends FrontendState {
   int _generation = 0, _version = -1;
   final Set<String> _profileDrafts = {};
   @override
+  void selectFood(String id) {
+    if (!foods.any((f) => f.id == id)) {
+      throw StateError(
+          'Món này không còn trong danh sách. Hãy làm mới và chọn lại.');
+    }
+    super.selectFood(id);
+  }
+
+  @override
   void selectOrder(String id) {
     if (id != selectedOrderId) {
       values.removeWhere(
@@ -191,7 +200,7 @@ class FirebaseAppState extends FrontendState {
         ..clear()
         ..addAll(rows(pair.$2));
     }
-    if (!foods.any((f) => f.id == selectedFoodId)) {
+    if (selectedFoodId.isEmpty) {
       selectedFoodId = foods.isEmpty ? '' : foods.first.id;
     }
     if (!orders.any((o) => o.id == selectedOrderId)) {
@@ -352,7 +361,7 @@ class FirebaseAppState extends FrontendState {
   }
 
   @override
-  FoodListing get selectedFood => foods.isEmpty
+  FoodListing get selectedFood => !foods.any((f) => f.id == selectedFoodId)
       ? FoodListing(
           id: '',
           name: '',
