@@ -3,6 +3,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import '../figma/figma_prototype_controller.dart';
 import 'frontend_actions.dart';
 import '../../../data/repositories/firebase_app_state.dart';
+import 'handover_confirmation.dart';
 
 class HandoverScanner extends StatefulWidget {
   const HandoverScanner({super.key});
@@ -61,11 +62,11 @@ class _HandoverScannerState extends State<HandoverScanner> {
                       }
                       _accepted = true;
                       try {
-                        await s.command('verifyHandover', {
-                          'id': s.selectedOrderId,
-                          'stage': parts[2],
-                          'pin': parts[3]
-                        });
+                        if (!await verifyWithPickupQuantity(context, s,
+                            s.selectedOrderId, parts[2], parts[3])) {
+                          _accepted = false;
+                          return;
+                        }
                         s.set('handover.verified', true);
                         s.set('handover.verified.stage', parts[2]);
                         await _camera?.stop();

@@ -134,7 +134,7 @@ String computedText(FrontendState s, String value) => switch (value) {
       'receipt.organization' => s.selectedOrder.organization,
       'receipt.driver' => s.selectedOrder.driver,
       'receipt.quantity' =>
-        '${s.selectedOrder.received == 0 ? s.selectedOrder.quantity : s.selectedOrder.received} suất',
+        '${s.selectedOrder.received == 0 && s.selectedOrder.status != 'completed' ? s.selectedOrder.quantity : s.selectedOrder.received} suất',
       'receipt.id' => 'Mã xác thực ${s.selectedOrder.id}',
       'empty' => '—',
       'notEstimated' => 'Chưa ước tính',

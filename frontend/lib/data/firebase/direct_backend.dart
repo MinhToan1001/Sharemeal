@@ -5,11 +5,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'firebase_services.dart';
 import '../cloudinary/cloudinary_storage.dart';
 import '../repositories/order_stock_protocol.dart';
+import '../repositories/order_receipt_protocol.dart';
 
 part '../repositories/direct_accounts.dart';
 part '../repositories/direct_foods.dart';
 part '../repositories/direct_orders.dart';
 part '../repositories/direct_order_stock.dart';
+part '../repositories/direct_order_receipt.dart';
 part '../repositories/direct_community.dart';
 
 /// Direct Firebase adapter. Database Rules authorize every write.
@@ -229,6 +231,16 @@ class BackendApi {
     // Only participants with cancellation authority (or admin) finish it.
     var recovered = false;
     for (final o in rows(data['orders'])) {
+      if (o['status'] == 'pickedUp' &&
+          o['receiptState'] == 'pending' &&
+          o['organizationId'] == uid) {
+        try {
+          await _finishReceipt(o);
+          recovered = true;
+        } catch (_) {
+          // Keep the immutable intent; retry on refresh/reopening the app.
+        }
+      }
       if (o['status'] == 'awaiting' &&
           o['stockState'] == 'reserving' &&
           o['donorId'] == uid) {

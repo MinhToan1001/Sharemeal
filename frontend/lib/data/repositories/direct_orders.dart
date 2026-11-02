@@ -45,6 +45,7 @@ extension _DirectOrders on BackendApi {
           'organizationId': uid,
           'organization': u['name'],
           'quantity': qty,
+          'qtyRequested': qty,
           'status': 'awaiting',
           'transport': p['transport'],
           'driver': '',
@@ -90,6 +91,7 @@ extension _DirectOrders on BackendApi {
       if (status == 'cancelled') {
         return _cancelOrder('$key', '${p['reason'] ?? ''}');
       }
+      if (status == 'completed') return _completeOrder('$key', p);
       final previous = o['status'];
       final update = <String, Object?>{
         '$path/status': status,
@@ -119,30 +121,6 @@ extension _DirectOrders on BackendApi {
           'foodAccess/${o['foodId']}/$uid': {'orderId': key},
         });
         return {'id': key};
-      } else if (status == 'completed') {
-        await account('charity');
-        require(
-            o['organizationId'] == uid &&
-                previous == 'pickedUp' &&
-                (o['transport'] == 'Tự đến lấy' ||
-                    o['deliveryConfirmed'] == true),
-            'Cần xác nhận mã bàn giao trước.');
-        final received =
-            quantity(p['received'], (o['quantity'] as num).toInt());
-        final inv = await read('demo/inventory/$uid');
-        final photo = '${p['photo'] ?? ''}';
-        require(photo.isEmpty || CloudinaryStorage.isRemote(photo),
-            'Ảnh nhận hàng không hợp lệ.');
-        update.addAll({
-          if (photo.isNotEmpty) '$path/receiptPhoto': photo,
-          '$path/received': received,
-          '$path/completedAt': now,
-          'demo/inventory/$uid/received':
-              ((inv['received'] as num?)?.toInt() ?? 0) + received,
-          'demo/inventory/$uid/distributed':
-              (inv['distributed'] as num?)?.toInt() ?? 0,
-          'demo/inventory/$uid/lastReceivedOrderId': key
-        });
       } else {
         throw StateError('Bước chuyển trạng thái không hợp lệ.');
       }
@@ -192,6 +170,16 @@ extension _DirectOrders on BackendApi {
     } else if (command == 'verifyHandover') {
       final stage = p['stage'];
       require(['pickup', 'receipt'].contains(stage), 'Loại mã không hợp lệ.');
+      final ref = db.ref('handover/$key/$stage');
+      final saved = map((await ref.get()).value);
+      final resume = saved['used'] == true &&
+          saved['verifierId'] == uid &&
+          saved['enteredPin'] == '${p['pin']}';
+      if (resume &&
+          stage == 'pickup' &&
+          ['pickedUp', 'completed'].contains(o['status'])) {
+        return {'id': key};
+      }
       require(
           stage == 'pickup'
               ? (o['volunteerId'] == uid && o['status'] == 'assigned' ||
@@ -200,11 +188,13 @@ extension _DirectOrders on BackendApi {
                       o['status'] == 'accepted')
               : o['volunteerId'] == uid && o['status'] == 'pickedUp',
           'Bạn không phải người bàn giao.');
-      final ref = db.ref('handover/$key/$stage');
-      final saved = map((await ref.get()).value);
-      final resume = saved['used'] == true &&
-          saved['verifierId'] == uid &&
-          saved['enteredPin'] == '${p['pin']}';
+      final picked = stage == 'pickup'
+          ? quantity(
+              resume
+                  ? (saved['qtyPickedUp'] ?? o['quantity'])
+                  : (p['pickedUp'] ?? o['quantity']),
+              (o['quantity'] as num).toInt())
+          : null;
       if (!resume) {
         require(
             saved.isNotEmpty &&
@@ -221,16 +211,23 @@ extension _DirectOrders on BackendApi {
           'enteredPin': '${p['pin']}',
           'used': correct,
           'verifierId': uid,
+          if (correct && stage == 'pickup') 'qtyPickedUp': picked,
         });
         require(correct, 'Mã không đúng.');
       }
-      await db.ref(path).update({
-        if (stage == 'pickup')
-          'status': 'pickedUp'
-        else
-          'deliveryConfirmed': true,
-        'updatedAt': now
-      });
+      await _transaction(
+          path,
+          (current) => {
+                ...current,
+                if (stage == 'pickup')
+                  'status': 'pickedUp'
+                else
+                  'deliveryConfirmed': true,
+                if (stage == 'pickup')
+                  'qtyRequested': OrderReceiptProtocol.requested(current),
+                if (stage == 'pickup') 'qtyPickedUp': picked,
+                'updatedAt': now
+              });
     } else if (command == 'savePickupPhoto') {
       await account('volunteer');
       require(

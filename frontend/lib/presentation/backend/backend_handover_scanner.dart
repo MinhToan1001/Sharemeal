@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import '../../data/repositories/firebase_app_state.dart';
+import '../shared/interaction/handover_confirmation.dart';
 
 class BackendHandoverScanner extends StatefulWidget {
   const BackendHandoverScanner(
@@ -40,11 +41,11 @@ class _BackendHandoverScannerState extends State<BackendHandoverScanner> {
       error = null;
     });
     try {
-      await widget.state.command('verifyHandover', {
-        'id': widget.orderId,
-        'stage': widget.stage,
-        'pin': codes.first.substring(prefix.length)
-      });
+      if (!await verifyWithPickupQuantity(context, widget.state, widget.orderId,
+          widget.stage, codes.first.substring(prefix.length))) {
+        if (mounted) setState(() => busy = false);
+        return;
+      }
       await camera.stop();
       if (mounted) Navigator.pop(context, true);
     } catch (e) {

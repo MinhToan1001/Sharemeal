@@ -425,6 +425,18 @@ class OrderTrackingContent extends StatelessWidget {
             const SizedBox(height: 14),
             Text('Giờ hẹn: ${o.time}'),
             Text('Cách nhận: ${o.transport}'),
+            const SizedBox(height: 8),
+            Text('Đặt: ${record['qtyRequested'] ?? o.quantity} · '
+                'Lấy: ${record['qtyPickedUp'] ?? ([
+                      'pickedUp',
+                      'completed'
+                    ].contains(o.status) ? o.quantity : '—')} · '
+                'Nhận: ${record['qtyReceived'] ?? (o.status == 'completed' ? o.received : '—')}'),
+            if (record['hasDiscrepancy'] == true)
+              Text('Chênh lệch: ${record['discrepancyNote']}'),
+            if (record['receiptState'] == 'pending')
+              const Text(
+                  'Đã ghi nhận số thực nhận. Đang đồng bộ nhập kho; mở lại hoặc làm mới để tiếp tục.'),
             if (o.driver.isNotEmpty) Text('Người giao: ${o.driver}')
           ])),
           _card(Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

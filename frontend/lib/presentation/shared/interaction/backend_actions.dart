@@ -6,6 +6,7 @@ import '../figma/figma_prototype_controller.dart';
 import 'app_navigation.dart';
 import 'frontend_actions.dart';
 import 'frontend_state.dart';
+import 'handover_confirmation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Adapter for the existing Figma form controls. Server data never uses local
@@ -568,6 +569,22 @@ abstract final class BackendActions {
           go('/shared/report-discrepancy');
           return true;
         }
+        String? receiptNote;
+        if (action == 'confirmReceipt') {
+          final record = s.rows('orders').firstWhere((o) => o['id'] == id);
+          final received = s.get('receipt.quantity', s.selectedOrder.quantity);
+          if (record['receiptState'] != 'pending' &&
+              (received != (record['qtyRequested'] ?? record['quantity']) ||
+                  received != (record['qtyPickedUp'] ?? record['quantity']))) {
+            receiptNote = await FrontendActions.edit(context,
+                'Ghi chú chênh lệch số lượng', s.get('receipt.note', ''));
+            if (receiptNote == null) return true;
+            s.set('receipt.note', receiptNote);
+            if (receiptNote.isEmpty) {
+              throw StateError('Hãy nhập ghi chú chênh lệch số lượng.');
+            }
+          }
+        }
         await s.command('transitionOrder', {
           'id': id,
           'status': switch (action) {
@@ -580,6 +597,8 @@ abstract final class BackendActions {
             'received': s.get('receipt.quantity', s.selectedOrder.quantity),
           if (action == 'confirmReceipt')
             'photo': await uploadPhoto('receipt.photo', 'proof'),
+          if (action == 'confirmReceipt')
+            'note': receiptNote ?? s.get('receipt.note', ''),
         });
         if (action == 'acceptJob' || action == 'confirmReceipt') {
           await next();
@@ -607,8 +626,10 @@ abstract final class BackendActions {
                 : 'pickup';
         if (!s.get('handover.verified', false) ||
             s.get('handover.verified.stage', '') != stage) {
-          await s.command('verifyHandover',
-              {'id': id, 'stage': stage, 'pin': s.get('handover.entered', '')});
+          if (!await verifyWithPickupQuantity(
+              context, s, id, stage, s.get('handover.entered', ''))) {
+            return true;
+          }
         }
         s.set('handover.verified', true);
         s.set('handover.verified.stage', stage);
