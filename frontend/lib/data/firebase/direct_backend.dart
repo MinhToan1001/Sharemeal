@@ -329,17 +329,23 @@ class BackendApi {
           .where((o) => o['status'] == 'completed' && participant(o))
           .map((o) {
         final f = map(map(data['foods'])[o['foodId']]);
-        final received = (o['received'] as num?)?.toInt() ?? 0;
+        final received =
+            ((o['qtyReceived'] ?? o['received']) as num?)?.toInt() ?? 0;
         return {
           'orderId': o['id'],
           'name': f['name'] ?? '',
           'quantity': received,
           'kg': received * 0.5,
           'category': f['category'] ?? '',
-          'daysAgo': DateTime.now()
-              .difference(
-                  DateTime.tryParse('${o['completedAt']}') ?? DateTime.now())
-              .inDays
+          'completedAt': o['completedAt'] ?? o['updatedAt'] ?? '',
+          'daysAgo': DateTime.tryParse(
+                      '${o['completedAt'] ?? o['updatedAt']}') ==
+                  null
+              ? -1
+              : DateTime.now()
+                  .difference(
+                      DateTime.parse('${o['completedAt'] ?? o['updatedAt']}'))
+                  .inDays
         };
       }).toList(),
     };

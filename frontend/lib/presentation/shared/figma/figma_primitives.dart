@@ -250,7 +250,14 @@ class FigmaBox extends StatelessWidget {
         ui.FontVariation('wght', weight.toDouble()),
         const ui.FontVariation('opsz', 14)
       ],
-      height: line == null || line <= 0 ? 1.21 : line / size,
+      // Some exported captions have a 32px line inside a 16px frame. Keep
+      // their font readable instead of shrinking the glyph with that line box.
+      height: line == null || line <= 0
+          ? 1.21
+          : (height > 0 && height < size * 1.8 && line > height
+                  ? math.max(size * 1.2, height)
+                  : line) /
+              size,
       leadingDistribution: TextLeadingDistribution.even,
       letterSpacing: _number(style['letterSpacing']),
       decoration: style['decoration'] == 'underline'
@@ -393,7 +400,7 @@ class FigmaBox extends StatelessWidget {
       math.max(0, boxes.length - 1) *
           _number(style['columnGap'], _number(style['gap']));
 
-  FigmaBox _withWidth(double value) => FigmaBox(
+  FigmaBox _withWidth(double value, {String? align}) => FigmaBox(
       key: key,
       nodeId: nodeId,
       name: name,
@@ -407,7 +414,7 @@ class FigmaBox extends StatelessWidget {
       formLabel: formLabel,
       fixedHeight: fixedHeight,
       initiallyVisible: initiallyVisible,
-      style: style,
+      style: align == null ? style : {...style, 'textAlign': align},
       control: control,
       children: _textGroup
           ? [for (final c in children) c._withWidth(math.max(1, value - c.x))]
@@ -438,11 +445,42 @@ class FigmaBox extends StatelessWidget {
     if (child._textGroup && child._translation.dx == 0) {
       for (final sibling in siblings) {
         if (identical(sibling, child) || sibling.tag == 'hotspot') continue;
+        // Decorative empty rectangles/dots are backgrounds, not text limits.
+        if (!sibling._textGroup &&
+            !sibling._hasImage &&
+            sibling.control.isEmpty) {
+          continue;
+        }
         final sx = sibling.x + sibling._translation.dx;
         final sy = sibling.y + sibling._translation.dy;
         if (sx > left && sy < top + child.height && sy + sibling.height > top) {
           right = math.min(right, sx - 4);
         }
+      }
+    }
+    if (child._textGroup &&
+        child.width >= 45 &&
+        child.width <= 70 &&
+        child.height >= 25 &&
+        child.height <= 40) {
+      final tiles = siblings
+          .where((b) =>
+              b.width >= 70 &&
+              b.width <= 130 &&
+              b.height >= 70 &&
+              b.height <= 140 &&
+              b._radius != BorderRadius.zero &&
+              b.y <= top &&
+              b.y + b.height >= top + child.height &&
+              b.x <= left + child.width / 2 &&
+              b.x + b.width >= left + child.width / 2)
+          .toList();
+      if (tiles.length == 1) {
+        final tile = tiles.single;
+        return Positioned(
+            left: tile.x + 6 - child._translation.dx,
+            top: child.y,
+            child: child._withWidth(tile.width - 12, align: 'center'));
       }
     }
     final available = math.max(1.0, right - left);
@@ -898,7 +936,17 @@ class FigmaBox extends StatelessWidget {
           math.max(0, normal.length - 1) * gap;
       final textChildren = normal.where((c) => c._textGroup).toList();
       final textTotal = textChildren.fold<double>(0, (sum, c) => sum + c.width);
-      final shareTextSpace = !vertical && !scrollX && textTotal > 0;
+      final shareTextSpace = !vertical &&
+          !scrollX &&
+          textTotal > 0 &&
+          (used > innerMain ||
+              ![
+                'center',
+                'flex-end',
+                'space-between',
+                'space-around',
+                'space-evenly'
+              ].contains(style['justify']));
       final textBudget = math.max(1.0, innerMain - (used - textTotal));
       final free = shareTextSpace
           ? 0.0
@@ -921,7 +969,10 @@ class FigmaBox extends StatelessWidget {
       final positioned = <Widget>[];
       for (final child in normal) {
         final childWidth = vertical && child._textGroup
-            ? math.max(1.0, effectiveWidth - _padding.horizontal)
+            ? (style['align'] == 'center'
+                ? math.min(child.width,
+                    math.max(1.0, effectiveWidth - _padding.horizontal))
+                : math.max(1.0, effectiveWidth - _padding.horizontal))
             : shareTextSpace && child._textGroup
                 ? child.width * textBudget / textTotal
                 : child.width;

@@ -74,7 +74,14 @@ void main() {
     expect(s.sendMessage, throwsStateError);
     s.sendMessage('Tôi đang đến');
     expect(s.messages.single['text'], 'Tôi đang đến');
-    expect(s.impact('Tháng')['meals'], 85);
+    s.history
+      ..clear()
+      ..add({
+        'quantity': 43,
+        'kg': 21.5,
+        'completedAt': DateTime.now().toIso8601String()
+      });
+    expect(s.impact('Tháng')['meals'], 43);
     expect(s.impact('Tuần')['meals'], 43);
   });
 }

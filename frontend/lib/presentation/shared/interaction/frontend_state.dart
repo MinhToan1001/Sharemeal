@@ -493,16 +493,54 @@ class FrontendState extends ChangeNotifier {
     _dataChanged();
   }
 
-  Map<String, num> impact(String period) {
-    final limit = period == 'Tuần'
-        ? 7
+  Iterable<Map<String, dynamic>> impactEntries(String period) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final start = period == 'Tuần'
+        ? today.subtract(Duration(days: today.weekday - 1))
         : period == 'Tháng'
-            ? 31
-            : 366;
-    final entries = history.where((e) => (e['daysAgo'] as num) < limit);
+            ? DateTime(now.year, now.month)
+            : DateTime(now.year);
+    return history.where((e) {
+      final timestamp =
+          DateTime.tryParse('${e['completedAt'] ?? ''}')?.toLocal();
+      final ago = e['daysAgo'] as num?;
+      final date = timestamp ??
+          (ago == null || ago < 0
+              ? null
+              : today.subtract(Duration(days: ago.toInt())));
+      return date != null && !date.isBefore(start) && !date.isAfter(now);
+    });
+  }
+
+  List<num> impactBars(String period) {
+    final now = DateTime.now();
+    final bars = List<num>.filled(4, 0);
+    for (final e in impactEntries(period)) {
+      final date = DateTime.tryParse('${e['completedAt'] ?? ''}')?.toLocal() ??
+          DateTime(now.year, now.month, now.day)
+              .subtract(Duration(days: (e['daysAgo'] as num).toInt()));
+      final index = period == 'Năm'
+          ? (date.month - 1) ~/ 3
+          : period == 'Tháng'
+              ? ((date.day - 1) ~/ 7).clamp(0, 3)
+              : ((date.weekday - 1) ~/ 2).clamp(0, 3);
+      bars[index] += e['quantity'] as num? ?? 0;
+    }
+    return bars;
+  }
+
+  List<String> impactLabels(String period) => period == 'Năm'
+      ? ['Quý 1', 'Quý 2', 'Quý 3', 'Quý 4']
+      : period == 'Tháng'
+          ? ['Tuần 1', 'Tuần 2', 'Tuần 3', 'Tuần 4–5']
+          : ['T2–T3', 'T4–T5', 'T6–T7', 'CN'];
+
+  Map<String, num> impact(String period) {
+    final entries = impactEntries(period).toList();
     return {
-      'meals': entries.fold<num>(0, (n, e) => n + (e['quantity'] as num)),
-      'kg': entries.fold<num>(0, (n, e) => n + (e['kg'] as num)),
+      'meals': entries.fold<num>(0, (n, e) => n + (e['quantity'] as num? ?? 0)),
+      'kg': entries.fold<num>(0, (n, e) => n + (e['kg'] as num? ?? 0)),
       'orders': entries.length
     };
   }

@@ -38,13 +38,22 @@ abstract final class LiveDetailBindings {
           '62:1369': LiveScreenData.status(ticket['status'] ?? 'open'),
           '62:1370': '${ticket['detail'] ?? 'Chưa có phản ánh'}',
           '62:1373': f.donor,
-          '62:1376': '${o.id} · ${o.organization}',
+          '62:1376':
+              'Đơn ${o.id.length > 8 ? o.id.substring(o.id.length - 8) : o.id} · ${o.organization}',
           '62:1383': f.donor,
           '62:1384': '${o.quantity} suất',
-          '62:1389': o.driver,
-          '62:1390': '${ticket['reason'] ?? ''}',
+          '62:1389': o.transport == 'Tự đến lấy'
+              ? o.organization
+              : (o.driver.isEmpty ? 'Chưa phân công người giao' : o.driver),
+          '62:1390': o.transport == 'Tự đến lấy'
+              ? 'Tổ chức tự đến lấy'
+              : (o.driver.isEmpty
+                  ? 'Đang tìm tình nguyện viên'
+                  : 'Tình nguyện viên vận chuyển'),
           '62:1395': o.organization,
-          '62:1396': '${o.received} suất đã xác nhận'
+          '62:1396': o.status == 'completed' || row['receiptState'] != null
+              ? '${row['qtyReceived'] ?? o.received} suất đã xác nhận'
+              : 'Chưa xác nhận nhận hàng'
         },
       '77:1186' => {
           '77:1192': '${o.id} · Đã thông báo tới các bên',

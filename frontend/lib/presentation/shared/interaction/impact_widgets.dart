@@ -9,19 +9,8 @@ class ImpactChart extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = FigmaPrototypeScope.of(context).frontend;
     final period = s.get('impact.period', 'Tháng');
-    final limit = period == 'Tuần'
-        ? 7
-        : period == 'Tháng'
-            ? 31
-            : 366;
-    final entries = s.history.where((e) => (e['daysAgo'] as num) < limit);
-    final bars = List<num>.generate(
-        4,
-        (i) => entries
-            .where((e) =>
-                ((e['daysAgo'] as num) / (limit / 4)).floor().clamp(0, 3) ==
-                3 - i)
-            .fold<num>(0, (n, e) => n + (e['quantity'] as num)));
+    final bars = s.impactBars(period);
+    final labels = s.impactLabels(period);
     final maxValue = math.max(1, bars.reduce(math.max));
     return Padding(
         padding: const EdgeInsets.all(14),
@@ -64,7 +53,7 @@ class ImpactChart extends StatelessWidget {
                                                         top: Radius.circular(
                                                             5))))))),
                             const SizedBox(height: 5),
-                            Text('Kỳ ${i + 1}',
+                            Text(labels[i],
                                 style: const TextStyle(
                                     fontSize: 9,
                                     height: 1.2,
@@ -81,11 +70,6 @@ class ImpactCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = FigmaPrototypeScope.of(context).frontend;
     final period = s.get('impact.period', 'Tháng');
-    final limit = period == 'Tuần'
-        ? 7
-        : period == 'Tháng'
-            ? 31
-            : 366;
     final total = s.impact(period)['meals'] ?? 0;
     return Padding(
         padding: const EdgeInsets.all(14),
@@ -99,9 +83,9 @@ class ImpactCategories extends StatelessWidget {
           const SizedBox(height: 10),
           for (final cat in ['Cơm & món mặn', 'Rau củ', 'Bánh'])
             Expanded(child: Builder(builder: (context) {
-              final qty = s.history
-                  .where((e) =>
-                      e['category'] == cat && (e['daysAgo'] as num) < limit)
+              final qty = s
+                  .impactEntries(period)
+                  .where((e) => e['category'] == cat)
                   .fold<num>(0, (n, e) => n + (e['quantity'] as num));
               final v = total == 0 ? 0.0 : qty / total;
               return Column(children: [

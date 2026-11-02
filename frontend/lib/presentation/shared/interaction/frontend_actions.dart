@@ -786,13 +786,7 @@ abstract final class FrontendActions {
                   ? 'Dữ liệu các đơn hoàn tất đã đồng bộ từ Firebase. Khối lượng là ước tính từ số suất.'
                   : 'Dữ liệu kiểm thử cục bộ trên thiết bị, chưa đồng bộ máy chủ.'),
               pw.SizedBox(height: 20),
-              for (final e in s.history.where((e) =>
-                  (e['daysAgo'] as num) <
-                  (period == 'Tuần'
-                      ? 7
-                      : period == 'Tháng'
-                          ? 31
-                          : 366)))
+              for (final e in s.impactEntries(period))
                 pw.Padding(
                     padding: const pw.EdgeInsets.only(bottom: 8),
                     child: pw.Text(

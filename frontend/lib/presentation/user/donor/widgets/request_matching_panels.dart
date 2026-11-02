@@ -81,19 +81,20 @@ class RequestMatchingPanel extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 16),
             child: _RequestCard(
                 order: order, matching: matching, score: _score(s, order))),
-      OutlinedButton.icon(
-          key: const ValueKey('requests/add-demo'),
-          onPressed: s is! FirebaseAppState &&
-                  s.foods.any(
-                      (f) => f.mine && f.status == 'open' && f.quantity > 0)
-              ? () => s.addDemoRequests()
-              : null,
-          icon: const Icon(Icons.add, size: 18),
-          label: const Text('Thêm yêu cầu kiểm thử')),
+      if (s is! FirebaseAppState)
+        OutlinedButton.icon(
+            key: const ValueKey('requests/add-demo'),
+            onPressed: s is! FirebaseAppState &&
+                    s.foods.any(
+                        (f) => f.mine && f.status == 'open' && f.quantity > 0)
+                ? () => s.addDemoRequests()
+                : null,
+            icon: const Icon(Icons.add, size: 18),
+            label: const Text('Thêm yêu cầu kiểm thử')),
       const SizedBox(height: 8),
       Text(
           s is FirebaseAppState
-              ? 'Yêu cầu nhận được cập nhật từ Firebase.'
+              ? 'Yêu cầu mới sẽ tự động cập nhật tại đây.'
               : 'Các gợi ý hiện được xử lý trên thiết bị, chưa phải kết quả từ máy chủ.',
           textAlign: TextAlign.center,
           style: const TextStyle(

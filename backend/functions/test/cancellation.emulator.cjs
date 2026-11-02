@@ -158,3 +158,18 @@ test('simultaneous requests cannot reserve more than the total',async()=>{
   await assert.rejects(reserve(d,'third'));
   assert.equal((await read(d,'demo/foods/food')).reserved,20);
 });
+
+// Regression: photos/allergens are collections, compare child values rather than the val() sentinel.
+test('multi-photo food can reserve and release without changing its images', async()=>{
+ const pics=['https://res.cloudinary.com/toanvip/image/upload/a.png','https://res.cloudinary.com/toanvip/image/upload/b.png'];
+ await seed(order(),{...food(),photos:pics,photo:pics[0],allergens:['Trứng','Đậu phộng']});
+ const d=db('donor');
+ await reserve(d);
+ assert.equal((await read(d,'demo/foods/food')).reserved,10);
+ await assertFails(d.ref('demo/foods/food/photos/0').set('https://res.cloudinary.com/toanvip/image/upload/tamper.png'));
+ await assertFails(d.ref('demo/foods/food/photos').remove());
+ await assertFails(d.ref('demo/foods/food/allergens').remove());
+ await cancel(d,'donor');
+ const f=await read(d,'demo/foods/food');
+ assert.equal(f.reserved,0);assert.deepEqual(f.photos,pics);
+});

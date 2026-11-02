@@ -96,10 +96,25 @@ for key in ['name','category','storage','address','pickup','note','photo','expir
     food[key] = {'.validate': f'!data.exists() || newData.val() === data.val() || {child_edit}'}
 food['safe']['.validate'] += ' && newData.val() === true'
 food['photo']['.validate'] = f"({food['photo']['.validate']}) && newData.isString() && (newData.val() === '' || newData.val().beginsWith('https://res.cloudinary.com/toanvip/'))"
+# RTDB val() returns a sentinel for child data, not a deep value. Compare the
+# bounded scalar entries, including absent entries so deletion cannot bypass
+# child validation during a stock transaction.
+def same_list(key, count):
+    prefix = key + '/' if key else ''
+    return ' && '.join(f"newData.child('{prefix}{i}').val() === data.child('{prefix}{i}').val()" for i in range(count))
+
+photo_same = same_list('photos', 6)
+allergen_same = same_list('allergens', 10)
+food['.validate'] += f" && ((!data.exists()) || ({food_edit}) || (({photo_same}) && ({allergen_same})))"
 food['photos'] = {
-    '.validate': f"newData.hasChildren(['0']) && !newData.child('6').exists() && (!data.exists() || newData.val() === data.val() || {child_edit})",
+    '.validate': f"newData.hasChildren(['0']) && !newData.child('6').exists() && (!data.exists() || ({same_list('', 6)}) || {child_edit})",
     '$n': {'.validate': "$n.matches(/^[0-5]$/) && newData.isString() && newData.val().beginsWith('https://res.cloudinary.com/toanvip/')"},
 }
+food['allergens'] = {
+    '.validate': f"!newData.child('10').exists() && (!data.exists() || ({same_list('', 10)}) || {child_edit})",
+    '$n': {'.validate': "$n.matches(/^[0-9]$/) && newData.isString() && newData.val().length <= 100"},
+}
+
 demo['foods'] = {'$id': fields(food, ['id','donorId','donor','name','quantity','reserved','category','storage','address','pickup','expiresAt','expiresAtMs','status','createdAt','safe'])}
 
 O = "root.child('demo/orders').child($id)"

@@ -7,10 +7,12 @@ import 'package:sharemeal/presentation/shared/figma/figma_prototype_controller.d
 void main() {
   Future<FigmaPrototypeController> open(
       WidgetTester tester, String route) async {
-    if(!Platform.isAndroid){tester.view.physicalSize = const Size(402, 874);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);}
+    if (!Platform.isAndroid) {
+      tester.view.physicalSize = const Size(402, 874);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+    }
     final c = FigmaPrototypeController(enableTimeouts: false);
     await tester.pumpWidget(ShareMealApp(initialRoute: route, prototype: c));
     await tester.pumpAndSettle();
@@ -63,7 +65,15 @@ void main() {
   });
   testWidgets('All donor tabs keep donor navigation and Impact is not History',
       (t) async {
-    await open(t, '/user/donor/dashboard');
+    final c = await open(t, '/user/donor/dashboard');
+    c.frontend.history
+      ..clear()
+      ..add({
+        'quantity': 43,
+        'kg': 21.5,
+        'completedAt': DateTime.now().toIso8601String(),
+        'category': 'Rau củ'
+      });
     await t.tap(find.byKey(const ValueKey('nav/donor/1')));
     await t.pumpAndSettle();
     expect(find.byKey(const ValueKey('figma/6:1087')), findsOneWidget);

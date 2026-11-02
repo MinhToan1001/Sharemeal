@@ -13,21 +13,9 @@ class DonorImpactReportPage extends StatelessWidget {
     final s = FigmaPrototypeScope.of(context).frontend;
     final period = s.get('impact.period', 'Tháng');
     final stats = s.impact(period);
-    final history = s.history
-        .where((e) =>
-            (e['daysAgo'] as num) <
-            (period == 'Tuần'
-                ? 7
-                : period == 'Tháng'
-                    ? 31
-                    : 366))
-        .toList();
-    final bars = List<num>.generate(
-        4,
-        (i) => history
-            .where(
-                (e) => ((e['daysAgo'] as num) / 7).floor().clamp(0, 3) == 3 - i)
-            .fold<num>(0, (n, e) => n + (e['quantity'] as num)));
+    final history = s.impactEntries(period).toList();
+    final bars = s.impactBars(period);
+    final labels = s.impactLabels(period);
     final maxValue = math.max(1, bars.reduce(math.max));
     Widget card(Widget child) => Container(
         padding: const EdgeInsets.all(16),
@@ -122,7 +110,7 @@ class DonorImpactReportPage extends StatelessWidget {
                                           'Suất đã chia sẻ',
                                           '${stats['meals']}'
                                         ),
-                                        ('Thực phẩm (kg)', '${stats['kg']}'),
+                                        ('Kg ước tính', '${stats['kg']}'),
                                         ('Đơn hoàn tất', '${stats['orders']}')
                                       ])
                                         Expanded(
@@ -178,7 +166,20 @@ class DonorImpactReportPage extends StatelessWidget {
                                                                       : mealGreen)))
                                                     ])))
                                     ]),
-                                    const SizedBox(height: 16),
+                                    const SizedBox(height: 12),
+                                    Text(
+                                        history.isEmpty
+                                            ? 'Chưa có đơn hoàn tất trong kỳ. ${s.orders.where((o) => ![
+                                                  'completed',
+                                                  'cancelled',
+                                                  'rejected'
+                                                ].contains(o.status)).length} đơn đang xử lý; suất chỉ được cộng sau xác nhận nhận hàng.'
+                                            : 'Tổng từ đơn đã hoàn tất trong kỳ. Khối lượng ước tính 0,5 kg/suất.',
+                                        style: const TextStyle(
+                                            fontSize: 12,
+                                            height: 1.4,
+                                            color: Color(0xFF687C74))),
+                                    const SizedBox(height: 12),
                                     card(Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -236,7 +237,8 @@ class DonorImpactReportPage extends StatelessWidget {
                                                                         height:
                                                                             8),
                                                                     Text(
-                                                                        'Tuần ${i + 1}',
+                                                                        labels[
+                                                                            i],
                                                                         style: const TextStyle(
                                                                             fontSize:
                                                                                 10,

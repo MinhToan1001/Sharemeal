@@ -188,9 +188,12 @@ class FrontendCollection extends StatelessWidget {
       final items = s.orders
           .where((o) => filter == 'completed'
               ? o.status == 'completed'
-              : filter == 'upcoming'
-                  ? ['assigned', 'pickedUp'].contains(o.status)
-                  : !['completed', 'cancelled', 'rejected'].contains(o.status))
+              : filter == 'awaiting'
+                  ? o.status == 'awaiting'
+                  : filter == 'upcoming'
+                      ? ['assigned', 'pickedUp'].contains(o.status)
+                      : !['completed', 'cancelled', 'rejected']
+                          .contains(o.status))
           .toList();
       return _list(items.map((o) {
         final food = s.foods.firstWhere((f) => f.id == o.foodId);
@@ -201,11 +204,25 @@ class FrontendCollection extends StatelessWidget {
             },
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(food.name, style: _title),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                SizedBox(width: 86, height: 86, child: FoodPhoto.listing(food)),
+                const SizedBox(width: 12),
+                Expanded(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                      Text(food.name, style: _title),
+                      const SizedBox(height: 8),
+                      Text('${o.quantity} suất · ${food.donor}'),
+                      const SizedBox(height: 6),
+                      Text('${o.time} · ${o.transport}',
+                          style: const TextStyle(
+                              fontSize: 12, color: Color(0xFF70847B))),
+                    ])),
+              ]),
               const SizedBox(height: 8),
-              Text('${o.quantity} suất · ${food.donor}'),
-              const SizedBox(height: 8),
-              Text('${o.id} · ${orderStatus(o.status)}',
+              Text(
+                  'Đơn ${o.id.length > 8 ? o.id.substring(o.id.length - 8) : o.id} · ${orderStatus(o.status)}',
                   style: const TextStyle(color: mealGreen)),
               const SizedBox(height: 12),
               LinearProgressIndicator(

@@ -118,7 +118,8 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
         '73:1144': food.storage,
         '73:1146': '${food.quantity} suất còn lại',
         '73:1148': food.name,
-        '73:1149': food.note,
+        '73:1149':
+            food.note.isEmpty ? 'Người cho chưa thêm ghi chú.' : food.note,
         '73:1151': 'Ngày đăng',
         '73:1152': timestamp(row['createdAt']),
         '73:1155': timestamp(row['expiresAt']),
@@ -618,6 +619,56 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
           .toList();
     }
     var control = commands[box.nodeId] ?? controls[box.nodeId] ?? box.control;
+    if (frame == '6:3712' && control['key'] == 'admin.queueFilter') {
+      final value = control['value'];
+      final count =
+          queue.where((r) => value == 'all' || r['role'] == value).length;
+      final label = value == 'all'
+          ? 'Tất cả'
+          : value == 'donor'
+              ? 'Người cho'
+              : 'Tổ chức';
+      control = {...control, 'label': '$label $count'};
+    }
+    if (frame == '6:1470' && box.nodeId == '6:1518') {
+      control = {
+        'kind': 'choice',
+        'key': 'orders.status',
+        'value': 'awaiting',
+        'initial': 'active',
+        'selectedBackground': 'rgb(0, 102, 66)',
+        'unselectedBackground': 'rgb(245, 248, 246)',
+        'selectedColor': 'rgb(255, 255, 255)',
+        'unselectedColor': 'rgb(18, 63, 50)'
+      };
+    }
+    if (frame == '6:1470' && control['key'] == 'orders.status') {
+      final value = control['value'];
+      final count = s.orders
+          .where((o) => value == 'completed'
+              ? o.status == 'completed'
+              : value == 'awaiting'
+                  ? o.status == 'awaiting'
+                  : !['completed', 'cancelled', 'rejected'].contains(o.status))
+          .length;
+      final label = value == 'completed'
+          ? 'Hoàn tất'
+          : value == 'awaiting'
+              ? 'Chờ duyệt'
+              : 'Đang xử lý';
+      control = {...control, 'label': '$label - $count'};
+    }
+    if (frame == '6:1282' && box.nodeId == '73:1165') {
+      control = {
+        ...control,
+        'enabledWhen': 'foodAvailable',
+        'label': food.quantity > 0 && food.status == 'open'
+            ? 'Gửi yêu cầu nhận'
+            : 'Hiện không còn suất trống',
+        'enabledBackground': 'rgb(0, 104, 72)',
+        'disabledBackground': 'rgb(197, 211, 203)'
+      };
+    }
     if (frame == '6:1573' && control['action'] == 'camera') {
       control = {...control, 'label': 'Ảnh nhận hàng bắt buộc (JPG/PNG)'};
     }

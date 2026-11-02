@@ -6,6 +6,8 @@ bool controlEnabled(FrontendState state, Map<String, dynamic> spec) {
     return false;
   }
   return switch (spec['enabledWhen']) {
+    'foodAvailable' =>
+      state.selectedFood.quantity > 0 && state.selectedFood.status == 'open',
     'licensePhoto' => state.get('license.photo', '').isNotEmpty,
     'facilityComplete' => state.facilityComplete,
     'commitmentComplete' => state.commitmentComplete,
