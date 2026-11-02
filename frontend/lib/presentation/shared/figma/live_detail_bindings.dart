@@ -139,10 +139,7 @@ abstract final class LiveDetailBindings {
           '65:1548':
               '${s.get('shift.date', s.calendarDate.toIso8601String().split('T').first)} · Ca đã đăng ký'
         },
-      '64:880' => {
-          'I64:899;60:567': '—',
-          'I64:903;60:567': '—'
-        },
+      '64:880' => {'I64:899;60:567': '—', 'I64:903;60:567': '—'},
       '6:2404' => {
           '6:2443': s.get('profile.name', ''),
           '6:2444': '${s.impact('Năm')['meals']} suất',
@@ -194,6 +191,9 @@ abstract final class LiveDetailBindings {
       if (frame == '6:2937')
         'Mã có hiệu lực thêm 09:42 - còn 3 lần thử':
             'Mã có hiệu lực 10 phút · tối đa 5 lần thử',
+      if (frame == '6:1573')
+        'Chụp ảnh hàng nhận được để lưu lại minh chứng':
+            'Ảnh nhận hàng bắt buộc (JPG/PNG)',
       if (frame == '6:1212')
         '6 kết quả trong bán kính 5 km - Gần nhất trước':
             '${s.searchFoods().length} món phù hợp',

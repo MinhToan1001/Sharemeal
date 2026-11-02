@@ -66,6 +66,23 @@ void main() {
     s.selectedOrder.status = 'completed';
     s.selectedOrder.received = 0;
     expect(computedText(s, 'receipt.quantity'), '0 suất');
+    s.set('receipt.photo', '/tmp/chosen.jpg');
+    final pending = Map<String, dynamic>.from(s.rows('orders').single)
+      ..addAll({
+        'status': 'pickedUp',
+        'receiptState': 'pending',
+        'qtyReceived': 9,
+        'received': 9,
+        'discrepancyNote': 'Đã ghi nhận thiếu một suất'
+      });
+    s.applyView({
+      ...s.snapshot,
+      'version': 2,
+      'orders': [pending]
+    });
+    expect(s.get('receipt.quantity', 10), 9);
+    expect(s.get('receipt.note', ''), 'Đã ghi nhận thiếu một suất');
+    expect(s.get('receipt.photo', ''), '/tmp/chosen.jpg');
     await t.pumpWidget(const SizedBox());
     s.dispose();
   });

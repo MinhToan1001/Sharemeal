@@ -572,6 +572,11 @@ abstract final class BackendActions {
         String? receiptNote;
         if (action == 'confirmReceipt') {
           final record = s.rows('orders').firstWhere((o) => o['id'] == id);
+          if (s.get('receipt.photo', '').isEmpty &&
+              '${record['receiptPhoto'] ?? ''}'.isEmpty) {
+            throw StateError(
+                'Hãy thêm ít nhất một ảnh nhận hàng trước khi hoàn tất.');
+          }
           final received = s.get('receipt.quantity', s.selectedOrder.quantity);
           if (record['receiptState'] != 'pending' &&
               (received != (record['qtyRequested'] ?? record['quantity']) ||

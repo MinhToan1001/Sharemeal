@@ -1,5 +1,7 @@
 ﻿# Nhóm E — Đối soát giao nhận và nhập kho
 
+Sau khi áp dụng F, xác nhận nhận hàng phải kèm ảnh; xem [kết quả F](GROUP_F_RESULT.md).
+
 Phạm vi: giữ giao diện hiện có, thêm tối thiểu hộp thoại số thực lấy/ghi chú
 và dòng Đặt / Lấy / Nhận trong trang theo dõi của người cho và tổ chức.
 Không thực hiện C, D, G, H, I, A trong nhóm này. F là commit kế tiếp.

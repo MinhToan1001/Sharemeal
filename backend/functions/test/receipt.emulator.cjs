@@ -70,3 +70,27 @@ test('delivery requires verified receipt PIN before intent',async()=>{
  await env.withSecurityRulesDisabled(c=>c.database().ref('demo/orders/o').update({deliveryConfirmed:true}));
  const p=await begin(d,'o',10,'');await credit(d,p);await finish(d,p);
 });
+test('F: missing/non-image evidence rejected in both branches, cannot erase saved receipt image',async()=>{
+ const d=db('org');
+ for(const transport of ['Tự đến lấy','Nhờ giao hộ']){
+  await seed();await env.withSecurityRulesDisabled(c=>c.database().ref('demo/orders/o').update({transport,deliveryConfirmed:true}));
+  const o=await read(d,'demo/orders/o');
+  for(const bad of [null,'','https://example.com/a.png','https://res.cloudinary.com/toanvip/image/upload/a.pdf']){
+   await assertFails(d.ref('demo/orders/o').set(intent(o,10,'',{receiptPhoto:bad})));
+  }
+ }
+ const o=await begin(d,'o',10,'');await credit(d,o);await finish(d,o);
+ await assertFails(d.ref('demo/orders/o/receiptPhoto').remove());
+});
+test('F: legacy pending E receipt can attach evidence without changing quantities or crediting twice',async()=>{
+ const pending=intent(order(),9,'Thiếu một suất');delete pending.receiptPhoto;
+ await env.withSecurityRulesDisabled(async c=>{
+  await c.database().ref('demo/orders/o').set(pending);
+  await c.database().ref('demo/inventory/org').set({received:9,distributed:0,receiptJournal:'|o:I|',lastReceivedOrderId:'o'});
+ });
+ const d=db('org');await assertFails(finish(d,pending));
+ await assertFails(d.ref('demo/orders/o').update({receiptPhoto:photo,received:10,qtyReceived:10}));
+ await d.ref('demo/orders/o/receiptPhoto').set(photo);
+ const fixed=await read(d,'demo/orders/o');await ticket(d,fixed);await credit(d,fixed);await finish(d,fixed);
+ assert.equal((await read(d,'demo/inventory/org')).received,9);
+});

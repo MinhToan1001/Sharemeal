@@ -5,6 +5,8 @@ extension _DirectOrderReceipt on BackendApi {
     if (o['status'] == 'completed' || o['receiptState'] != 'pending') return;
     await account('charity');
     require(o['organizationId'] == uid, 'Đơn không thuộc tổ chức của bạn.');
+    require(OrderReceiptProtocol.validPhoto('${o['receiptPhoto'] ?? ''}'),
+        'Hãy thêm ít nhất một ảnh nhận hàng JPG/PNG trước khi hoàn tất.');
     if (o['hasDiscrepancy'] == true) {
       final ticket = OrderReceiptProtocol.ticketId('${o['id']}');
       final ref = db.ref('demo/tickets/$ticket');

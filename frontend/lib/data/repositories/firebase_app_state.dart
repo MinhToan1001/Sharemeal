@@ -26,6 +26,22 @@ class FirebaseAppState extends FrontendState {
     }
     super.selectOrder(id);
     _savedReview();
+    _savedReceipt();
+  }
+
+  void _savedReceipt() {
+    final receipt = rows('orders')
+        .where(
+            (o) => o['id'] == selectedOrderId && o['receiptState'] == 'pending')
+        .firstOrNull;
+    if (receipt == null) return;
+    // Pending intent is already committed: reopening must show its frozen
+    // quantity/note, while preserving a newly chosen photo for legacy intents.
+    values['receipt.quantity'] = receipt['qtyReceived'] ?? receipt['received'];
+    values['receipt.note'] = receipt['discrepancyNote'] ?? '';
+    if (get('receipt.photo', '').isEmpty && receipt['receiptPhoto'] != null) {
+      values['receipt.photo'] = receipt['receiptPhoto'];
+    }
   }
 
   void _savedReview() {
@@ -215,6 +231,7 @@ class FirebaseAppState extends FrontendState {
           .toIso8601String();
     }
     _savedReview();
+    _savedReceipt();
     changed();
   }
 

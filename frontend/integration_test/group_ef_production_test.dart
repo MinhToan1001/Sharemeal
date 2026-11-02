@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:sharemeal/app/sharemeal_app.dart';
@@ -160,10 +161,26 @@ void main() {
               'note': 'Thiếu một suất'
             }),
             throwsA(anything));
+        await until(
+            () => org.rows('orders').any(
+                (o) => o['id'] == delivery && o['deliveryConfirmed'] == true),
+            'receipt ready');
+        org.selectOrder(delivery);
+        org.set('receipt.quantity', 9);
+        await mount('charity', '/user/organization/confirm-receipt');
+        await t.ensureVisible(find.text('Xác nhận đã nhận').first);
+        await t.tap(find.text('Xác nhận đã nhận').first);
+        await t.pump(const Duration(milliseconds: 500));
+        expect(
+            find.text('Hãy thêm ít nhất một ảnh nhận hàng trước khi hoàn tất.'),
+            findsOneWidget);
+        expect((await audit(delivery))['order']['receiptState'], isNull);
         final dir = await Directory.systemTemp.createTemp('sharemeal-ef-');
         final file = File('${dir.path}/receipt.png');
-        await file.writeAsBytes(base64Decode(
-            'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/l9sAAAAASUVORK5CYII='));
+        final bytes =
+            await rootBundle.load('assets/images/food/vegetables.png');
+        await file.writeAsBytes(
+            bytes.buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes));
         photo = await org.api.upload(file.path, 'proof');
         await control('/media', {'url': photo});
         await file.delete();
@@ -192,8 +209,10 @@ void main() {
       await t.tap(confirm.first);
       await t.pumpAndSettle();
       expect(find.text('Ghi chú chênh lệch số lượng'), findsWidgets);
-      await t.enterText(find.descendant(of: find.byType(AlertDialog),
-          matching: find.byType(TextField)), 'DEMO thiếu một suất thực nhận');
+      await t.enterText(
+          find.descendant(
+              of: find.byType(AlertDialog), matching: find.byType(TextField)),
+          'DEMO thiếu một suất thực nhận');
       await t.testTextInput.receiveAction(TextInputAction.done);
       await t.pump();
       await t.tap(find.widgetWithText(FilledButton, 'Lưu'));

@@ -618,6 +618,9 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
           .toList();
     }
     var control = commands[box.nodeId] ?? controls[box.nodeId] ?? box.control;
+    if (frame == '6:1573' && control['action'] == 'camera') {
+      control = {...control, 'label': 'Ảnh nhận hàng bắt buộc (JPG/PNG)'};
+    }
     if (box.nodeId == '6:140' && box.width <= 32 && control.isEmpty) {
       control = {'kind': 'action', 'action': 'back', 'label': 'Quay lại'};
     }
