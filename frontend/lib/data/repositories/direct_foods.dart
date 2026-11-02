@@ -45,7 +45,7 @@ extension _DirectFoods on BackendApi {
         'pickup': text(p['pickup'], 200),
         'allergens': p['allergens'] ?? <String>[],
         'note': p['note']?.toString() ?? '',
-        'photo': photo,
+        'photo': photos.isNotEmpty ? photos.first : photo,
         if (photos.isNotEmpty) 'photos': photos,
         'expiresAt': expiry!.toUtc().toIso8601String(),
         'expiresAtMs': expiry.millisecondsSinceEpoch,
@@ -57,6 +57,7 @@ extension _DirectFoods on BackendApi {
         if (p['latitude'] is num) 'latitude': p['latitude'],
         if (p['longitude'] is num) 'longitude': p['longitude'],
       };
+      if (photos.isEmpty) food.remove('photos');
       await db.ref('demo/foods/$key').set(food);
       return {'id': key};
     }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../../../data/repositories/firebase_app_state.dart';
+import '../../../domain/models/meal_models.dart';
 import '../../shared/figma/figma_prototype_controller.dart';
 import '../../shared/interaction/app_navigation.dart';
 import '../../shared/interaction/frontend_actions.dart';
@@ -157,10 +158,7 @@ class _AdminReviewContentState extends State<AdminReviewContent> {
             ]);
     }
     final urls = food
-        ? <String>{
-            if ('${row['photo'] ?? ''}'.isNotEmpty) '${row['photo']}',
-            ...List<String>.from(row['photos'] as List? ?? [])
-          }.toList()
+        ? FoodListing.photoUrls(row['photos'], '${row['photo'] ?? ''}')
         : List<String>.from(row['documents'] as List? ?? []);
     final labels = (d['documentLabels'] as Map?) ?? {};
     final pending = row['status'] == 'pending';
@@ -243,7 +241,7 @@ class _AdminReviewContentState extends State<AdminReviewContent> {
                     children: [
                       Text(
                           food
-                              ? 'Ảnh món ăn'
+                              ? 'Ảnh món ăn · ${urls.length} ảnh'
                               : 'Tài liệu xác minh · ${urls.length} tệp',
                           style: const TextStyle(
                               fontWeight: FontWeight.w600, color: mealInk)),

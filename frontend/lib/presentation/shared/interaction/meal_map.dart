@@ -23,13 +23,15 @@ class _MealMapState extends State<MealMap> {
   static final _cache = <String, LatLng>{};
   LatLng? _searched;
   bool _searching = false;
+  bool _mapReady = false;
+  String _lastAddress = '';
   @override
   void dispose() {
     _map.dispose();
     super.dispose();
   }
 
-  Future<void> search(String address) async {
+  Future<void> search(String address, {bool silent = false}) async {
     if (_searching || address.trim().isEmpty) return;
     final cached = _cache[address];
     if (cached != null) {
@@ -50,7 +52,7 @@ class _MealMapState extends State<MealMap> {
       _cache[address] = point;
       if (mounted) _select(point);
     } catch (e) {
-      if (mounted) {
+      if (mounted && !silent) {
         FrontendActions.message(
             context,
             e is StateError
@@ -64,7 +66,7 @@ class _MealMapState extends State<MealMap> {
 
   void _select(LatLng point) {
     setState(() => _searched = point);
-    _map.move(point, 16);
+    if (_mapReady) _map.move(point, 16);
     if (widget.editable) {
       final s = FigmaPrototypeScope.of(context).frontend;
       s.set('food.latitude', point.latitude);
@@ -83,6 +85,15 @@ class _MealMapState extends State<MealMap> {
         widget.editable ? s.values['food.latitude'] : s.selectedFood.latitude;
     final lon =
         widget.editable ? s.values['food.longitude'] : s.selectedFood.longitude;
+    if (_lastAddress != address) {
+      _lastAddress = address;
+      _searched = null;
+      if (!(lat is num && lon is num) && address.trim().isNotEmpty) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) search(address, silent: true);
+        });
+      }
+    }
     final point = lat is num && lon is num
         ? LatLng(lat.toDouble(), lon.toDouble())
         : _searched;
@@ -106,19 +117,34 @@ class _MealMapState extends State<MealMap> {
             child: Stack(children: [
               Positioned.fill(
                   child: FlutterMap(
+                      key: const ValueKey('map/street-preview'),
                       mapController: _map,
                       options: MapOptions(
                           initialCenter:
                               point ?? const LatLng(10.7769, 106.7009),
-                          initialZoom: point == null ? 12 : 15,
+                          initialZoom: 16,
                           maxZoom: 19,
-                          onTap: widget.editable ? (_, p) => _select(p) : null),
+                          interactionOptions: InteractionOptions(
+                              flags: widget.editable
+                                  ? InteractiveFlag.all
+                                  : InteractiveFlag.none),
+                          onMapReady: () {
+                            _mapReady = true;
+                            if (_searched != null) _map.move(_searched!, 16);
+                          },
+                          onTap: widget.editable
+                              ? (_, p) => _select(p)
+                              : (_, __) => open()),
                       children: [
                     TileLayer(
                         urlTemplate:
-                            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                            'https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
                         userAgentPackageName: 'com.example.sharemeal',
                         tileProvider: NetworkTileProvider(
+                            headers: {
+                              'User-Agent':
+                                  'ShareMeal-demo/1.0 (com.example.sharemeal)'
+                            },
                             cachingProvider: Platform.isAndroid
                                 ? BuiltInMapCachingProvider
                                     .getOrCreateInstance()
@@ -134,13 +160,21 @@ class _MealMapState extends State<MealMap> {
                             child: const Icon(Icons.location_pin,
                                 color: mealGreen, size: 42))
                       ]),
-                    RichAttributionWidget(attributions: [
-                      TextSourceAttribution('OpenStreetMap contributors',
-                          onTap: () => launchUrl(
-                              Uri.parse(
-                                  'https://www.openstreetmap.org/copyright'),
-                              mode: LaunchMode.externalApplication))
-                    ]),
+                    Align(
+                        alignment: Alignment.bottomRight,
+                        child: GestureDetector(
+                            onTap: () => launchUrl(
+                                Uri.parse(
+                                    'https://www.openstreetmap.org/copyright'),
+                                mode: LaunchMode.externalApplication),
+                            child: const ColoredBox(
+                                color: Colors.white70,
+                                child: Padding(
+                                    padding: EdgeInsets.all(3),
+                                    child: Text(
+                                        '© OpenStreetMap · HOT / OSM France',
+                                        style: TextStyle(
+                                            fontSize: 9, color: mealInk)))))),
                   ])),
               Positioned(
                   top: 8,

@@ -60,3 +60,7 @@ firebase-debug.log
 **/__pycache__/
 **/*.pyc
 /tooling/*-access.json
+
+# Local Kotlin compiler sessions and Android emulator launcher state
+/frontend/android/.kotlin/
+/tooling/ui-display-avd.json

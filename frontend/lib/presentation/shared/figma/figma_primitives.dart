@@ -29,6 +29,7 @@ import '../../user/volunteer/widgets/delivery_job_details.dart';
 import '../../admin/widgets/review_content.dart';
 import '../interaction/live_flow_pages.dart';
 import '../interaction/media_gallery.dart';
+import '../interaction/horizontal_options_strip.dart';
 
 double _number(dynamic value, [double fallback = 0]) =>
     value is num ? value.toDouble() : fallback;
@@ -286,7 +287,18 @@ class FigmaBox extends StatelessWidget {
   }
 
   Border? get _border {
-    final widths = style['borderWidths'] as List? ?? const [0, 0, 0, 0];
+    final widths = List<dynamic>.from(
+        style['borderWidths'] as List? ?? const [0, 0, 0, 0]);
+    // Exported page bars sometimes carry a full HTML border. In the design
+    // these are separators, not rectangular frames around the header/footer.
+    if (width >= 360 &&
+        height <= 200 &&
+        height >= 60 &&
+        _radius == BorderRadius.zero) {
+      widths[1] = widths[3] = 0;
+      if (y < 200) widths[0] = 0;
+      if (y > 550) widths[2] = 0;
+    }
     if (widths.every((v) => _number(v) == 0)) return null;
     final colors = style['borderColors'] as List? ?? const ['', '', '', ''];
     BorderSide side(int i) => BorderSide(
@@ -354,8 +366,138 @@ class FigmaBox extends StatelessWidget {
   }
 
   FigmaBox get _typographyLeaf {
-    if (text != null || children.isEmpty) return this;
-    return children.first._typographyLeaf;
+    if (text?.trim().isNotEmpty == true || children.isEmpty) return this;
+    FigmaBox? emptyText;
+    for (final child in children) {
+      final leaf = child._typographyLeaf;
+      if (leaf.text?.trim().isNotEmpty == true) return leaf;
+      if (leaf.text != null) emptyText ??= leaf;
+    }
+    return emptyText ?? this;
+  }
+
+  bool get _textGroup =>
+      asset == null &&
+      (text?.trim().isNotEmpty == true || children.isNotEmpty) &&
+      (text != null ||
+          (figmaColor(style['background']).a == 0 &&
+              _gradient == null &&
+              _border == null)) &&
+      [null, 'choiceLabel', 'enabledLabel'].contains(control['kind']) &&
+      children.every((c) => c._textGroup);
+
+  bool get _hasImage => asset != null || children.any((c) => c._hasImage);
+
+  double usedWidth(List<FigmaBox> boxes) =>
+      boxes.fold<double>(0, (sum, c) => sum + c.width) +
+      math.max(0, boxes.length - 1) *
+          _number(style['columnGap'], _number(style['gap']));
+
+  FigmaBox _withWidth(double value) => FigmaBox(
+      key: key,
+      nodeId: nodeId,
+      name: name,
+      tag: tag,
+      width: value,
+      height: height,
+      x: x,
+      y: y,
+      text: text,
+      asset: asset,
+      formLabel: formLabel,
+      fixedHeight: fixedHeight,
+      initiallyVisible: initiallyVisible,
+      style: style,
+      control: control,
+      children: _textGroup
+          ? [for (final c in children) c._withWidth(math.max(1, value - c.x))]
+          : children);
+
+  Offset get _translation {
+    final transform = '${style['transform'] ?? ''}';
+    if (!transform.startsWith('matrix(')) return Offset.zero;
+    final values = transform.substring(7, transform.length - 1).split(',');
+    return values.length == 6
+        ? Offset(double.tryParse(values[4].trim()) ?? 0,
+            double.tryParse(values[5].trim()) ?? 0)
+        : Offset.zero;
+  }
+
+  Widget _absoluteChild(
+      FigmaBox child, List<FigmaBox> siblings, double parentWidth) {
+    if (nodeId == '6:1399' && child.control['kind'] == 'input') {
+      // The exported second field extended 70 px outside the 402 px frame.
+      return Positioned(
+          left: child.control['key'] == 'need.before' ? 191 : 6,
+          top: child.y,
+          child: child._withWidth(173));
+    }
+    final left = child.x + child._translation.dx;
+    final top = child.y + child._translation.dy;
+    var right = parentWidth - _padding.right;
+    if (child._textGroup && child._translation.dx == 0) {
+      for (final sibling in siblings) {
+        if (identical(sibling, child) || sibling.tag == 'hotspot') continue;
+        final sx = sibling.x + sibling._translation.dx;
+        final sy = sibling.y + sibling._translation.dy;
+        if (sx > left && sy < top + child.height && sy + sibling.height > top) {
+          right = math.min(right, sx - 4);
+        }
+      }
+    }
+    final available = math.max(1.0, right - left);
+    final w = child._textGroup && child._translation.dx == 0
+        ? available
+        : child.width;
+    return Positioned(
+        left: child.nodeId == '6:1390' && nodeId == '6:1380' ? 207 : child.x,
+        top: child.y,
+        child: child.tag == 'hotspot' ? child : child._withWidth(w));
+  }
+
+  Widget _readableText(String value, TextStyle style, double availableWidth,
+      double availableHeight,
+      {TextAlign? align}) {
+    // A fixed text-node width from the export must never truncate a whole
+    // button label. Use the repaired parent width and fit only if necessary.
+    return LayoutBuilder(builder: (context, constraints) {
+      final w = math.max(1.0, math.min(availableWidth, constraints.maxWidth));
+      final lineHeight = (style.fontSize ?? 14) * (style.height ?? 1.21);
+      if (availableHeight < lineHeight * 1.65) {
+        // Slightly long single-line captions should fit horizontally, rather
+        // than wrapping once and then shrinking to half their intended size.
+        return FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: (align ?? textAlign) == TextAlign.center
+                ? Alignment.center
+                : (align ?? textAlign) == TextAlign.right
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
+            child: Text(value,
+                style: style,
+                textAlign: align ?? textAlign,
+                maxLines: 1,
+                softWrap: false));
+      }
+      final painter = TextPainter(
+          text: TextSpan(text: value, style: style),
+          textDirection: Directionality.of(context),
+          textAlign: align ?? textAlign)
+        ..layout(maxWidth: w);
+      final needsFit = painter.height > availableHeight + 1;
+      painter.dispose();
+      final label = Text(value,
+          style: style,
+          textAlign: align ?? textAlign,
+          softWrap: true,
+          overflow: TextOverflow.visible);
+      return needsFit
+          ? FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: SizedBox(width: w, child: label))
+          : label;
+    });
   }
 
   @override
@@ -376,8 +518,15 @@ class FigmaBox extends StatelessWidget {
     final vertical = style['direction'] == 'column';
     final scrollY =
         style['overflowY'] == 'auto' || style['overflowY'] == 'scroll';
-    final scrollX =
-        style['overflowX'] == 'auto' || style['overflowX'] == 'scroll';
+    final categoryStrip = !vertical &&
+        active.length > 1 &&
+        active.every((c) =>
+            c.control['kind'] == 'choice' &&
+            ['category', 'allergens', 'filter']
+                .any((key) => '${c.control['key']}'.contains(key)));
+    final scrollX = categoryStrip ||
+        style['overflowX'] == 'auto' ||
+        style['overflowX'] == 'scroll';
     final kind = control['kind'];
     final selected = controlSelected(controller.frontend, control);
     final enabled = controlEnabled(controller.frontend, control);
@@ -387,7 +536,32 @@ class FigmaBox extends StatelessWidget {
     final boxHeight = effectiveHeight;
 
     Widget content;
-    if (kind == 'boundRecords') {
+    final plainButton = ['action', 'choice'].contains(kind) &&
+        !['pickImage', 'camera', 'cameraNext', 'pickDocument']
+            .contains(control['action']) &&
+        width >= 60 &&
+        height >= 24 &&
+        height <= 64 &&
+        !_hasImage &&
+        _radius != BorderRadius.zero &&
+        _typographyLeaf.text != null;
+    if (plainButton) {
+      final label = '${control['label'] ?? _typographyLeaf.text ?? ''}';
+      var labelStyle = _typographyLeaf.textStyle;
+      if (kind == 'choice' && control.containsKey('selectedColor')) {
+        labelStyle = labelStyle.copyWith(
+            color: figmaColor(
+                control[selected ? 'selectedColor' : 'unselectedColor']));
+      } else if (control.containsKey('enabledWhen') && !enabled) {
+        labelStyle = labelStyle.copyWith(color: const Color(0xFF687C74));
+      }
+      content = Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+          child: Center(
+              child: _readableText(
+                  label, labelStyle, effectiveWidth - 20, boxHeight - 6,
+                  align: TextAlign.center)));
+    } else if (kind == 'boundRecords') {
       final rows = List<FigmaBox>.from(control['rows'] as List);
       content = ListView(children: [
         for (final row in rows)
@@ -581,15 +755,50 @@ class FigmaBox extends StatelessWidget {
       final s = controller.frontend;
       final photos = control['key'] == 'selected.photo'
           ? s.selectedFood.photos
-          : List<String>.from(s.values['food.photos'] as List? ?? []);
-      content = photos.length > 1
-          ? MediaGallery(urls: photos, height: math.max(60, boxHeight - 74))
-          : control['key'] == 'selected.photo'
-              ? FoodPhoto.listing(s.selectedFood)
-              : FoodPhoto(
-                  name: s.get('food.name', 'Cơm gà xối mỡ'),
-                  category: s.get('food.category', 'Cơm & món mặn'),
-                  photo: s.get('food.photo', ''));
+          : <String>{
+              if (s.get('food.photo', '').isNotEmpty) s.get('food.photo', ''),
+              ...List<String>.from(s.values['food.photos'] as List? ?? [])
+            }.toList();
+      content = photos.isEmpty &&
+              control['key'] == 'food.photo' &&
+              s is FirebaseAppState
+          ? InkWell(
+              onTap: () => FrontendActions.run(context, frame, {
+                    'kind': 'action',
+                    'action': 'pickImage',
+                    'key': 'food.photo'
+                  }),
+              child: const ColoredBox(
+                  color: Color(0xFFE5F1EB),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.add_photo_alternate_outlined,
+                            size: 42, color: mealGreen),
+                        SizedBox(height: 10),
+                        Text('Chọn 1–6 ảnh món ăn',
+                            style: TextStyle(color: mealGreen))
+                      ])))
+          : photos.length > 1
+              ? MediaGallery(urls: photos, height: boxHeight, compact: true)
+              : control['key'] == 'selected.photo'
+                  ? FoodPhoto.listing(s.selectedFood)
+                  : FoodPhoto(
+                      name: s.get('food.name', 'Cơm gà xối mỡ'),
+                      category: s.get('food.category', 'Cơm & món mặn'),
+                      photo: s.get('food.photo', ''));
+    } else if (control['action'] == 'pickImage' &&
+        control['key'] == 'food.photo') {
+      final count =
+          (controller.frontend.values['food.photos'] as List? ?? []).length;
+      content = Row(children: [
+        const Icon(Icons.add_photo_alternate_outlined,
+            color: mealGreen, size: 20),
+        const SizedBox(width: 8),
+        Expanded(
+            child: Text('Chọn / thêm nhiều ảnh ($count/6)',
+                style: const TextStyle(color: mealGreen, fontSize: 13)))
+      ]);
     } else if (['pickImage', 'camera', 'cameraNext']
             .contains(control['action']) &&
         controller.frontend
@@ -638,24 +847,15 @@ class FigmaBox extends StatelessWidget {
       if (style['whiteSpace'] == 'normal') {
         value = value.replaceAll(RegExp(r'[ \t\r\n]+'), ' ');
       }
-      content = Text(value,
-          style: kind == 'enabledLabel'
+      final labelStyle = kind == 'enabledLabel'
+          ? textStyle.copyWith(
+              color: enabled ? Colors.white : const Color(0xFF687C74))
+          : ['choiceLabel', 'choice'].contains(kind)
               ? textStyle.copyWith(
-                  color: enabled ? Colors.white : const Color(0xFF687C74))
-              : ['choiceLabel', 'choice'].contains(kind)
-                  ? textStyle.copyWith(
-                      color: figmaColor(control[
-                          selected ? 'selectedColor' : 'unselectedColor']))
-                  : textStyle,
-          textAlign: textAlign,
-          softWrap: !['nowrap', 'pre'].contains(style['whiteSpace']),
-          maxLines: math.max(
-              1,
-              (boxHeight / (textStyle.fontSize! * (textStyle.height ?? 1.21)))
-                  .floor()),
-          overflow: TextOverflow.ellipsis,
-          textHeightBehavior: const TextHeightBehavior(
-              leadingDistribution: TextLeadingDistribution.even));
+                  color: figmaColor(
+                      control[selected ? 'selectedColor' : 'unselectedColor']))
+              : textStyle;
+      content = _readableText(value, labelStyle, effectiveWidth, boxHeight);
     } else if (controller.bound(frame, nodeId, 'characters') != null) {
       // Figma text IDs sometimes belong to a vertical alignment wrapper, not
       // its exported <p>. Bind the displayed label, not only the leaf node.
@@ -667,26 +867,17 @@ class FigmaBox extends StatelessWidget {
                       ? 1
                       : -1,
               style['justify'] == 'center' ? 0 : -1),
-          child: Text(controller.bound(frame, nodeId, 'characters').toString(),
-              style: _typographyLeaf.textStyle,
-              textAlign: textAlign,
-              maxLines: math.max(
-                  1,
-                  (boxHeight /
-                          (_typographyLeaf.textStyle.fontSize! *
-                              (_typographyLeaf.textStyle.height ?? 1.21)))
-                      .floor()),
-              overflow: TextOverflow.ellipsis));
+          child: _readableText(
+              controller.bound(frame, nodeId, 'characters').toString(),
+              _typographyLeaf.textStyle,
+              effectiveWidth,
+              boxHeight));
     } else if (active.isNotEmpty &&
         active.every((c) => ['span', 'text', 'br'].contains(c.tag))) {
       content = Text.rich(_inlineSpan(controller, frame),
           textAlign: textAlign,
           softWrap: !['nowrap', 'pre'].contains(style['whiteSpace']),
-          maxLines: math.max(
-              1,
-              (boxHeight / (textStyle.fontSize! * (textStyle.height ?? 1.21)))
-                  .floor()),
-          overflow: TextOverflow.ellipsis,
+          overflow: TextOverflow.visible,
           textHeightBehavior: const TextHeightBehavior(
               leadingDistribution: TextLeadingDistribution.even));
     } else if (flex) {
@@ -705,7 +896,15 @@ class FigmaBox extends StatelessWidget {
                       ? child.layoutHeight(controller, frame)
                       : child.width)) +
           math.max(0, normal.length - 1) * gap;
-      final free = innerMain - used;
+      final textChildren = normal.where((c) => c._textGroup).toList();
+      final textTotal = textChildren.fold<double>(0, (sum, c) => sum + c.width);
+      final shareTextSpace = !vertical && !scrollX && textTotal > 0;
+      final textBudget = math.max(1.0, innerMain - (used - textTotal));
+      final free = shareTextSpace
+          ? 0.0
+          : scrollX
+              ? math.max(0.0, innerMain - used)
+              : innerMain - used;
       double cursor = switch (style['justify']) {
         'center' => free / 2,
         'flex-end' => free,
@@ -721,8 +920,13 @@ class FigmaBox extends StatelessWidget {
       };
       final positioned = <Widget>[];
       for (final child in normal) {
+        final childWidth = vertical && child._textGroup
+            ? math.max(1.0, effectiveWidth - _padding.horizontal)
+            : shareTextSpace && child._textGroup
+                ? child.width * textBudget / textTotal
+                : child.width;
         final crossFree = vertical
-            ? effectiveWidth - _padding.horizontal - child.width
+            ? effectiveWidth - _padding.horizontal - childWidth
             : boxHeight -
                 _padding.vertical -
                 child.layoutHeight(controller, frame);
@@ -734,21 +938,27 @@ class FigmaBox extends StatelessWidget {
         positioned.add(Positioned(
             left: _padding.left + (vertical ? cross : cursor),
             top: _padding.top + (vertical ? cursor : cross),
-            child: child));
+            child: child._withWidth(childWidth)));
         cursor +=
-            (vertical ? child.layoutHeight(controller, frame) : child.width) +
+            (vertical ? child.layoutHeight(controller, frame) : childWidth) +
                 gap +
                 extraGap;
       }
       content = Stack(clipBehavior: Clip.none, children: [
         ...positioned,
         for (final child in absolute)
-          Positioned(left: child.x, top: child.y, child: child),
+          if (scrollX)
+            Positioned(left: child.x, top: child.y, child: child)
+          else
+            _absoluteChild(child, absolute, effectiveWidth),
       ]);
     } else {
       content = Stack(clipBehavior: Clip.none, children: [
         for (final child in active)
-          Positioned(left: child.x, top: child.y, child: child),
+          if (scrollX)
+            Positioned(left: child.x, top: child.y, child: child)
+          else
+            _absoluteChild(child, active, effectiveWidth),
       ]);
     }
 
@@ -762,6 +972,9 @@ class FigmaBox extends StatelessWidget {
                     0, (v, c) => v + c.layoutHeight(controller, frame)) +
                 math.max(0, normal.length - 1) * _number(style['gap']) +
                 _padding.vertical);
+      } else if (flex && !vertical) {
+        extentW =
+            math.max(effectiveWidth, usedWidth(normal) + _padding.horizontal);
       } else {
         for (final child in active) {
           extentH = math.max(
@@ -769,12 +982,19 @@ class FigmaBox extends StatelessWidget {
           extentW = math.max(extentW, child.x + child.width);
         }
       }
-      content = SingleChildScrollView(
-          scrollDirection: scrollY ? Axis.vertical : Axis.horizontal,
-          child: SizedBox(
-              width: scrollX ? extentW : effectiveWidth,
-              height: scrollY ? extentH : boxHeight,
-              child: content));
+      final scrollContent = SizedBox(
+          width: scrollX ? extentW : effectiveWidth,
+          height: scrollY ? extentH : boxHeight,
+          child: content);
+      content = categoryStrip
+          ? HorizontalOptionsStrip(
+              scrollKey: ValueKey('figma/scroll-x/$nodeId'),
+              child: scrollContent)
+          : SingleChildScrollView(
+              key: ValueKey('figma/scroll-${scrollY ? 'y' : 'x'}/$nodeId'),
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: scrollY ? Axis.vertical : Axis.horizontal,
+              child: scrollContent);
     }
 
     final gradientColors = _gradientColors;

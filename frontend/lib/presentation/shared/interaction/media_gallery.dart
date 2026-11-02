@@ -9,15 +9,17 @@ class MediaGallery extends StatefulWidget {
       {super.key,
       required this.urls,
       this.labels = const [],
-      this.height = 220});
+      this.height = 220,
+      this.compact = false});
   final List<String> urls, labels;
   final double height;
+  final bool compact;
   @override
   State<MediaGallery> createState() => _MediaGalleryState();
 }
 
 class _MediaGalleryState extends State<MediaGallery> {
-  final _pages = PageController();
+  final _pages = PageController(keepPage: false);
   int _index = 0;
   @override
   void dispose() {
@@ -111,17 +113,36 @@ class _MediaGalleryState extends State<MediaGallery> {
                               curve: Curves.easeOut)
                           : null,
                       icon: const Icon(Icons.chevron_right))),
-            ]
+            ],
+            if (widget.compact)
+              Positioned(
+                  bottom: 8,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                      child: DecoratedBox(
+                          decoration: BoxDecoration(
+                              color: Colors.black54,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 4),
+                              child: Text(
+                                  '${current + 1}/${widget.urls.length} · Chạm để phóng to',
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 11))))))
           ])),
-      const SizedBox(height: 8),
-      Text('${current + 1}/${widget.urls.length} · ${label(current)}',
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-              color: mealInk, fontSize: 13, fontWeight: FontWeight.w600)),
-      TextButton.icon(
-          onPressed: () => showFull(current),
-          icon: const Icon(Icons.zoom_in, size: 18),
-          label: const Text('Phóng to / mở tài liệu')),
+      if (!widget.compact) ...[
+        const SizedBox(height: 8),
+        Text('${current + 1}/${widget.urls.length} · ${label(current)}',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                color: mealInk, fontSize: 13, fontWeight: FontWeight.w600)),
+        TextButton.icon(
+            onPressed: () => showFull(current),
+            icon: const Icon(Icons.zoom_in, size: 18),
+            label: const Text('Phóng to / mở tài liệu')),
+      ]
     ]);
   }
 }

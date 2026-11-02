@@ -238,13 +238,23 @@ abstract final class FrontendActions {
         case 'camera':
         case 'cameraNext':
           if (action == 'pickImage' && key == 'food.photo') {
-            final selected = await ImagePicker()
-                .pickMultiImage(imageQuality: 85, maxWidth: 1600);
-            if (selected.isEmpty) break;
             final photos =
                 List<String>.from(s.values['food.photos'] as List? ?? []);
             final existing = s.get('food.photo', '');
             if (photos.isEmpty && existing.isNotEmpty) photos.add(existing);
+            final remaining = 6 - photos.length;
+            final selected = <XFile>[];
+            if (remaining > 1) {
+              selected.addAll(await ImagePicker().pickMultiImage(
+                  imageQuality: 85, maxWidth: 1600, limit: remaining));
+            } else if (remaining == 1) {
+              final image = await ImagePicker().pickImage(
+                  source: ImageSource.gallery,
+                  imageQuality: 85,
+                  maxWidth: 1600);
+              if (image != null) selected.add(image);
+            }
+            if (remaining > 0 && selected.isEmpty) break;
             final dir = await getApplicationDocumentsDirectory();
             for (final image in selected.take(6 - photos.length)) {
               final dest =

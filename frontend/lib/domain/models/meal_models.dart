@@ -1,4 +1,18 @@
 class FoodListing {
+  static List<String> photoUrls(dynamic value, [String cover = '']) {
+    final items = value is Map
+        ? (value.keys.toList()..sort((a, b) => '$a'.compareTo('$b')))
+            .map((key) => value[key])
+        : value is Iterable
+            ? value
+            : const [];
+    return <String>{
+      if (cover.trim().isNotEmpty) cover.trim(),
+      for (final item in items)
+        if (item is String && item.trim().isNotEmpty) item.trim()
+    }.toList();
+  }
+
   FoodListing(
       {required this.id,
       required this.name,
@@ -67,8 +81,8 @@ class FoodListing {
       distance: (j['distance'] as num?)?.toDouble() ?? 0,
       address: j['address'],
       pickup: j['pickup'],
-      photo: j['photo'] ?? '',
-      photos: List<String>.from(j['photos'] ?? []),
+      photo: photoUrls(j['photos'], '${j['photo'] ?? ''}').firstOrNull ?? '',
+      photos: photoUrls(j['photos'], '${j['photo'] ?? ''}'),
       note: j['note'] ?? '',
       latitude: (j['latitude'] as num?)?.toDouble(),
       longitude: (j['longitude'] as num?)?.toDouble(),

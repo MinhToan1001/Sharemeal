@@ -29,7 +29,8 @@ void main() {
     await tester.runAsync(() async {
       final image = await boundary.toImage();
       final data = await image.toByteData(format: ui.ImageByteFormat.rawRgba);
-      final offset = (120 * image.width + 50) * 4;
+      // Sample empty card fill; readable labels may now paint at the old point.
+      final offset = (110 * image.width + 40) * 4;
       expect(data!.buffer.asUint8List().sublist(offset, offset + 4),
           [0, 102, 66, 255]);
       image.dispose();

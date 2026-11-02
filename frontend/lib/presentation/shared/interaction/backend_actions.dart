@@ -462,18 +462,29 @@ abstract final class BackendActions {
             expiry = DateTime(now.year, now.month, now.day, int.parse(time[1]!),
                 int.parse(time[2]!));
         var photo = s.get('food.photo', edit ? f.photo : '');
+        if ((s.values['food.photos'] as List? ?? (edit ? f.photos : []))
+                .isEmpty &&
+            photo.isEmpty) {
+          throw StateError(
+              'Hãy chọn ít nhất một ảnh món ăn để admin kiểm tra.');
+        }
         if ((s.values['food.photos'] as List? ?? []).isEmpty &&
             photo.isNotEmpty &&
             !photo.startsWith('https://res.cloudinary.com/')) {
           photo = await s.api.upload(photo, 'food');
         }
         final photos = <String>[];
-        for (final path in List<String>.from(
-            s.values['food.photos'] as List? ?? (edit ? f.photos : []))) {
+        final pendingPhotos = List<String>.from(
+            s.values['food.photos'] as List? ?? (edit ? f.photos : []));
+        for (var i = 0; i < pendingPhotos.length; i++) {
+          final path = pendingPhotos[i];
           final url = path.startsWith('https://res.cloudinary.com/')
               ? path
               : await s.api.upload(path, 'food');
           if (!photos.contains(url)) photos.add(url);
+          pendingPhotos[i] = url;
+          s.set('food.photos', List<String>.from(pendingPhotos));
+          s.set('food.photo', pendingPhotos.first);
         }
         if (photos.isNotEmpty) photo = photos.first;
         if (photos.isEmpty && photo.isNotEmpty) photos.add(photo);
