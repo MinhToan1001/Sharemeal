@@ -51,7 +51,6 @@ abstract final class FirebaseActions {
       }
     }
 
-    Future<void> next() => c.trigger(context, frame, spec['source'] as String?);
     Future<String> uploadPhoto(String key, String folder) async {
       var photo = s.get(key, '');
       if (photo.isNotEmpty &&
@@ -620,8 +619,13 @@ abstract final class FirebaseActions {
           if (action == 'confirmReceipt')
             'note': receiptNote ?? s.get('receipt.note', ''),
         });
-        if (action == 'acceptJob' || action == 'confirmReceipt') {
-          await next();
+        if (action == 'acceptJob') {
+          s.selectOrder(id);
+          s.set('jobs.scope', 'mine');
+          message('Đã nhận chuyến. Hãy đến người cho để xác nhận lấy hàng.');
+          go('/user/volunteer/job-detail');
+        } else if (action == 'confirmReceipt') {
+          go('/user/organization/order-tracking');
         } else {
           if (action == 'acceptOrder') {
             s.selectOrder(id);
@@ -640,7 +644,7 @@ abstract final class FirebaseActions {
           'time': s.get('pickup.time', '19:30'),
           'note': s.get('pickup.note', '')
         });
-        await next();
+        go('/user/donor/match-success');
         return true;
       case 'confirmPickup':
       case 'verifyPin':
@@ -660,7 +664,7 @@ abstract final class FirebaseActions {
         if (s.role == 'charity') {
           go('/user/organization/confirm-receipt');
         } else {
-          await next();
+          go('/user/volunteer/job-detail');
         }
         return true;
       case 'renewCode':

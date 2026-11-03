@@ -405,7 +405,9 @@ class OrderTrackingContent extends StatelessWidget {
           Text('${f.donor} → ${o.organization}',
               style: const TextStyle(color: mealInk)),
           const SizedBox(height: 16),
-          const SizedBox(height: 210, child: MealMap()),
+          const ExpansionTile(
+              title: Text('Xem vị trí điểm lấy trên bản đồ'),
+              children: [SizedBox(height: 210, child: MealMap())]),
           const SizedBox(height: 16),
           _card(Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const Text('Tiến trình đơn nhận',
@@ -441,7 +443,7 @@ class OrderTrackingContent extends StatelessWidget {
           ])),
           _card(Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             SizedBox(
-                height: 160,
+                height: 92,
                 width: double.infinity,
                 child: FoodPhoto.listing(f)),
             const SizedBox(height: 12),
@@ -464,7 +466,7 @@ class OrderTrackingContent extends StatelessWidget {
             if (o.status == 'accepted' && !self)
               button('Xem tình trạng tìm người giao',
                   () => go('/user/organization/awaiting-courier')),
-            if (o.status == 'pickedUp' && !self)
+            if (o.status == 'pickedUp' && !self && record['deliveryConfirmed'] != true)
               button('Mã xác nhận nhận hàng',
                   () => go('/user/organization/receipt-code')),
             if (o.status == 'pickedUp' &&
@@ -474,9 +476,47 @@ class OrderTrackingContent extends StatelessWidget {
             if (o.status == 'completed')
               button(
                   'Gửi lời cảm ơn', () => go('/user/organization/thank-you')),
-          ] else if (s.role == 'donor' &&
-              ['accepted', 'assigned'].contains(o.status))
-            button('Xem mã bàn giao', () => go('/user/donor/handover-qr')),
+          ] else if (s.role == 'donor') ...[
+            if (o.status == 'accepted' && !self)
+              const Padding(
+                  padding: EdgeInsets.only(bottom: 16),
+                  child: Text('Đang chờ tình nguyện viên nhận chuyến. Khi người lấy tới, kiểm đếm rồi đưa mã lấy hàng.')),
+            if (o.status == 'assigned' || o.status == 'accepted' && self)
+              button('Mã lấy hàng tại người cho',
+                  () => go('/user/donor/handover-qr')),
+          ] else if (s.role == 'volunteer') ...[
+            if (o.status == 'accepted')
+              button('Nhận chuyến', () => go('/user/volunteer/accept-job')),
+            if (o.status == 'assigned') ...[
+              const Padding(
+                  padding: EdgeInsets.only(bottom: 12),
+                  child: Text('Bước 1 · Đến điểm lấy của người cho, kiểm đếm và xin mã lấy hàng.')),
+              button('Xác nhận lấy hàng từ người cho', () {
+                FigmaPrototypeScope.of(context).values['VariableID:80:1182'] = 'pickup';
+                go('/shared/handover-scanner');
+              }),
+            ],
+            if (o.status == 'pickedUp') ...[
+              button('Ảnh thực phẩm lúc lấy',
+                  () => go('/user/volunteer/pickup-photo')),
+              if (record['deliveryConfirmed'] != true) ...[
+                const Padding(
+                    padding: EdgeInsets.only(bottom: 12),
+                    child: Text('Bước 2 · Vận chuyển đến tổ chức. Đối chiếu địa chỉ giao qua chat; khi tới nơi, xin mã nhận hàng từ tổ chức.')),
+                button('Xác nhận giao hàng tại tổ chức', () {
+                  FigmaPrototypeScope.of(context).values['VariableID:80:1182'] = 'recipient';
+                  go('/shared/handover-scanner');
+                }),
+              ] else
+                const Padding(
+                    padding: EdgeInsets.only(bottom: 16),
+                    child: Text('Đã xác nhận mã nhận hàng. Chờ tổ chức chụp ảnh, ghi số thực nhận và hoàn tất nhập kho.')),
+            ],
+            button('Chuyến của tôi', () {
+              s.set('jobs.scope', 'mine');
+              go('/user/volunteer/available-jobs');
+            }),
+          ],
           if (['awaiting', 'accepted', 'assigned'].contains(o.status) &&
               (s.role == 'admin' ||
                   [record['donorId'], record['organizationId']]
@@ -508,6 +548,20 @@ class OrderTrackingContent extends StatelessWidget {
           button('Nhắn tin về đơn nhận', () => go('/shared/chat')),
           button('Báo vấn đề / Yêu cầu hỗ trợ',
               () => go('/shared/report-discrepancy')),
+          if (s.orders.any((other) => other.foodId == o.foodId && other.id != o.id)) ...[
+            const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12),
+                child: Text('Các đơn khác cùng tin',
+                    style: TextStyle(fontWeight: FontWeight.w700))),
+            for (final other in s.orders.where((other) =>
+                other.foodId == o.foodId && other.id != o.id &&
+                (s.role != 'volunteer' || s.rows('orders').any((row) =>
+                    row['id'] == other.id && row['volunteerId'] == s.user?.uid))))
+              OutlinedButton(
+                  key: ValueKey('order/switch/${other.id}'),
+                  onPressed: () => s.selectOrder(other.id),
+                  child: Text('${other.quantity} suất · ${other.id} · ${other.status}')),
+          ],
           const SizedBox(height: 4),
           SelectableText('Mã đơn: ${o.id}',
               style: const TextStyle(fontSize: 11, color: Color(0xFF687C74)))

@@ -6,7 +6,8 @@ import '../controllers/firebase_app_state.dart';
 import 'handover_confirmation.dart';
 
 class HandoverScanner extends StatefulWidget {
-  const HandoverScanner({super.key});
+  const HandoverScanner({super.key, this.onVerified});
+  final VoidCallback? onVerified;
   @override
   State<HandoverScanner> createState() => _HandoverScannerState();
 }
@@ -73,6 +74,7 @@ class _HandoverScannerState extends State<HandoverScanner> {
                         if (context.mounted) {
                           FrontendActions.message(
                               context, 'Đã đối chiếu đúng mã bàn giao.');
+                          widget.onVerified?.call();
                         }
                       } catch (e) {
                         _accepted = false;

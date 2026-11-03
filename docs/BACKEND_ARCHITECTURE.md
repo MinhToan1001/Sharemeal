@@ -52,6 +52,10 @@ Món và nhu cầu: `pending → open / rejected`; sửa nội dung trở lại 
 
 Đơn: `awaiting → accepted → assigned → pickedUp → completed`. Tự đến lấy bỏ qua assigned. Có nhánh rejected và cancelled trước lấy hàng. Giao hộ cần xác nhận mã nhận trước completed.
 
+Cùng một tổ chức có thể gửi đơn bổ sung cho món còn suất sau khi yêu cầu trước đã được chấp nhận. Chỉ chặn yêu cầu trùng khi vẫn còn một đơn `awaiting` của tổ chức đó cho cùng món. Ví dụ tin 9 suất, đơn 7 được chấp nhận thì còn 2 suất để tạo đơn mới; mỗi đơn vẫn có mã riêng và phải được người cho xét riêng.
+
+Tình nguyện viên mở lại các đơn của mình qua `Việc giao → Chuyến của tôi`. Mã `pickup` do người cho tạo và người lấy xác nhận ở điểm lấy; mã `receipt` do tổ chức tạo và tình nguyện viên xác nhận tại điểm giao. Xác nhận `receipt` đặt `deliveryConfirmed`, còn tổ chức phải ghi số thực nhận và ảnh nhận hàng để hoàn tất nhập kho. Luồng live dùng trạng thái Firebase để điều hướng, không chạy lại nhánh phê duyệt của prototype sau khi nhận chuyến.
+
 Số suất hiển thị = quantity − reserved. Chấp nhận/hủy dùng một update nhiều vị trí cho đơn và số đã giữ; Rules đối chiếu thay đổi trước/sau và số suất của đơn, chặn cập nhật theo số cũ khi có tranh chấp. Nhận chuyến cập nhật nguyên tử người giao, trạng thái và quyền đọc món; Rules chỉ cho nhận khi trạng thái hiện tại còn accepted và chưa có người giao. Nhập kho/phân phát dùng update nguyên tử kèm mã đơn/giao dịch, Rules kiểm tra tổng và tồn. Khi thao tác cạnh tranh bị từ chối, làm mới dữ liệu và thao tác lại.
 
 Mã bàn giao nằm ngoài cây dữ liệu được truy vấn chung, có hạn 10 phút, tối đa 5 lần nhập mỗi mã, dùng một lần. Bản demo kiểm tra PIN bằng RTDB Rules và quyền các bên; không dùng máy chủ ký mã.

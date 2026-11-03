@@ -32,8 +32,8 @@ extension _DirectOrders on ShareMealClient {
           !existing.any((o) =>
               o['foodId'] == f['id'] &&
               o['organizationId'] == uid &&
-              !['cancelled', 'rejected', 'completed'].contains(o['status'])),
-          'Bạn đã có yêu cầu đang xử lý cho món này.');
+              o['status'] == 'awaiting'),
+          'Bạn đã có yêu cầu chờ người cho phản hồi cho món này. Hãy xử lý yêu cầu đó trước khi gửi thêm.');
       require(['Nhờ giao hộ', 'Tự đến lấy'].contains(p['transport']),
           'Chọn phương thức nhận.');
       final key = id();

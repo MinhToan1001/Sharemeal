@@ -69,8 +69,15 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
           {'key': 'supplement.file', 'label': 'Chọn tài liệu bổ sung'});
     case '6:319':
       final assigned = activeOrders
-          .where((o) => ['assigned', 'pickedUp'].contains(o.status))
+          .where((o) => ['accepted', 'assigned', 'pickedUp'].contains(o.status))
           .firstOrNull;
+      action('66:1229', 'route', {'route': '/user/donor/my-listings'});
+      action('66:1233', 'route', {'route': '/user/donor/incoming-requests'});
+      action('66:1239', 'route', {'route': '/user/donor/incoming-requests'});
+      action('66:1247', assigned == null ? 'route' : 'openOrder',
+          assigned == null
+              ? {'route': '/user/donor/my-listings'}
+              : {'id': assigned.id, 'route': '/user/donor/order-tracking'});
       text.addAll({
         '66:1218': s.get('profile.name', ''),
         '66:1219': 'Người cho · ${status(s.profile['verificationStatus'])}',
@@ -78,7 +85,7 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
             '${s.foods.where((f) => f.mine && f.status == 'open').length} tin đang mở',
         '66:1251': assigned == null
             ? 'Chưa có chuyến đang giao'
-            : '${s.foods.where((f) => f.id == assigned.foodId).firstOrNull?.name ?? ''} · ${assigned.driver}',
+            : '${s.foods.where((f) => f.id == assigned.foodId).firstOrNull?.name ?? ''} · ${assigned.transport == 'Tự đến lấy' ? 'Tổ chức tự lấy' : assigned.driver.isEmpty ? 'Chờ tình nguyện viên' : assigned.driver}',
         '66:1252':
             assigned == null ? 'Chuyến mới sẽ hiển thị tại đây' : assigned.time
       });
@@ -176,9 +183,22 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
         '65:1399': '${s.warehouseBalance} suất'
       });
     case '6:1737':
-      final job = s.orders
+      final mine = s.rows('orders').where((o) =>
+          o['volunteerId'] == s.user?.uid &&
+          ['assigned', 'pickedUp'].contains(o['status']));
+      final activeJob = s.orders
+          .where((o) => mine.any((row) => row['id'] == o.id))
+          .firstOrNull;
+      final job = activeJob ?? s.orders
           .where((o) => o.status == 'accepted' && o.transport == 'Nhờ giao hộ')
           .firstOrNull;
+      action('66:1585', job == null ? 'route' : 'openOrder',
+          job == null
+              ? {'route': '/user/volunteer/available-jobs'}
+              : {'id': job.id, 'route': '/user/volunteer/job-detail'});
+      text['66:1586'] = activeJob == null
+          ? 'Xem tuyến & nhận chuyến'
+          : 'Tiếp tục chuyến của tôi';
       final jobFood = s.foods.where((f) => f.id == job?.foodId).firstOrNull;
       text.addAll({
         '66:1537': '${s.get('profile.name', '')} · Tình nguyện viên',

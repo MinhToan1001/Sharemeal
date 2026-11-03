@@ -126,6 +126,8 @@ Sharemeal/
 
 Chiều phụ thuộc: **frontend → sharemeal_client → Firebase/Cloudinary**. Mã backend client không import giao diện. Xem [kiến trúc mã nguồn](docs/ARCHITECTURE.md), [kiến trúc dữ liệu](docs/BACKEND_ARCHITECTURE.md) và [quy trình sử dụng](docs/Huong_dan_quy_trinh_ShareMeal.docx).
 
+Báo cáo workflow và kịch bản kiểm tra 9 suất, nhận 7 rồi xin thêm 2: [Báo cáo workflow ShareMeal](docs/Bao_cao_workflow_ShareMeal.docx). Báo cáo phân biệt mã lấy hàng từ người cho, mã nhận hàng tại tổ chức và bước hoàn tất nhập kho.
+
 ## 7. Lỗi thường gặp
 
 | Hiện tượng | Cách xử lý |

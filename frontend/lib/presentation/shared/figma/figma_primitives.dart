@@ -28,6 +28,7 @@ import '../../user/volunteer/widgets/delivery_jobs_content.dart';
 import '../../user/volunteer/widgets/delivery_job_details.dart';
 import '../../admin/widgets/review_content.dart';
 import '../interaction/live_flow_pages.dart';
+import '../interaction/live_handover_pages.dart';
 import '../interaction/media_gallery.dart';
 import '../interaction/horizontal_options_strip.dart';
 
@@ -65,28 +66,10 @@ class FigmaScreen extends StatefulWidget {
 class _FigmaScreenState extends State<FigmaScreen> {
   Timer? _timer;
   bool _scheduled = false;
-  String _codeOrder = '';
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final state = FigmaPrototypeScope.of(context).frontend;
-    if (state is FirebaseAppState &&
-        ['6:843', '65:1098'].contains(widget.frameId) &&
-        state.selectedOrderId.isNotEmpty &&
-        _codeOrder != state.selectedOrderId) {
-      _codeOrder = state.selectedOrderId;
-      WidgetsBinding.instance.addPostFrameCallback((_) async {
-        try {
-          await state
-              .loadHandover(widget.frameId == '6:843' ? 'pickup' : 'receipt');
-        } catch (e) {
-          if (mounted) {
-            FrontendActions.message(context, FirebaseAppState.readableError(e));
-          }
-        }
-      });
-    }
     if (_scheduled || !widget.timeoutsEnabled) return;
     _scheduled = true;
     final controller = FigmaPrototypeScope.of(context);
@@ -123,7 +106,16 @@ class _FigmaScreenState extends State<FigmaScreen> {
       }
       if (widget.frameId == '6:1333') return const RequestFoodContent();
       if (widget.frameId == '6:2352') return const ChatContent();
-      if (['6:1525', '6:661'].contains(widget.frameId)) {
+      if (widget.frameId == '6:3567') return const MatchSuccessContent();
+      if (['6:843', '65:1098'].contains(widget.frameId)) {
+        return HandoverCodeContent(
+            stage: widget.frameId == '6:843' ? 'pickup' : 'receipt');
+      }
+      if (['65:1068', '6:2937'].contains(widget.frameId)) {
+        return const HandoverVerificationContent();
+      }
+      if (['6:1525', '6:661', '6:1890', '6:1971', '6:2064', '65:1126']
+          .contains(widget.frameId)) {
         return const OrderTrackingContent();
       }
     }

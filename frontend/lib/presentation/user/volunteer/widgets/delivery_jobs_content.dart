@@ -3,6 +3,7 @@ import '../../../shared/figma/figma_prototype_controller.dart';
 import '../../../shared/interaction/app_navigation.dart';
 import '../../../shared/interaction/food_photo.dart';
 import '../../../shared/interaction/meal_map.dart';
+import '../../../shared/controllers/firebase_app_state.dart';
 
 class DeliveryJobsContent extends StatelessWidget {
   const DeliveryJobsContent({super.key});
@@ -11,9 +12,18 @@ class DeliveryJobsContent extends StatelessWidget {
     final s = FigmaPrototypeScope.of(context).frontend;
     final filter = s.get('jobs.filter', 'Gần nhất');
     final map = s.get('jobs.view', 'Danh sách') == 'Bản đồ';
+    final ownIds = s is FirebaseAppState
+        ? s.rows('orders').where((o) => o['volunteerId'] == s.user?.uid).map((o) => '${o['id']}').toSet()
+        : s.orders.where((o) => ['assigned', 'pickedUp', 'completed'].contains(o.status)).map((o) => o.id).toSet();
+    final own = s.orders.where((o) => ownIds.contains(o.id) && !['cancelled', 'rejected'].contains(o.status)).toList();
+    final scope = s.get('jobs.scope', s is FirebaseAppState && own.any((o) => o.status != 'completed') ? 'mine' : 'available');
     final jobs = s.orders
-        .where((o) => o.status == 'accepted' && o.transport != 'Tự đến lấy')
+        .where((o) => scope == 'mine'
+            ? own.contains(o)
+            : o.status == 'accepted' && o.transport == 'Nhờ giao hộ')
+        .where((o) => s.foods.any((f) => f.id == o.foodId))
         .where((o) {
+      if (scope == 'mine') return true;
       final food = s.foods.firstWhere((f) => f.id == o.foodId);
       return filter == 'Có tủ Lạnh'
           ? food.storage == 'Để lạnh'
@@ -50,7 +60,17 @@ class DeliveryJobsContent extends StatelessWidget {
                   Icon(Icons.map_outlined, size: 20)
                 ]),
           ])),
-      SizedBox(
+      Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Wrap(spacing: 10, children: [
+            ChoiceChip(key: const ValueKey('jobs/available'),
+                label: const Text('Chờ nhận'), selected: scope == 'available',
+                onSelected: (_) => s.set('jobs.scope', 'available')),
+            ChoiceChip(key: const ValueKey('jobs/mine'),
+                label: Text('Chuyến của tôi (${own.length})'), selected: scope == 'mine',
+                onSelected: (_) => s.set('jobs.scope', 'mine'))
+          ])),
+      if (scope != 'mine') SizedBox(
           height: 52,
           child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -81,7 +101,7 @@ class DeliveryJobsContent extends StatelessWidget {
               const MealMap(height: 260),
               const SizedBox(height: 16)
             ],
-            Text('${jobs.length} chuyến phù hợp',
+            Text('${jobs.length} ${scope == 'mine' ? 'chuyến của tôi' : 'chuyến phù hợp'}',
                 style: const TextStyle(fontSize: 13, color: Color(0xFF687C74))),
             const SizedBox(height: 12),
             if (jobs.isEmpty)
@@ -150,7 +170,7 @@ class DeliveryJobsContent extends StatelessWidget {
                                                         fontSize: 13,
                                                         color: mealGreen)),
                                                 const SizedBox(height: 8),
-                                                Text('#${order.id}',
+                                                Text('#${order.id} · ${order.status == 'assigned' ? 'Đến điểm lấy' : order.status == 'pickedUp' ? 'Đang giao tới tổ chức' : order.status == 'completed' ? 'Hoàn tất' : 'Chờ nhận'}',
                                                     style: const TextStyle(
                                                         fontSize: 11,
                                                         color:
