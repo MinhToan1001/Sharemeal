@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../domain/models/meal_models.dart';
-export '../../../domain/models/meal_models.dart';
+import 'package:sharemeal_client/domain.dart';
+export 'package:sharemeal_client/domain.dart';
 
 /// Local draft and preview state. FirebaseAppState supplies production data.
 class FrontendState extends ChangeNotifier {

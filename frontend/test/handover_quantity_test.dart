@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sharemeal/data/repositories/firebase_app_state.dart';
+import 'package:sharemeal/presentation/shared/controllers/firebase_app_state.dart';
 import 'package:sharemeal/presentation/shared/interaction/handover_confirmation.dart';
 import 'package:sharemeal/presentation/shared/interaction/interaction_values.dart';
-import 'backend_state_test.dart' show TestServices, TestUser, view;
+import 'firebase_app_state_test.dart' show TestServices, TestUser, view;
 
 class QuantityState extends FirebaseAppState {
   QuantityState() : super(TestServices()..auth.account = TestUser());

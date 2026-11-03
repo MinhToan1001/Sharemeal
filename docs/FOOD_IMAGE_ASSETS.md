@@ -17,7 +17,7 @@ Các bản đã được lưu trong dự án:
 - `frontend/assets/images/food/vegetables.png`
 - `frontend/assets/images/food/soup.png`
 
-Đường dẫn đầy đủ bắt đầu tại `C:/Users/ADMIN/AndroidStudioProjects/ShareMeal/`.
+Các đường dẫn tính từ thư mục gốc repository.
 
 ## Prompt đã dùng
 

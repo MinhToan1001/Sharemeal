@@ -26,7 +26,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     const filter = String.fromEnvironment('FIGMA_SCREEN_FILTER');
-    final output = Directory('../docs/figma/actual')
+    final output = Directory('build/visual-tests/screens')
       ..createSync(recursive: true);
     final errors = <String>[];
     for (final entry in {
@@ -71,7 +71,7 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    final output = Directory('../docs/figma/actual/states')
+    final output = Directory('build/visual-tests/states')
       ..createSync(recursive: true);
     for (final state in [
       ['accepted', false, false, false, '35%'],

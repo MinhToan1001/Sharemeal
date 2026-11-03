@@ -1,318 +1,51 @@
-ShareMeal/
-├── frontend/
-│   ├── android/
-│   │   ├── .kotlin/
-│   │   │   └── sessions/
-│   │   │       └── kotlin-compiler-15661954312965548058.salive
-│   │   ├── app/
-│   │   │   ├── src/
-│   │   │   │   ├── debug/
-│   │   │   │   │   └── AndroidManifest.xml
-│   │   │   │   ├── main/
-│   │   │   │   │   ├── java/
-│   │   │   │   │   │   └── io/
-│   │   │   │   │   │       └── flutter/
-│   │   │   │   │   │           └── plugins/
-│   │   │   │   │   │               └── GeneratedPluginRegistrant.java
-│   │   │   │   │   ├── kotlin/
-│   │   │   │   │   │   └── com/
-│   │   │   │   │   │       └── example/
-│   │   │   │   │   │           └── sharemeal/
-│   │   │   │   │   │               └── MainActivity.kt
-│   │   │   │   │   ├── res/
-│   │   │   │   │   │   ├── drawable/
-│   │   │   │   │   │   │   └── launch_background.xml
-│   │   │   │   │   │   ├── drawable-v21/
-│   │   │   │   │   │   │   └── launch_background.xml
-│   │   │   │   │   │   ├── mipmap-hdpi/
-│   │   │   │   │   │   │   └── ic_launcher.png
-│   │   │   │   │   │   ├── mipmap-mdpi/
-│   │   │   │   │   │   │   └── ic_launcher.png
-│   │   │   │   │   │   ├── mipmap-xhdpi/
-│   │   │   │   │   │   │   └── ic_launcher.png
-│   │   │   │   │   │   ├── mipmap-xxhdpi/
-│   │   │   │   │   │   │   └── ic_launcher.png
-│   │   │   │   │   │   ├── mipmap-xxxhdpi/
-│   │   │   │   │   │   │   └── ic_launcher.png
-│   │   │   │   │   │   ├── values/
-│   │   │   │   │   │   │   └── styles.xml
-│   │   │   │   │   │   └── values-night/
-│   │   │   │   │   │       └── styles.xml
-│   │   │   │   │   └── AndroidManifest.xml
-│   │   │   │   └── profile/
-│   │   │   │       └── AndroidManifest.xml
-│   │   │   └── build.gradle.kts
-│   │   ├── gradle/
-│   │   │   └── wrapper/
-│   │   │       ├── gradle-wrapper.jar
-│   │   │       └── gradle-wrapper.properties
-│   │   ├── .gitignore
-│   │   ├── build.gradle.kts
-│   │   ├── gradle.properties
-│   │   ├── gradlew
-│   │   ├── gradlew.bat
-│   │   ├── local.properties
-│   │   └── settings.gradle.kts
-│   ├── assets/
-│   │   ├── fonts/
-│   │   │   └── README.md
-│   │   ├── icons/
-│   │   │   └── README.md
-│   │   └── images/
-│   │       └── README.md
-│   ├── config/
-│   │   └── firebase.example.json
-│   ├── lib/
-│   │   ├── app/
-│   │   │   ├── routing/
-│   │   │   │   ├── admin_routes.dart
-│   │   │   │   ├── app_router.dart
-│   │   │   │   ├── auth_routes.dart
-│   │   │   │   ├── donor_routes.dart
-│   │   │   │   ├── organization_routes.dart
-│   │   │   │   ├── shared_routes.dart
-│   │   │   │   └── volunteer_routes.dart
-│   │   │   ├── theme/
-│   │   │   │   ├── app_colors.dart
-│   │   │   │   └── app_theme.dart
-│   │   │   ├── bootstrap.dart
-│   │   │   └── sharemeal_app.dart
-│   │   ├── core/
-│   │   │   ├── config/
-│   │   │   │   └── firebase_config.dart
-│   │   │   ├── errors/
-│   │   │   │   └── README.md
-│   │   │   └── utils/
-│   │   │       └── README.md
-│   │   ├── data/
-│   │   │   ├── datasources/
-│   │   │   │   ├── database/
-│   │   │   │   │   └── README.md
-│   │   │   │   └── auth_remote_data_source.dart
-│   │   │   ├── firebase/
-│   │   │   │   └── firebase_services.dart
-│   │   │   ├── models/
-│   │   │   │   └── README.md
-│   │   │   └── repositories/
-│   │   │       └── firebase_auth_repository.dart
-│   │   ├── domain/
-│   │   │   ├── enums/
-│   │   │   │   ├── order_status.dart
-│   │   │   │   ├── user_role.dart
-│   │   │   │   └── verification_status.dart
-│   │   │   ├── models/
-│   │   │   │   └── user_profile.dart
-│   │   │   ├── repositories/
-│   │   │   │   ├── auth_repository.dart
-│   │   │   │   └── profile_repository.dart
-│   │   │   └── usecases/
-│   │   │       └── README.md
-│   │   ├── presentation/
-│   │   │   ├── admin/
-│   │   │   │   ├── controllers/
-│   │   │   │   │   └── README.md
-│   │   │   │   ├── pages/
-│   │   │   │   │   ├── account_management_page.dart
-│   │   │   │   │   ├── approval_queue_page.dart
-│   │   │   │   │   ├── approval_result_page.dart
-│   │   │   │   │   ├── case_resolution_page.dart
-│   │   │   │   │   ├── complaint_review_page.dart
-│   │   │   │   │   ├── dashboard_page.dart
-│   │   │   │   │   ├── dispatch_map_page.dart
-│   │   │   │   │   ├── donor_review_page.dart
-│   │   │   │   │   ├── food_safety_incident_page.dart
-│   │   │   │   │   ├── notifications_page.dart
-│   │   │   │   │   ├── organization_review_page.dart
-│   │   │   │   │   ├── reassignment_result_page.dart
-│   │   │   │   │   ├── rejection_result_page.dart
-│   │   │   │   │   ├── reports_page.dart
-│   │   │   │   │   ├── supplement_request_page.dart
-│   │   │   │   │   └── volunteer_review_page.dart
-│   │   │   │   └── widgets/
-│   │   │   │       └── README.md
-│   │   │   ├── auth/
-│   │   │   │   ├── controllers/
-│   │   │   │   │   └── README.md
-│   │   │   │   ├── pages/
-│   │   │   │   │   ├── email_verification_page.dart
-│   │   │   │   │   ├── forgot_password_page.dart
-│   │   │   │   │   ├── login_page.dart
-│   │   │   │   │   ├── register_page.dart
-│   │   │   │   │   ├── role_selection_page.dart
-│   │   │   │   │   ├── splash_page.dart
-│   │   │   │   │   └── welcome_page.dart
-│   │   │   │   └── widgets/
-│   │   │   │       └── README.md
-│   │   │   ├── shared/
-│   │   │   │   ├── controllers/
-│   │   │   │   │   └── README.md
-│   │   │   │   ├── pages/
-│   │   │   │   │   ├── browse_only_page.dart
-│   │   │   │   │   ├── chat_page.dart
-│   │   │   │   │   ├── handover_receipt_page.dart
-│   │   │   │   │   ├── location_picker_page.dart
-│   │   │   │   │   ├── notifications_page.dart
-│   │   │   │   │   ├── packaging_guide_page.dart
-│   │   │   │   │   ├── profile_page.dart
-│   │   │   │   │   ├── report_discrepancy_page.dart
-│   │   │   │   │   ├── report_issue_page.dart
-│   │   │   │   │   ├── role_management_page.dart
-│   │   │   │   │   ├── settings_page.dart
-│   │   │   │   │   ├── support_page.dart
-│   │   │   │   │   ├── support_resolved_page.dart
-│   │   │   │   │   ├── support_status_page.dart
-│   │   │   │   │   ├── support_ticket_page.dart
-│   │   │   │   │   ├── transfer_delivery_page.dart
-│   │   │   │   │   ├── verification_approved_page.dart
-│   │   │   │   │   ├── verification_pending_page.dart
-│   │   │   │   │   ├── verification_rejected_page.dart
-│   │   │   │   │   └── verification_supplement_page.dart
-│   │   │   │   └── widgets/
-│   │   │   │       ├── README.md
-│   │   │   │       └── screen_placeholder.dart
-│   │   │   └── user/
-│   │   │       ├── donor/
-│   │   │       │   ├── controllers/
-│   │   │       │   │   └── README.md
-│   │   │       │   ├── pages/
-│   │   │       │   │   ├── availability_page.dart
-│   │   │       │   │   ├── business_license_page.dart
-│   │   │       │   │   ├── business_verification_page.dart
-│   │   │       │   │   ├── close_listing_page.dart
-│   │   │       │   │   ├── commitment_page.dart
-│   │   │       │   │   ├── create_listing_page.dart
-│   │   │       │   │   ├── dashboard_page.dart
-│   │   │       │   │   ├── donation_history_page.dart
-│   │   │       │   │   ├── donor_type_page.dart
-│   │   │       │   │   ├── edit_listing_page.dart
-│   │   │       │   │   ├── facility_photos_page.dart
-│   │   │       │   │   ├── food_safety_page.dart
-│   │   │       │   │   ├── handover_qr_page.dart
-│   │   │       │   │   ├── incoming_requests_page.dart
-│   │   │       │   │   ├── individual_verification_page.dart
-│   │   │       │   │   ├── listing_detail_page.dart
-│   │   │       │   │   ├── listing_preview_page.dart
-│   │   │       │   │   ├── match_success_page.dart
-│   │   │       │   │   ├── matching_page.dart
-│   │   │       │   │   ├── my_listings_page.dart
-│   │   │       │   │   ├── order_tracking_page.dart
-│   │   │       │   │   ├── pickup_location_page.dart
-│   │   │       │   │   ├── pickup_schedule_page.dart
-│   │   │       │   │   ├── publish_success_page.dart
-│   │   │       │   │   └── recipient_review_page.dart
-│   │   │       │   └── widgets/
-│   │   │       │       └── README.md
-│   │   │       ├── organization/
-│   │   │       │   ├── controllers/
-│   │   │       │   │   └── README.md
-│   │   │       │   ├── pages/
-│   │   │       │   │   ├── awaiting_courier_page.dart
-│   │   │       │   │   ├── cancel_request_page.dart
-│   │   │       │   │   ├── confirm_receipt_page.dart
-│   │   │       │   │   ├── create_need_page.dart
-│   │   │       │   │   ├── dashboard_page.dart
-│   │   │       │   │   ├── distribution_page.dart
-│   │   │       │   │   ├── food_detail_page.dart
-│   │   │       │   │   ├── food_discovery_page.dart
-│   │   │       │   │   ├── impact_report_page.dart
-│   │   │       │   │   ├── needs_page.dart
-│   │   │       │   │   ├── order_tracking_page.dart
-│   │   │       │   │   ├── orders_page.dart
-│   │   │       │   │   ├── organization_profile_page.dart
-│   │   │       │   │   ├── receipt_code_page.dart
-│   │   │       │   │   ├── record_distribution_page.dart
-│   │   │       │   │   ├── request_food_page.dart
-│   │   │       │   │   ├── request_pending_page.dart
-│   │   │       │   │   ├── thank_you_page.dart
-│   │   │       │   │   ├── thank_you_sent_page.dart
-│   │   │       │   │   └── warehouse_page.dart
-│   │   │       │   └── widgets/
-│   │   │       │       └── README.md
-│   │   │       └── volunteer/
-│   │   │           ├── controllers/
-│   │   │           │   └── README.md
-│   │   │           ├── pages/
-│   │   │           │   ├── accept_job_page.dart
-│   │   │           │   ├── available_jobs_page.dart
-│   │   │           │   ├── awaiting_receipt_page.dart
-│   │   │           │   ├── badges_page.dart
-│   │   │           │   ├── calendar_page.dart
-│   │   │           │   ├── dashboard_page.dart
-│   │   │           │   ├── delivery_complete_page.dart
-│   │   │           │   ├── delivery_history_page.dart
-│   │   │           │   ├── delivery_tracking_page.dart
-│   │   │           │   ├── handover_scanner_page.dart
-│   │   │           │   ├── job_detail_page.dart
-│   │   │           │   ├── pickup_page.dart
-│   │   │           │   ├── pickup_photo_page.dart
-│   │   │           │   ├── shift_registered_page.dart
-│   │   │           │   ├── shift_registration_page.dart
-│   │   │           │   └── volunteer_profile_page.dart
-│   │   │           └── widgets/
-│   │   │               └── README.md
-│   │   └── main.dart
-│   ├── test/
-│   │   ├── app_startup_test.dart
-│   │   └── route_registry_test.dart
-│   ├── .gitignore
-│   ├── .metadata
-│   ├── README.md
-│   ├── analysis_options.yaml
-│   ├── pubspec.lock
-│   └── pubspec.yaml
-├── backend/
-│   ├── firebase/
-│   │   ├── database/
-│   │   │   ├── SCHEMA.md
-│   │   │   └── database.rules.json
-│   │   └── storage/
-│   │       └── storage.rules
-│   ├── functions/
-│   │   ├── src/
-│   │   │   ├── modules/
-│   │   │   │   ├── admin/
-│   │   │   │   │   ├── accounts/
-│   │   │   │   │   │   └── set_account_role.ts
-│   │   │   │   │   └── approvals/
-│   │   │   │   │       ├── approve_application.ts
-│   │   │   │   │       ├── reject_application.ts
-│   │   │   │   │       └── request_supplement.ts
-│   │   │   │   ├── deliveries/
-│   │   │   │   │   ├── assign_volunteer.ts
-│   │   │   │   │   └── confirm_handover.ts
-│   │   │   │   ├── notifications/
-│   │   │   │   │   └── send_notification.ts
-│   │   │   │   ├── orders/
-│   │   │   │   │   └── accept_food_request.ts
-│   │   │   │   └── support/
-│   │   │   │       └── resolve_ticket.ts
-│   │   │   ├── shared/
-│   │   │   │   ├── auth/
-│   │   │   │   │   └── README.md
-│   │   │   │   ├── database/
-│   │   │   │   │   └── README.md
-│   │   │   │   ├── errors/
-│   │   │   │   │   └── README.md
-│   │   │   │   └── validation/
-│   │   │   │       └── README.md
-│   │   │   └── index.ts
-│   │   ├── test/
-│   │   │   └── README.md
-│   │   └── README.md
-│   ├── .firebaserc
-│   ├── README.md
-│   └── firebase.json
-├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── FIREBASE_SETUP.md
-│   ├── SCREENS.md
-│   ├── VERIFICATION.md
-│   └── screen_manifest.json
-├── tooling/
-│   ├── flutter/
-│   ├── flutter-version.json
-│   └── README.md
-├── README.md
-└── run_flutter.cmd
+Sharemeal/
+|-- frontend/
+|   |-- lib/
+|   |   |-- app/                   Bootstrap, theme and routing
+|   |   |-- presentation/
+|   |   |   |-- auth/
+|   |   |   |-- admin/
+|   |   |   |-- user/              Donor, organization and volunteer
+|   |   |   `-- shared/            Controllers, widgets, pages and interactions
+|   |   |-- firebase_options.dart
+|   |   `-- main.dart
+|   |-- android/                   Android project, Gradle wrapper and local config
+|   |-- assets/                    Runtime images, icons and fonts
+|   |-- test/                      Unit and widget tests; committed golden baselines
+|   |-- integration_test/          Android and Firebase Emulator tests
+|   |-- pubspec.yaml
+|   `-- README.md
+|-- backend/
+|   |-- client/                    Package: sharemeal_client (runs on device)
+|   |   |-- lib/
+|   |   |   |-- sharemeal_client.dart
+|   |   |   |-- domain.dart
+|   |   |   |-- order_stock_protocol.dart
+|   |   |   |-- order_receipt_protocol.dart
+|   |   |   `-- src/
+|   |   |       |-- auth/
+|   |   |       |-- config/
+|   |   |       |-- domain/
+|   |   |       |-- firebase/
+|   |   |       |-- media/
+|   |   |       |-- modules/
+|   |   |       `-- protocols/
+|   |   |-- test/
+|   |   |-- pubspec.yaml
+|   |   `-- README.md
+|   |-- firebase/
+|   |   |-- database/
+|   |   |   |-- database.rules.json
+|   |   |   `-- SCHEMA.md
+|   |   `-- public-config.example.json
+|   |-- tools/                     Rules generation and Emulator fixtures
+|   |-- firebase.json
+|   `-- README.md
+|-- docs/                          Setup, architecture and user guide
+|-- tooling/                       Developer utilities
+|-- run_flutter.cmd                Windows launcher; local SDK or PATH
+|-- .gitignore
+`-- README.md
 
-Chỉ liệt kê dự án Flutter/backend mới; bỏ qua SDK internals, build/cache và dự án Java cũ ở gốc.
+Dependency direction: frontend -> backend/client -> Firebase SDK / Cloudinary.
+SDKs, generated files, caches, credentials and local archives are not committed.

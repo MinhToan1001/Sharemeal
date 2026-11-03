@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../../../data/repositories/firebase_app_state.dart';
-import '../../../domain/models/meal_models.dart';
+import '../../shared/controllers/firebase_app_state.dart';
+import 'package:sharemeal_client/domain.dart';
 import '../../shared/figma/figma_prototype_controller.dart';
 import '../../shared/interaction/app_navigation.dart';
 import '../../shared/interaction/frontend_actions.dart';

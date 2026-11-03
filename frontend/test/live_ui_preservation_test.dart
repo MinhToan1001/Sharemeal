@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sharemeal/app/routing/app_router.dart';
-import 'package:sharemeal/data/repositories/firebase_app_state.dart';
+import 'package:sharemeal/presentation/shared/controllers/firebase_app_state.dart';
 import 'package:sharemeal/presentation/shared/figma/figma_primitives.dart';
 import 'package:sharemeal/presentation/shared/figma/live_figma_bindings.dart';
-import 'backend_state_test.dart' show TestServices, TestUser, view;
+import 'firebase_app_state_test.dart' show TestServices, TestUser, view;
 
 class TestContext extends Fake implements BuildContext {}
 

@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sharemeal/app/sharemeal_app.dart';
-import 'package:sharemeal/data/repositories/firebase_app_state.dart';
-import 'package:sharemeal/domain/models/meal_models.dart';
+import 'package:sharemeal/presentation/shared/controllers/firebase_app_state.dart';
+import 'package:sharemeal_client/domain.dart';
 import 'package:sharemeal/presentation/shared/figma/figma_primitives.dart';
 import 'package:sharemeal/presentation/shared/figma/figma_prototype_controller.dart';
 import 'package:sharemeal/presentation/shared/interaction/media_gallery.dart';
-import 'backend_state_test.dart' show TestServices, TestUser, view;
+import 'firebase_app_state_test.dart' show TestServices, TestUser, view;
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

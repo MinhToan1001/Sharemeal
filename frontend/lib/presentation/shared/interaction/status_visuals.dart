@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../figma/figma_prototype_controller.dart';
 import 'app_navigation.dart';
 import 'interaction_values.dart';
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 
 /// Compact visual summaries; details stay available in the surrounding screen.
 class VerificationHero extends StatelessWidget {

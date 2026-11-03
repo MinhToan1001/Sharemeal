@@ -1,4 +1,4 @@
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 
 /// Record selection shared by the original list and detail screens.
 abstract final class LiveScreenData {

@@ -1,66 +1,59 @@
+# Local archives and editor configuration
+/.local/
+/.idea/
+/.vscode/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+Thumbs.db
+
+# Local SDKs, dependencies and caches
+/tooling/flutter/
+/tooling/backups/
+**/node_modules/
+**/.dart_tool/
+**/.gradle/
+**/.kotlin/
+**/.pub-cache/
+**/.pub/
+**/.packages
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Generated builds and test reports
+**/build/
+**/coverage/
+**/captures/
+**/.externalNativeBuild/
+**/.cxx/
+*.log
 local.properties
 
-# Local Flutter SDK and build artifacts
-/tooling/flutter/
-/tooling/doc-render/lo/
-/tooling/doc-render/*.msi
-/tooling/backups/
-/tooling/figma-import/node_modules/
-/frontend/.dart_tool/
-/frontend/build/
-/frontend/coverage/
-/backend/functions/node_modules/
-/backend/functions/lib/
-/backend/.firebase/
-firebase-debug.log
-*.log
-/backend/functions/.env*
-/backend/functions/.secret.local
-!/backend/functions/.env.example
-/tooling/firebase-cli-config/
-/backend/.private/
-
-# Credentials and local configuration (never commit)
+# Credentials and machine-specific configuration
+**/.private/
+**/.firebaserc
 **/google-services.json
 **/GoogleService-Info.plist
 **/*service-account*.json
 **/*service_account*.json
 **/*serviceAccount*.json
 **/*firebase-adminsdk*.json
-**/*cloudinary*secret*
-**/*cloudinary*key*
 **/*credentials*.json
 **/*secrets*.json
+**/*cloudinary*secret*
+**/*cloudinary*key*
 **/.env
 **/.env.*
 !**/.env.example
+**/.secret*
+**/*.local.json
+**/maps.properties
+**/key.properties
 **/*.pem
 **/*.p12
 **/*.jks
 **/*.keystore
-**/key.properties
-**/.secret*
-**/node_modules/
-**/.dart_tool/
-**/build/
-**/__pycache__/
-**/*.pyc
 /tooling/*-access.json
 
-# Local Kotlin compiler sessions and Android emulator launcher state
-/frontend/android/.kotlin/
-/tooling/ui-display-avd.json
+# Python
+**/__pycache__/
+**/*.pyc

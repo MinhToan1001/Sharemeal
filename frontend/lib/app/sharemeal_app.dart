@@ -4,8 +4,8 @@ import 'routing/app_router.dart';
 import 'theme/app_theme.dart';
 import '../presentation/shared/figma/figma_prototype_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
-import '../data/firebase/firebase_services.dart';
-import '../data/repositories/firebase_app_state.dart';
+import 'package:sharemeal_client/sharemeal_client.dart';
+import '../presentation/shared/controllers/firebase_app_state.dart';
 
 class ShareMealApp extends StatefulWidget {
   const ShareMealApp({

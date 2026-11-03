@@ -1,4 +1,4 @@
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 import '../interaction/live_screen_data.dart';
 
 /// Data for the original confirmation, tracking and result text slots.

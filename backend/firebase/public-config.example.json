@@ -1,0 +1,6 @@
+{
+  "cloudinary": {
+    "cloudName": "YOUR_CLOUD_NAME",
+    "uploadPreset": "YOUR_UNSIGNED_UPLOAD_PRESET"
+  }
+}

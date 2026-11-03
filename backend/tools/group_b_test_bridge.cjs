@@ -1,7 +1,7 @@
 'use strict';
 // Local fixture authority for the native Android tests. No Cloudinary calls.
 const http = require('node:http');
-const sdk = require('node:module').createRequire(require('node:path').join(__dirname,'../functions/package.json'));
+const sdk = require('node:module').createRequire(require('node:path').join(__dirname,'package.json'));
 const {initializeApp} = sdk('firebase-admin/app');
 const {getAuth} = sdk('firebase-admin/auth');
 const {getDatabase} = sdk('firebase-admin/database');

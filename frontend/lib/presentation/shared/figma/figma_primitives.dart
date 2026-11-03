@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'figma_prototype_controller.dart';
 import 'live_figma_bindings.dart';
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 import '../interaction/app_navigation.dart';
 import '../interaction/frontend_actions.dart';
 import '../interaction/frontend_collections.dart';

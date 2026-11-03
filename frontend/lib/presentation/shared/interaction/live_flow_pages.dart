@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 import '../figma/figma_prototype_controller.dart';
 import 'app_navigation.dart';
 import 'food_photo.dart';

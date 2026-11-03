@@ -2,21 +2,23 @@
 
 Flutter → Firebase Authentication / Realtime Database. Flutter → Cloudinary unsigned upload → URL ảnh lưu trong Realtime Database. Không có API HTTP nghiệp vụ riêng.
 
+Mã tích hợp và nghiệp vụ nằm trong package [`backend/client`](../backend/client/README.md), được frontend dùng qua dependency cục bộ `sharemeal_client`. Package vẫn chạy trên thiết bị; Firebase Rules thực thi quyền trên dịch vụ Firebase. Package không import frontend. Model dùng chung được export qua `package:sharemeal_client/domain.dart`; frontend không import trực tiếp `src/`.
+
 ## File chính
 
 | File | Trách nhiệm |
 | --- | --- |
-| `frontend/lib/data/firebase/direct_backend.dart` | Kết nối, truy vấn đúng quyền, listener, chuyển dữ liệu cho UI |
-| `frontend/lib/data/repositories/direct_accounts.dart` | Hồ sơ, role, duyệt, khóa/mở, ca tình nguyện |
-| `frontend/lib/data/repositories/direct_foods.dart` | Đăng/sửa/đóng/duyệt món và nhu cầu |
-| `frontend/lib/data/repositories/direct_orders.dart` | Xin nhận, duyệt đơn, số lượng, giao nhận, PIN/QR, kho |
-| `frontend/lib/data/repositories/direct_community.dart` | Chat, đánh giá, cảm ơn, hỗ trợ, thông báo |
-| `frontend/lib/data/repositories/firebase_app_state.dart` | Trạng thái phiên và dữ liệu giao diện; xóa khi đăng xuất |
-| `frontend/lib/data/cloudinary/cloudinary_storage.dart` | Multipart upload Cloudinary, kiểm tra loại và 8 MB trong app |
-| `frontend/lib/presentation/backend/backend_route_gate.dart` | Chỉ kiểm tra quyền và điều hướng đến màn hình gốc |
+| `backend/client/lib/src/firebase/sharemeal_client.dart` | Kết nối, truy vấn đúng quyền, listener, chuyển dữ liệu cho UI |
+| `backend/client/lib/src/modules/accounts.dart` | Hồ sơ, role, duyệt, khóa/mở, ca tình nguyện |
+| `backend/client/lib/src/modules/foods.dart` | Đăng/sửa/đóng/duyệt món và nhu cầu |
+| `backend/client/lib/src/modules/orders.dart` | Xin nhận, duyệt đơn, số lượng, giao nhận, PIN/QR, kho |
+| `backend/client/lib/src/modules/community.dart` | Chat, đánh giá, cảm ơn, hỗ trợ, thông báo |
+| `frontend/lib/presentation/shared/controllers/firebase_app_state.dart` | Trạng thái phiên và dữ liệu giao diện; xóa khi đăng xuất |
+| `backend/client/lib/src/media/cloudinary_storage.dart` | Multipart upload Cloudinary, kiểm tra loại và 8 MB trong app |
+| `frontend/lib/app/routing/session_route_gate.dart` | Chỉ kiểm tra quyền và điều hướng đến màn hình gốc |
 | `frontend/lib/presentation/shared/figma/live_figma_bindings.dart` | Gắn dữ liệu thật vào node và mẫu thẻ gốc, giữ nguyên style và bố cục |
 | `frontend/lib/presentation/shared/figma/live_detail_bindings.dart` | Giá trị cho các màn xác nhận, theo dõi và kết quả gốc |
-| `frontend/lib/presentation/shared/interaction/backend_actions.dart` | Nối form hiện có với lệnh Firebase |
+| `frontend/lib/presentation/shared/interaction/firebase_actions.dart` | Nối form hiện có với lệnh Firebase |
 | `backend/tools/build_demo_rules.py` | Nguồn tạo Rules theo điều kiện nghiệp vụ |
 
 ## Các bảng Realtime Database
@@ -58,5 +60,5 @@ Mã bàn giao nằm ngoài cây dữ liệu được truy vấn chung, có hạn
 
 Thông báo là thông báo trong ứng dụng khi đồng bộ dữ liệu; chưa có FCM/push nền. Địa chỉ và tọa độ đã lưu có thể mở Google Maps; chưa có GPS trực tiếp hoặc tự ghép chuyến. Media Cloudinary có URL công khai, giới hạn 8 MB là phía app. Không có tác vụ nền tự xóa dữ liệu/media. Listener và truy vấn hiện phục vụ quy mô demo; không phải cam kết hiệu năng cho dữ liệu lớn.
 
-Mã `backend/functions`, test và tài liệu kết quả kiểm thử kiến trúc API cũ không dùng để khẳng định chất lượng bản trực tiếp này.
+Ứng dụng không có Cloud Functions hoặc API HTTP nghiệp vụ riêng. Test giao thức nằm tại `backend/client/test`; test giao diện và phiên nằm tại `frontend/test`; fixture Firebase Emulator nằm tại `backend/tools`.
 

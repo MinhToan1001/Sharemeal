@@ -1,67 +1,84 @@
-# Cấu hình ShareMeal demo — Firebase trực tiếp
+# Cài Firebase và Cloudinary
 
-Project `sharemeal-e17c9`, database `https://sharemeal-e17c9-default-rtdb.firebaseio.com`, cloud Cloudinary `toanvip`.
+Hướng dẫn này dùng cho Firebase project riêng hoặc project mà nhóm đã cấp quyền. Thay `YOUR_FIREBASE_PROJECT_ID`, URL database và thông tin Cloudinary bằng giá trị của bạn. Không cần dựng máy chủ Node để chạy app.
 
-## Trạng thái đã thực hiện
+## 1. Tạo và nối Firebase
 
-- Đã nối Firebase Android bằng cấu hình project hiện có.
-- Email/Password đã được chủ project bật trong Authentication.
-- Đã triển khai Database Rules cho kiến trúc Flutter đọc/ghi trực tiếp.
-- Đã tạo preset Cloudinary `sharemeal_demo_unsigned`, unsigned, JPG/JPEG/PNG/PDF, thư mục `sharemeal_demo`, tên file ngẫu nhiên, không ghi đè.
-- Đã lưu `cloudName` và `uploadPreset` vào `/config/public/cloudinary`.
-- Không nâng cấp Blaze, không triển khai Cloud Functions hay Firebase Storage.
+1. Tạo project trong [Firebase Console](https://console.firebase.google.com/).
+2. Bật Authentication → Sign-in method → Email/Password.
+3. Tạo Realtime Database. Sao chép chính xác URL database do Console cung cấp; URL có thể khác nhau theo vùng.
+4. Đăng ký Android app với package `com.example.sharemeal`. Tải `google-services.json` vào `frontend/android/app/google-services.json`.
+5. Cài Firebase CLI và FlutterFire CLI, rồi tạo cấu hình từ thư mục `frontend`:
 
-Database có thể chưa có món/đơn: các bảng được tạo khi người dùng đăng ký, gửi hồ sơ, đăng món và thực hiện nghiệp vụ. App hiển thị trạng thái trống thay vì chèn món mẫu.
+```sh
+npm install -g firebase-tools
+firebase login
+dart pub global activate flutterfire_cli
+cd frontend
+flutterfire configure --project=YOUR_FIREBASE_PROJECT_ID --platforms=android
+```
 
-## Tạo tài khoản admin duy nhất
+Lệnh FlutterFire tạo/cập nhật `frontend/lib/firebase_options.dart`. Nếu CLI không tạo file JSON Android, tải lại từ Firebase Console và đặt đúng đường dẫn ở bước 4. Xem [tài liệu FlutterFire](https://firebase.google.com/docs/flutter/setup).
 
-1. Cài APK, đăng ký bằng email của bạn, mở liên kết xác minh Firebase và quay lại bấm kiểm tra xác minh.
-2. Trong Firebase Console → Realtime Database → Data → `users/<UID-của-bạn>/role`, sửa giá trị thành chuỗi `admin`. UID trùng UID trong Authentication.
-3. Đăng xuất rồi đăng nhập lại. App ghi `config/adminUid` lần đầu bằng UID này và mở giao diện quản trị. Không cần duyệt hồ sơ cho admin.
-4. Chỉ sửa role admin cho một tài khoản. Khi `config/adminUid` đã có, tài khoản khác không thể tự chiếm quyền admin. Nếu cần chuyển admin sau này, chủ project sửa đồng thời role và `config/adminUid` bằng Console.
+Cập nhật cả `projectId` và `databaseUrl` trong `backend/client/lib/src/config/firebase_config.dart`. Các giá trị phải cùng project với `firebase_options.dart` và `google-services.json`. Sau đó chạy `flutter pub get` trong `frontend`.
 
-Người dùng thường chỉ được chọn `donor`, `charity`, `volunteer`. Admin duyệt hồ sơ ở tab Hồ sơ; người dùng nhận kết quả qua listener và thông báo trong app.
+## 2. Triển khai Database Rules
 
-## Email
+Từ thư mục `backend`:
 
-Dùng liên kết xác minh và đặt lại mật khẩu do Firebase Authentication gửi, không dùng OTP 6 số và không cần SMTP. Nếu chưa thấy thư, kiểm tra Spam. Mở thư, bấm liên kết, quay lại màn hình xác minh cũ và bấm “Xác nhận & chọn vai trò”. Không cần nhập mã 6 số. Mục quên mật khẩu gửi liên kết khôi phục tới email đã nhập. Thay đổi mẫu email tại Authentication → Templates nếu cần.
+```sh
+firebase deploy --only database --project YOUR_FIREBASE_PROJECT_ID
+```
 
-## Ảnh và giấy tờ
+Cấu hình `backend/firebase.json` đã trỏ tới `firebase/database/database.rules.json`. Không cần khởi tạo lại project bằng `firebase init`. Khi sửa điều kiện nghiệp vụ trong nguồn sinh Rules, chạy từ thư mục gốc:
 
-App tải file lên Cloudinary rồi lưu URL HTTPS trong Firebase. API Secret không có trong mã Flutter/APK. App chặn quá 8 MB/file, ảnh món nhận JPG/PNG, tài liệu nhận thêm PDF. [Cloudinary không hỗ trợ giới hạn dung lượng riêng cho preset](https://cloudinary.com/documentation/upload_presets); server dùng hạn mức tài khoản, giới hạn 8 MB là kiểm tra trong app.
-
-Đây là upload unsigned đã được chủ tài khoản đồng ý cho demo. Ai biết tên preset có thể upload và dùng hạn mức tài khoản; tắt unsigned hoặc xóa preset sau demo nếu không còn dùng. URL media Cloudinary là URL công khai: Rules bảo vệ bản ghi/URL trong Firebase, không biến file thành tài liệu riêng tư. Dùng ảnh giấy tờ giả lập cho demo. PDF có thể bị chặn phân phối theo cài đặt Cloudinary của tài khoản; ảnh JPG/PNG phù hợp để demo hồ sơ.
-
-## Chạy và cập nhật
-
-Từ thư mục gốc:
-
-```powershell
-.\run_flutter.cmd pub get
-.\run_flutter.cmd run
-.\run_flutter.cmd build apk --debug
+```sh
 python backend/tools/build_demo_rules.py
 ```
 
-Từ `backend` nếu cần deploy lại:
+Sau đó kiểm tra thay đổi và deploy lại Rules vào đúng project. Không nhập một database rỗng vào root của project đang có dữ liệu.
 
-```powershell
-firebase deploy --only database --project sharemeal-e17c9
-firebase database:update /config/public firebase/public-config.json --project sharemeal-e17c9 --force
+## 3. Cấu hình Cloudinary
+
+Trong Cloudinary Console, tạo một **unsigned upload preset** cho app demo. Chọn định dạng JPG/JPEG/PNG; cho phép thêm PDF nếu dùng giấy tờ PDF. Dùng tên file ngẫu nhiên và không ghi đè file cũ. Tham khảo [upload presets](https://cloudinary.com/documentation/upload_presets).
+
+Sao chép `backend/firebase/public-config.example.json` thành `backend/firebase/public-config.local.json`, điền:
+
+```json
+{
+  "cloudinary": {
+    "cloudName": "ten_cloud_cua_ban",
+    "uploadPreset": "ten_unsigned_preset_cua_ban"
+  }
+}
 ```
 
-Lệnh cập nhật cấu hình chỉ ghi tên cloud/preset ở đường dẫn công khai, không nhập hay xóa dữ liệu nghiệp vụ. Không import một file database rỗng vào root.
+Từ thư mục `backend`, lưu cấu hình công khai này vào Firebase:
 
-## Trình tự kiểm tra thủ công của chủ project
+```sh
+firebase database:update /config/public firebase/public-config.local.json --project YOUR_FIREBASE_PROJECT_ID
+```
 
-1. Tạo admin như trên và ba tài khoản người dùng khác nhau.
-2. Mỗi người xác minh email, chọn vai trò, tải ảnh hồ sơ, nhập thông tin và gửi duyệt.
-3. Admin thử yêu cầu bổ sung/từ chối/phê duyệt; người gửi nhìn thấy trạng thái mới.
-4. Người cho đăng món còn hạn; admin duyệt; tổ chức tìm món, xin nhận tự lấy hoặc giao hộ.
-5. Người cho nhận/từ chối yêu cầu. Nhận sẽ giữ số suất, hủy trước lấy hàng sẽ hoàn số suất.
-6. Tình nguyện viên nhận chuyến hoặc admin phân công. Người cho tạo mã lấy hàng, người lấy nhập PIN/quét QR.
-7. Nếu giao hộ: tình nguyện viên gửi ảnh, tổ chức tạo mã nhận, tình nguyện viên xác nhận mã; tổ chức nhập số thực nhận và hoàn tất đơn.
-8. Kiểm tra kho, phân phát trong tồn, đánh giá/cảm ơn, trao đổi theo đơn, hỗ trợ và phản hồi admin.
+Cũng có thể nhập cùng cấu trúc trực tiếp trong Console tại `config/public/cloudinary`. App đọc `cloudName` và `uploadPreset` ở đường dẫn này. Không đặt API Secret vào JSON, mã Flutter hay Firebase public config.
 
-Hai tài khoản và một món DEMO đã được tạo tạm để kiểm tra Firebase thật theo chấp thuận của chủ project, rồi xóa sạch. Không giữ dữ liệu mẫu. Lần mở app tiếp theo có thể chưa có món; hãy đăng món và duyệt bằng admin để thấy dữ liệu thật.
+App kiểm tra tối đa 8 MB/file ở phía thiết bị. URL Cloudinary là công khai; với demo, sử dụng ảnh giấy tờ giả lập. Preset unsigned có thể được người biết tên preset sử dụng, nên quản lý hạn mức và tắt preset khi không còn cần demo.
+
+## 4. Tạo admin đầu tiên
+
+1. Mở app, đăng ký bằng email thật và bấm liên kết xác minh email.
+2. Trong Firebase Console → Authentication, lấy UID của tài khoản.
+3. Trong Realtime Database, đặt `users/<UID>/role` thành `admin`.
+4. Đặt `config/adminUid` thành chính UID đó, rồi đăng xuất và đăng nhập lại app.
+
+Chỉ dùng một admin theo cơ chế singleton hiện tại. Khi chuyển admin, chủ project cập nhật đồng thời role và `config/adminUid` qua Console. Người dùng thường chọn `donor`, `charity` hoặc `volunteer`, gửi hồ sơ để admin duyệt.
+
+## 5. Kiểm tra lần đầu
+
+1. Tạo tài khoản cho các vai trò, xác minh email, gửi và duyệt hồ sơ.
+2. Người cho đăng món còn hạn; admin duyệt để món xuất hiện.
+3. Tổ chức xin nhận; người cho chấp nhận để giữ suất.
+4. Thực hiện lấy/giao hàng bằng PIN/QR, nhập số thực nhận và ảnh nhận hàng.
+5. Kiểm tra kho, phân phát, đánh giá, chat và yêu cầu hỗ trợ.
+
+Database mới có thể trống; không cần dữ liệu mẫu. Email xác minh và đặt lại mật khẩu được Firebase gửi bằng liên kết, không dùng SMTP hoặc OTP riêng.
 

@@ -1,0 +1,15 @@
+{
+  "name": "sharemeal-test-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local Firebase emulator fixtures for ShareMeal integration tests",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "bridge:orders": "node group_b_test_bridge.cjs",
+    "bridge:android": "node android_test_bridge.cjs",
+    "check": "node --check group_b_test_bridge.cjs && node --check android_test_bridge.cjs"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.6.0"
+  }
+}

@@ -5,12 +5,12 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sharemeal/app/sharemeal_app.dart';
-import 'package:sharemeal/data/repositories/firebase_app_state.dart';
+import 'package:sharemeal/presentation/shared/controllers/firebase_app_state.dart';
 import 'package:sharemeal/presentation/shared/figma/figma_primitives.dart';
 import 'package:sharemeal/presentation/shared/figma/figma_prototype_controller.dart';
 import 'package:sharemeal/presentation/shared/interaction/food_photo.dart';
 import 'package:sharemeal/presentation/shared/interaction/frontend_state.dart';
-import 'backend_state_test.dart' show TestServices, TestUser, view;
+import 'firebase_app_state_test.dart' show TestServices, TestUser, view;
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

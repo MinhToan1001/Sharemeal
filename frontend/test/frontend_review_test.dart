@@ -9,8 +9,8 @@ import 'package:sharemeal/presentation/shared/figma/figma_prototype_controller.d
 import 'package:sharemeal/presentation/shared/interaction/frontend_actions.dart';
 import 'package:sharemeal/presentation/shared/interaction/frontend_state.dart';
 import 'package:sharemeal/presentation/shared/interaction/interaction_values.dart';
-import 'package:sharemeal/data/repositories/firebase_app_state.dart';
-import 'backend_state_test.dart' show TestServices, TestUser, view;
+import 'package:sharemeal/presentation/shared/controllers/firebase_app_state.dart';
+import 'firebase_app_state_test.dart' show TestServices, TestUser, view;
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

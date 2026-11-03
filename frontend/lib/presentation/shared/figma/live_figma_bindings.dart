@@ -1,5 +1,5 @@
 import 'dart:convert';
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 import '../interaction/live_screen_data.dart';
 import 'figma_primitives.dart';
 import 'live_detail_bindings.dart';

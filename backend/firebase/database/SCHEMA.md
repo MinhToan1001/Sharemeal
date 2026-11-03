@@ -1,6 +1,6 @@
 # Schema Realtime Database đang dùng
 
-Đối chiếu mã `frontend/lib/data/repositories/direct_*.dart`, `direct_backend.dart` và `backend/tools/build_demo_rules.py`.
+Đối chiếu mã `backend/client/lib/src/modules/*.dart`, `backend/client/lib/src/firebase/sharemeal_client.dart` và `backend/tools/build_demo_rules.py`.
 
 Có **15 nhóm dữ liệu logic**, nằm trong **5 nhánh gốc**: `users`, `demo`, `handover`, `foodAccess`, `config`. `demo` là nhánh gom 11 nhóm nghiệp vụ trên Firebase thật, không phải Firebase Emulator. Authentication và Cloudinary là hai dịch vụ riêng, không tính thành bảng Realtime Database.
 

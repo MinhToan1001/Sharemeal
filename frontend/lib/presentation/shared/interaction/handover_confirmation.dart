@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 import 'frontend_actions.dart';
 
 /// Shared by QR and PIN paths so both record the actual pickup quantity.

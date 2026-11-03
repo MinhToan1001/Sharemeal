@@ -13,8 +13,8 @@ import '../figma/figma_prototype_controller.dart';
 import 'app_navigation.dart';
 import 'frontend_state.dart';
 import 'interaction_values.dart';
-import 'backend_actions.dart';
-import '../../../data/repositories/firebase_app_state.dart';
+import 'firebase_actions.dart';
+import '../controllers/firebase_app_state.dart';
 import 'food_photo.dart';
 
 /// Frontend commands. No Firebase writes, fake confirmations or server authority.
@@ -106,7 +106,7 @@ abstract final class FrontendActions {
     }
 
     try {
-      if (await BackendActions.run(context, frame, spec)) return;
+      if (await FirebaseActions.run(context, frame, spec)) return;
       if (!context.mounted) return;
       final protectedRole = switch (action) {
         'publish' ||

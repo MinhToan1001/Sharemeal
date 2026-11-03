@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import '../figma/figma_prototype_controller.dart';
 import 'frontend_actions.dart';
-import '../../../data/repositories/firebase_app_state.dart';
+import '../controllers/firebase_app_state.dart';
 import 'handover_confirmation.dart';
 
 class HandoverScanner extends StatefulWidget {

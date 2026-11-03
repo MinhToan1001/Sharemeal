@@ -4,16 +4,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:sharemeal/app/sharemeal_app.dart';
-import 'package:sharemeal/data/repositories/firebase_app_state.dart';
+import 'package:sharemeal/presentation/shared/controllers/firebase_app_state.dart';
 import 'package:sharemeal/presentation/shared/figma/figma_prototype_controller.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:sharemeal/data/firebase/backend_api.dart';
-import 'package:sharemeal/data/firebase/firebase_services.dart';
+import 'package:sharemeal_client/sharemeal_client.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   const host = '10.0.2.2';
-  final clients = <String, (FirebaseServices, BackendApi)>{};
+  final clients = <String, (FirebaseServices, ShareMealClient)>{};
   Future<Map<String, dynamic>> bridge(String path,
       [Map<String, dynamic>? body]) async {
     final c = HttpClient();
@@ -34,7 +33,7 @@ void main() {
     }
   }
 
-  Future<BackendApi> client(String uid, {String? name}) async {
+  Future<ShareMealClient> client(String uid, {String? name}) async {
     final key = name ?? uid;
     if (clients.containsKey(key)) return clients[key]!.$2;
     final app = await Firebase.initializeApp(
@@ -52,7 +51,7 @@ void main() {
     s.database.useDatabaseEmulator(host, 9000);
     await s.auth.signInWithEmailAndPassword(
         email: '$uid@example.test', password: 'Local-demo-only-123!');
-    final api = BackendApi(s);
+    final api = ShareMealClient(s);
     clients[key] = (s, api);
     return api;
   }

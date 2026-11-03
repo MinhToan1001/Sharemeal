@@ -1,12 +1,15 @@
-# Backend trực tiếp Firebase
+# Backend ShareMeal
 
-Project đang dùng: `sharemeal-e17c9`. Rules đã triển khai lên Realtime Database; cấu hình Cloudinary công khai đã lưu ở `/config/public/cloudinary`.
+Backend sử dụng Firebase Authentication và Realtime Database; ảnh tải lên Cloudinary.
 
-- `firebase/database/database.rules.json`: quyền đọc theo chủ sở hữu/đơn tham gia/admin, quyền ghi theo role và trạng thái.
-- `tools/build_demo_rules.py`: tạo file Rules từ các điều kiện nghiệp vụ có tên rõ ràng.
-- `firebase/public-config.json`: tên cloud và preset; không có secret.
-- `tools/configure_cloudinary.cjs`: công cụ quản trị một lần cho preset demo đã được chủ tài khoản đồng ý.
-- `functions/`: mã kiến trúc API cũ, giữ làm tham khảo; không được app gọi và không nằm trong cấu hình deploy hiện tại.
+| Thư mục | Trách nhiệm |
+| --- | --- |
+| [client](client/README.md) | Package Flutter `sharemeal_client`: tích hợp Firebase/Cloudinary, model và nghiệp vụ |
+| `firebase/database/` | Security Rules và schema Realtime Database |
+| `firebase/public-config.example.json` | Mẫu cấu hình Cloudinary công khai |
+| [tools](tools/README.md) | Sinh Rules và fixture kiểm thử trên Emulator |
 
-Nghiệp vụ chạy trong Flutter kết hợp Rules trên Firebase. Không deploy Functions, Storage hoặc dịch vụ email riêng. Xem [hướng dẫn](../docs/BACKEND_SETUP.md).
+Frontend dùng package cục bộ `../backend/client`. Package chạy cùng Flutter; quyền đọc/ghi do Firebase Rules thực thi. Không có Cloud Functions hoặc máy chủ API cần khởi động.
+
+Cài đặt dịch vụ, deploy Rules và tạo admin đầu tiên: [BACKEND_SETUP](../docs/BACKEND_SETUP.md).
 

@@ -4,7 +4,7 @@ import '../../../shared/interaction/app_navigation.dart';
 import '../../../shared/interaction/food_photo.dart';
 import '../../../shared/interaction/frontend_actions.dart';
 import '../../../shared/interaction/frontend_state.dart';
-import '../../../../data/repositories/firebase_app_state.dart';
+import '../../../shared/controllers/firebase_app_state.dart';
 
 class RequestMatchingPanel extends StatelessWidget {
   const RequestMatchingPanel({super.key, this.matching = false});

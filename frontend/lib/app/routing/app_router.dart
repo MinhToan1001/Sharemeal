@@ -6,7 +6,7 @@ import 'organization_routes.dart';
 import 'shared_routes.dart';
 import 'volunteer_routes.dart';
 import '../../presentation/user/donor/pages/impact_report_page.dart';
-import '../../presentation/backend/backend_route_gate.dart';
+import 'session_route_gate.dart';
 import '../../presentation/user/volunteer/pages/handover_scanner_page.dart';
 
 abstract final class AppRouter {
@@ -29,7 +29,7 @@ abstract final class AppRouter {
     return PageRouteBuilder<void>(
       settings: settings,
       pageBuilder: (context, animation, secondaryAnimation) =>
-          BackendRouteGate(route: settings.name!, child: builder(context)),
+          SessionRouteGate(route: settings.name!, child: builder(context)),
       transitionDuration: const Duration(milliseconds: 180),
       reverseTransitionDuration: const Duration(milliseconds: 180),
       transitionsBuilder: (context, animation, secondaryAnimation, child) =>

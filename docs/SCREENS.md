@@ -3,10 +3,10 @@
 104 file page riêng đã chuyển từ 104 frame mobile đang dùng trong Figma.
 Thêm page Tác động người cho `/user/donor/impact-report`, tổng cộng 105 route.
 Điều hướng và biến trạng thái được nhập từ prototype. Đường chạy Firebase hiện
-được nối qua `BackendRouteGate`, `backend_actions.dart` và `live_figma_bindings.dart`;
+được nối qua `SessionRouteGate`, `firebase_actions.dart` và `live_figma_bindings.dart`;
 giữ các page gốc, không dùng màn hình backend thay thế. Danh sách và trạng thái
-nghiệp vụ lấy từ Realtime Database. Xem `BACKEND_HANDOVER.md`.
-Ánh xạ chính xác frame → route → file: `figma/screen_map.json`.
+nghiệp vụ lấy từ Realtime Database. Xem [kiến trúc](ARCHITECTURE.md).
+Route đang dùng được khai báo trong `frontend/lib/app/routing`; ánh xạ frame nằm trong `frontend/lib/presentation/shared/figma/figma_prototype_data.dart`.
 
 | Cụm | Số file |
 | --- | --- |

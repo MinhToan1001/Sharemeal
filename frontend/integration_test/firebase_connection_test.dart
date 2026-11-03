@@ -4,7 +4,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:sharemeal/app/bootstrap.dart';
-import 'package:sharemeal/core/config/firebase_config.dart';
+import 'package:sharemeal_client/sharemeal_client.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

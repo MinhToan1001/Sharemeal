@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sharemeal/app/sharemeal_app.dart';
-import 'package:sharemeal/data/repositories/firebase_app_state.dart';
+import 'package:sharemeal/presentation/shared/controllers/firebase_app_state.dart';
 import 'package:sharemeal/presentation/shared/figma/figma_prototype_controller.dart';
-import 'package:sharemeal/presentation/shared/interaction/backend_actions.dart';
+import 'package:sharemeal/presentation/shared/interaction/firebase_actions.dart';
 import 'package:sharemeal/presentation/admin/widgets/review_content.dart';
-import 'backend_state_test.dart' show TestServices, TestUser, view;
+import 'firebase_app_state_test.dart' show TestServices, TestUser, view;
 
 class ReviewState extends FirebaseAppState {
   ReviewState() : super(TestServices()..auth.account = TestUser());
@@ -59,7 +59,7 @@ void main() {
     for (final kind in ['applications', 'foods', 'needs']) {
       Future<void> open() async {
         final ctx = t.element(find.byType(Scaffold).first);
-        await BackendActions.run(ctx, '6:3712', {
+        await FirebaseActions.run(ctx, '6:3712', {
           'action': 'openAdminRecord',
           'id': kind,
           'table': kind,
