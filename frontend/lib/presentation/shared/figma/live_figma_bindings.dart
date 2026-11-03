@@ -74,7 +74,9 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
       action('66:1229', 'route', {'route': '/user/donor/my-listings'});
       action('66:1233', 'route', {'route': '/user/donor/incoming-requests'});
       action('66:1239', 'route', {'route': '/user/donor/incoming-requests'});
-      action('66:1247', assigned == null ? 'route' : 'openOrder',
+      action(
+          '66:1247',
+          assigned == null ? 'route' : 'openOrder',
           assigned == null
               ? {'route': '/user/donor/my-listings'}
               : {'id': assigned.id, 'route': '/user/donor/order-tracking'});
@@ -189,10 +191,14 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
       final activeJob = s.orders
           .where((o) => mine.any((row) => row['id'] == o.id))
           .firstOrNull;
-      final job = activeJob ?? s.orders
-          .where((o) => o.status == 'accepted' && o.transport == 'Nhờ giao hộ')
-          .firstOrNull;
-      action('66:1585', job == null ? 'route' : 'openOrder',
+      final job = activeJob ??
+          s.orders
+              .where(
+                  (o) => o.status == 'accepted' && o.transport == 'Nhờ giao hộ')
+              .firstOrNull;
+      action(
+          '66:1585',
+          job == null ? 'route' : 'openOrder',
           job == null
               ? {'route': '/user/volunteer/available-jobs'}
               : {'id': job.id, 'route': '/user/volunteer/job-detail'});
@@ -507,23 +513,53 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
         '77:1128': '${selected['note'] ?? ''}',
         '77:1132': s.get('admin.decision.note', '')
       });
+    case '6:3567':
+      action('6:3568', 'route', {'route': '/user/donor/dashboard'});
+      action('6:3569', 'route', {'route': '/user/donor/dashboard'});
+      action('6:3572', 'route', {'route': '/user/donor/handover-qr'});
+      text['6:3599'] =
+          'Đã giữ ${order.quantity} suất. ${order.transport == 'Tự đến lấy' ? 'Tổ chức sẽ đến lấy.' : 'Tình nguyện viên sẽ lấy và giao tới tổ chức.'}';
+    case '6:1890':
+      text['I6:1911;6:171'] =
+          order.status == 'accepted' ? 'Nhận chuyến này' : 'Tiếp tục chuyến';
+      action('6:1911', 'route', {
+        'route': order.status == 'completed'
+            ? '/user/volunteer/delivery-complete'
+            : order.status == 'pickedUp'
+                ? '/user/volunteer/delivery-tracking'
+                : order.status == 'assigned'
+                    ? '/user/volunteer/pickup'
+                    : '/user/volunteer/accept-job'
+      });
+    case '6:1971':
+      action('6:2025', 'demoPickup');
+      action('6:2032', 'demoPickup');
+      text['6:2023'] = 'Đủ ${order.quantity} suất';
+      text['6:2025'] = 'Xác nhận lấy hàng (demo)';
+    case '6:2041':
+      action('6:2049', 'cameraNext');
+      action('6:2050', 'cameraNext');
+      action('6:2042', 'noop');
+      if (s.get('demo.handover.stage', 'pickup') == 'receipt') {
+        text['6:2045'] = 'Ảnh xác nhận giao hàng';
+      }
+    case '6:2064':
+      action('6:2092', 'demoDelivery');
     case '6:843':
-      final expires = DateTime.tryParse(s.get('handover.expires', ''));
-      final seconds = expires?.difference(DateTime.now()).inSeconds ?? 0;
       text.addAll({
-        '6:1019': seconds > 0
-            ? 'Mã còn hiệu lực ${seconds ~/ 60}:${(seconds % 60).toString().padLeft(2, '0')}'
-            : 'Chưa có mã còn hiệu lực',
+        '6:1019': 'QR minh họa cho bản demo',
         '6:1022': order.driver.isEmpty ? order.organization : order.driver
       });
     case '65:1098':
       text.addAll({
-        '65:1104': '${order.id} · Chỉ đưa mã khi đã kiểm tra hàng',
+        '65:1104': '${order.id} · Bàn giao tại tổ chức',
         '65:1112':
-            'Mã chỉ dùng cho đơn ${order.id} và hết hiệu lực sau khi xác nhận.',
+            'Bản demo: tình nguyện viên xác nhận bằng nút trắng trên màn camera.',
         '65:1117': '${order.quantity} suất ${food.name}',
         '65:1120': order.driver
       });
+      action(
+          '65:1122', 'route', {'route': '/user/organization/confirm-receipt'});
     case '65:1068':
       text.addAll({
         '65:1087': order.id,
@@ -712,7 +748,7 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
       };
     }
     if (frame == '6:1573' && control['action'] == 'camera') {
-      control = {...control, 'label': 'Ảnh nhận hàng bắt buộc (JPG/PNG)'};
+      control = {...control, 'key': 'receipt.photo'};
     }
     if (box.nodeId == '6:140' && box.width <= 32 && control.isEmpty) {
       control = {'kind': 'action', 'action': 'back', 'label': 'Quay lại'};
@@ -731,6 +767,9 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
     }
     if (clearCondition) control = {};
     final replacements = <String, String>{
+      if (frame == '6:2041' &&
+          s.get('demo.handover.stage', 'pickup') == 'receipt')
+        'Ảnh xác nhận lấy hàng': 'Ảnh xác nhận giao hàng',
       'Bếp Nhà Lan': food.donor,
       'Mái ấm Hoa Sen': order.organization,
       'Trần Quốc Bảo': order.driver,
@@ -760,13 +799,21 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
         replacements[box.text] ??
         LiveDetailBindings.text(s, frame, box.text) ??
         box.text;
+    // A binding on a text wrapper replaces its original text descendants.
+    // Keeping both would concatenate live values with the Figma sample copy.
+    bool onlyText(FigmaBox b) =>
+        b.asset == null && b.control.isEmpty && b.children.every(onlyText);
+    if ((values.containsKey(box.nodeId) || text.containsKey(box.nodeId)) &&
+        kids.every(onlyText)) {
+      kids = [];
+    }
     return FigmaBox(
         key: box.key,
         nodeId: box.nodeId,
         name: box.name,
         tag: box.tag,
         width: box.width,
-        height: box.height,
+        height: frame == '6:2105' && box.nodeId == '6:2118' ? 18 : box.height,
         x: box.x,
         y: box.y,
         text: newText,
@@ -774,7 +821,14 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
         formLabel: box.formLabel,
         fixedHeight: box.fixedHeight,
         initiallyVisible: box.initiallyVisible && !hidden.contains(box.nodeId),
-        style: box.style,
+        style: frame == '6:2105'
+            ? {
+                ...box.style,
+                'preserveWidth': true,
+                if (box.nodeId == '6:2118')
+                  'transform': 'matrix(1, 0, 0, 1, 0, -9)'
+              }
+            : box.style,
         control: control,
         children: kids);
   }

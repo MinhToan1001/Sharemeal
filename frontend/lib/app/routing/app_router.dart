@@ -7,7 +7,15 @@ import 'shared_routes.dart';
 import 'volunteer_routes.dart';
 import '../../presentation/user/donor/pages/impact_report_page.dart';
 import 'session_route_gate.dart';
+import '../../presentation/user/volunteer/pages/pickup_photo_page.dart';
 import '../../presentation/user/volunteer/pages/handover_scanner_page.dart';
+import '../../presentation/shared/controllers/firebase_app_state.dart';
+import '../../presentation/shared/figma/figma_prototype_controller.dart';
+
+Widget _handoverPage(BuildContext context) =>
+    FigmaPrototypeScope.of(context).frontend is FirebaseAppState
+        ? const UserVolunteerPickupPhotoPage()
+        : const UserVolunteerHandoverScannerPage();
 
 abstract final class AppRouter {
   static final Map<String, WidgetBuilder> pages = {
@@ -18,7 +26,8 @@ abstract final class AppRouter {
     ...VolunteerRoutes.pages,
     ...SharedRoutes.pages,
     DonorImpactReportPage.routeName: (_) => const DonorImpactReportPage(),
-    '/shared/handover-scanner': (_) => const UserVolunteerHandoverScannerPage(),
+    '/shared/handover-scanner': _handoverPage,
+    '/user/volunteer/handover-scanner': _handoverPage,
   };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

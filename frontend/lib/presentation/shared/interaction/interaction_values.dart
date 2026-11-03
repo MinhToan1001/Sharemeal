@@ -1,4 +1,5 @@
 import 'frontend_state.dart';
+import 'food_expiry.dart';
 
 bool controlEnabled(FrontendState state, Map<String, dynamic> spec) {
   final checks = spec['requiredChecks'] as List? ?? const [];
@@ -98,7 +99,9 @@ String computedText(FrontendState s, String value) => switch (value) {
         (s.values['food.allergens'] as List? ?? ['Trứng']).join(', ').isEmpty
             ? 'Không có'
             : (s.values['food.allergens'] as List? ?? ['Trứng']).join(', '),
-      'draft.expiry' => '${s.get('food.expiry', '23:00')} hôm nay',
+      'draft.expiry' => FoodExpiry.label(
+          s.get('food.expiry', FoodExpiry.defaultTime(DateTime.now())),
+          DateTime.now()),
       'draft.pickup' => s.get('food.pickup', '19:00–20:30'),
       'draft.address' => s.get('food.address', '45 Nguyễn Thị Minh Khai'),
       'selected.remaining' => '${s.selectedFood.quantity} suất còn lại',
@@ -108,10 +111,10 @@ String computedText(FrontendState s, String value) => switch (value) {
       'selected.allergens' => s.selectedFood.allergens.isEmpty
           ? 'Không có thành phần dị ứng đã khai báo.'
           : 'Có thể chứa ${s.selectedFood.allergens.join(', ')}. Vui lòng đối chiếu nhu cầu trước khi đặt nhận.',
-      'handover.pin' => s.get(
-          'handover.pin', s.values.containsKey('backend.role') ? '' : '472914'),
-      'receipt.pin' => s.get(
-          'receipt.pin', s.values.containsKey('backend.role') ? '' : '482913'),
+      'handover.pin' => s.get('handover.pin',
+          s.values.containsKey('backend.role') ? 'QR demo' : '472914'),
+      'receipt.pin' => s.get('receipt.pin',
+          s.values.containsKey('backend.role') ? 'QR demo' : '482913'),
       'impact.meals' => '${s.impact(s.get('impact.period', 'Tháng'))['meals']}',
       'impact.kg' => '${s.impact(s.get('impact.period', 'Tháng'))['kg']}',
       'impact.orders' =>

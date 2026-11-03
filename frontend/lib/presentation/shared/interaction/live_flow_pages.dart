@@ -461,13 +461,16 @@ class OrderTrackingContent extends StatelessWidget {
               button('Xác minh lấy hàng', () {
                 FigmaPrototypeScope.of(context).values['VariableID:80:1182'] =
                     'pickup';
+                s.set('demo.handover.stage', 'pickup');
                 go('/shared/handover-scanner');
               }),
             if (o.status == 'accepted' && !self)
               button('Xem tình trạng tìm người giao',
                   () => go('/user/organization/awaiting-courier')),
-            if (o.status == 'pickedUp' && !self && record['deliveryConfirmed'] != true)
-              button('Mã xác nhận nhận hàng',
+            if (o.status == 'pickedUp' &&
+                !self &&
+                record['deliveryConfirmed'] != true)
+              button('Thông tin QR bàn giao',
                   () => go('/user/organization/receipt-code')),
             if (o.status == 'pickedUp' &&
                 (self || record['deliveryConfirmed'] == true))
@@ -480,7 +483,8 @@ class OrderTrackingContent extends StatelessWidget {
             if (o.status == 'accepted' && !self)
               const Padding(
                   padding: EdgeInsets.only(bottom: 16),
-                  child: Text('Đang chờ tình nguyện viên nhận chuyến. Khi người lấy tới, kiểm đếm rồi đưa mã lấy hàng.')),
+                  child: Text(
+                      'Đang chờ tình nguyện viên nhận chuyến. Khi người lấy tới, kiểm đếm và bàn giao.')),
             if (o.status == 'assigned' || o.status == 'accepted' && self)
               button('Mã lấy hàng tại người cho',
                   () => go('/user/donor/handover-qr')),
@@ -490,10 +494,11 @@ class OrderTrackingContent extends StatelessWidget {
             if (o.status == 'assigned') ...[
               const Padding(
                   padding: EdgeInsets.only(bottom: 12),
-                  child: Text('Bước 1 · Đến điểm lấy của người cho, kiểm đếm và xin mã lấy hàng.')),
+                  child: Text(
+                      'Bước 1 · Đến người cho, kiểm đếm và xác nhận lấy hàng.')),
               button('Xác nhận lấy hàng từ người cho', () {
-                FigmaPrototypeScope.of(context).values['VariableID:80:1182'] = 'pickup';
-                go('/shared/handover-scanner');
+                s.set('demo.handover.stage', 'pickup');
+                go('/user/volunteer/pickup-photo');
               }),
             ],
             if (o.status == 'pickedUp') ...[
@@ -502,15 +507,17 @@ class OrderTrackingContent extends StatelessWidget {
               if (record['deliveryConfirmed'] != true) ...[
                 const Padding(
                     padding: EdgeInsets.only(bottom: 12),
-                    child: Text('Bước 2 · Vận chuyển đến tổ chức. Đối chiếu địa chỉ giao qua chat; khi tới nơi, xin mã nhận hàng từ tổ chức.')),
+                    child: Text(
+                        'Bước 2 · Vận chuyển đến tổ chức và xác nhận bàn giao.')),
                 button('Xác nhận giao hàng tại tổ chức', () {
-                  FigmaPrototypeScope.of(context).values['VariableID:80:1182'] = 'recipient';
-                  go('/shared/handover-scanner');
+                  s.set('demo.handover.stage', 'receipt');
+                  go('/user/volunteer/pickup-photo');
                 }),
               ] else
                 const Padding(
                     padding: EdgeInsets.only(bottom: 16),
-                    child: Text('Đã xác nhận mã nhận hàng. Chờ tổ chức chụp ảnh, ghi số thực nhận và hoàn tất nhập kho.')),
+                    child: Text(
+                        'Đã giao hàng. Chờ tổ chức ghi số thực nhận và hoàn tất nhập kho.')),
             ],
             button('Chuyến của tôi', () {
               s.set('jobs.scope', 'mine');
@@ -548,19 +555,24 @@ class OrderTrackingContent extends StatelessWidget {
           button('Nhắn tin về đơn nhận', () => go('/shared/chat')),
           button('Báo vấn đề / Yêu cầu hỗ trợ',
               () => go('/shared/report-discrepancy')),
-          if (s.orders.any((other) => other.foodId == o.foodId && other.id != o.id)) ...[
+          if (s.orders.any(
+              (other) => other.foodId == o.foodId && other.id != o.id)) ...[
             const Padding(
                 padding: EdgeInsets.symmetric(vertical: 12),
                 child: Text('Các đơn khác cùng tin',
                     style: TextStyle(fontWeight: FontWeight.w700))),
             for (final other in s.orders.where((other) =>
-                other.foodId == o.foodId && other.id != o.id &&
-                (s.role != 'volunteer' || s.rows('orders').any((row) =>
-                    row['id'] == other.id && row['volunteerId'] == s.user?.uid))))
+                other.foodId == o.foodId &&
+                other.id != o.id &&
+                (s.role != 'volunteer' ||
+                    s.rows('orders').any((row) =>
+                        row['id'] == other.id &&
+                        row['volunteerId'] == s.user?.uid))))
               OutlinedButton(
                   key: ValueKey('order/switch/${other.id}'),
                   onPressed: () => s.selectOrder(other.id),
-                  child: Text('${other.quantity} suất · ${other.id} · ${other.status}')),
+                  child: Text(
+                      '${other.quantity} suất · ${other.id} · ${other.status}')),
           ],
           const SizedBox(height: 4),
           SelectableText('Mã đơn: ${o.id}',

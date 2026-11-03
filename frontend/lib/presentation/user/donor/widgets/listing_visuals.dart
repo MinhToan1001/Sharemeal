@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../shared/interaction/food_expiry.dart';
 import '../../../shared/figma/figma_prototype_controller.dart';
 import '../../../shared/interaction/app_navigation.dart';
 import '../../../shared/interaction/food_photo.dart';
@@ -194,14 +195,18 @@ class FoodSafetyHero extends StatelessWidget {
                           onTap: () => FrontendActions.run(context, '6:416', {
                                 'action': 'pickTime',
                                 'key': spec[0],
-                                'initial': spec[2]
+                                'initial': spec[0] == 'food.expiry'
+                                    ? FoodExpiry.defaultTime(DateTime.now())
+                                    : spec[2]
                               }),
                           child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 8),
                               child: Row(children: [
                                 Expanded(
                                     child: Text(
-                                        '${spec[1]} ${s.get(spec[0], spec[2])}',
+                                        spec[0] == 'food.expiry'
+                                            ? 'Dùng trước ${FoodExpiry.label(s.get(spec[0], FoodExpiry.defaultTime(DateTime.now())), DateTime.now())}'
+                                            : '${spec[1]} ${s.get(spec[0], spec[2])}',
                                         style: TextStyle(
                                             fontSize: 13,
                                             color: spec[0] == 'food.expiry'

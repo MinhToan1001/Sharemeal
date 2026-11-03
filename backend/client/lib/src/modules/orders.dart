@@ -2,6 +2,7 @@ part of '../firebase/sharemeal_client.dart';
 
 const _orderCommands = {
   'requestFood',
+  'confirmDemoHandover',
   'transitionOrder',
   'confirmSchedule',
   'renewHandover',
@@ -85,6 +86,14 @@ extension _DirectOrders on ShareMealClient {
         member: command != 'transitionOrder' || p['status'] != 'assigned');
     final key = o['id'];
     final path = 'demo/orders/$key';
+    if (command == 'confirmDemoHandover') {
+      await account(o['volunteerId'] == uid ? 'volunteer' : 'charity');
+      await _transaction(
+          path,
+          (current) =>
+              DemoHandoverProtocol.confirm(current, uid, '${p['stage']}', now));
+      return {'id': key};
+    }
     if (command == 'transitionOrder') {
       final status = p['status'];
       if (status == 'accepted') return _acceptOrder('$key');

@@ -1,6 +1,10 @@
 # ShareMeal
 
-Ứng dụng Android chia sẻ thực phẩm, kết nối **người cho**, **tổ chức từ thiện**, **tình nguyện viên** và **quản trị viên**. App hỗ trợ đăng món, xin nhận, giao nhận bằng PIN/QR, quản lý kho, chat và xét duyệt hồ sơ.
+Ứng dụng Android chia sẻ thực phẩm, kết nối **người cho**, **tổ chức từ thiện**, **tình nguyện viên** và **quản trị viên**. App hỗ trợ đăng món, xin nhận, giao nhận, quản lý kho, chat và xét duyệt hồ sơ.
+
+Luồng demo giữ màn QR, camera và kết quả theo Figma. Tình nguyện viên bấm **nút trắng trên màn camera** để xác nhận lấy hàng; sau đó bấm **Đã đến nơi → nút trắng** để xác nhận giao. Không cần nhập PIN hoặc quét bằng hai điện thoại. Tổ chức xác nhận số thực nhận để nhập kho; ảnh nhận hàng là tùy chọn. Cần APK mới và Database Rules tương ứng (xem [cài backend](docs/BACKEND_SETUP.md)).
+
+Tin 9 suất đã được giữ 7 vẫn còn 2 để xin thêm **khi tin còn hạn**. Giờ hết hạn hiển thị rõ hôm nay/ngày mai; mặc định khoảng hai giờ sau thời điểm tạo tin. Tin cũ đã hết hạn không tự gia hạn.
 
 Ứng dụng được viết bằng Flutter, sử dụng Firebase Authentication, Realtime Database và Cloudinary. Flutter gọi Firebase trực tiếp; quyền dữ liệu được kiểm tra bằng Firebase Rules. `backend/client` là package nghiệp vụ chạy cùng app, không phải một máy chủ cần khởi động riêng.
 

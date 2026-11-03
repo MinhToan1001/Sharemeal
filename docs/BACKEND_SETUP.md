@@ -77,7 +77,7 @@ Chỉ dùng một admin theo cơ chế singleton hiện tại. Khi chuyển admi
 1. Tạo tài khoản cho các vai trò, xác minh email, gửi và duyệt hồ sơ.
 2. Người cho đăng món còn hạn; admin duyệt để món xuất hiện.
 3. Tổ chức xin nhận; người cho chấp nhận để giữ suất.
-4. Thực hiện lấy/giao hàng bằng PIN/QR, nhập số thực nhận và ảnh nhận hàng.
+4. Tình nguyện viên mở màn camera và bấm nút trắng để lấy hàng; tới tổ chức bấm Đã đến nơi rồi nút trắng để giao. Tổ chức nhập số thực nhận và hoàn tất; ảnh là tùy chọn. Luồng demo cần Rules mới đã triển khai, không yêu cầu PIN hoặc quét bằng hai thiết bị.
 5. Kiểm tra kho, phân phát, đánh giá, chat và yêu cầu hỗ trợ.
 
 Database mới có thể trống; không cần dữ liệu mẫu. Email xác minh và đặt lại mật khẩu được Firebase gửi bằng liên kết, không dùng SMTP hoặc OTP riêng.

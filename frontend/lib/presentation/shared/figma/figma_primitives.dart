@@ -28,7 +28,6 @@ import '../../user/volunteer/widgets/delivery_jobs_content.dart';
 import '../../user/volunteer/widgets/delivery_job_details.dart';
 import '../../admin/widgets/review_content.dart';
 import '../interaction/live_flow_pages.dart';
-import '../interaction/live_handover_pages.dart';
 import '../interaction/media_gallery.dart';
 import '../interaction/horizontal_options_strip.dart';
 
@@ -106,16 +105,7 @@ class _FigmaScreenState extends State<FigmaScreen> {
       }
       if (widget.frameId == '6:1333') return const RequestFoodContent();
       if (widget.frameId == '6:2352') return const ChatContent();
-      if (widget.frameId == '6:3567') return const MatchSuccessContent();
-      if (['6:843', '65:1098'].contains(widget.frameId)) {
-        return HandoverCodeContent(
-            stage: widget.frameId == '6:843' ? 'pickup' : 'receipt');
-      }
-      if (['65:1068', '6:2937'].contains(widget.frameId)) {
-        return const HandoverVerificationContent();
-      }
-      if (['6:1525', '6:661', '6:1890', '6:1971', '6:2064', '65:1126']
-          .contains(widget.frameId)) {
+      if (['6:1525', '6:661'].contains(widget.frameId)) {
         return const OrderTrackingContent();
       }
     }
@@ -476,7 +466,9 @@ class FigmaBox extends StatelessWidget {
       }
     }
     final available = math.max(1.0, right - left);
-    final w = child._textGroup && child._translation.dx == 0
+    final w = child.style['preserveWidth'] != true &&
+            child._textGroup &&
+            child._translation.dx == 0
         ? available
         : child.width;
     return Positioned(

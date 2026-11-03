@@ -252,8 +252,10 @@ class FrontendState extends ChangeNotifier {
 
   void selectOrder(String id) {
     if (id != selectedOrderId) {
-      values.removeWhere(
-          (k, v) => k.startsWith('handover.') || k.startsWith('receipt.'));
+      values.removeWhere((k, v) =>
+          k.startsWith('handover.') ||
+          k.startsWith('receipt.') ||
+          k.startsWith('demo.handover.'));
     }
     orderStateUsed = true;
     selectedOrderId = id;

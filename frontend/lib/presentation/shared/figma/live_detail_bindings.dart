@@ -140,8 +140,12 @@ abstract final class LiveDetailBindings {
           '65:1154': '${o.quantity} suất · Đối chiếu đúng đơn'
         },
       '6:2105' => {
-          '6:2131':
-              '${o.organization} xác nhận ${o.received} suất · ${date(row['completedAt'])}.'
+          '6:2117': 'Cảm ơn bạn đã mang ${o.quantity} suất đến',
+          '6:2118': o.organization,
+          '6:2124': '${o.quantity}',
+          '6:2131': o.status == 'completed'
+              ? '${o.organization} đã nhận ${o.received} suất.'
+              : 'Đã giao ${o.quantity} suất. Chờ tổ chức xác nhận nhập kho.'
         },
       '6:1971' => {'6:1975': '${o.id} · Bước lấy hàng'},
       '65:1542' => {
@@ -189,7 +193,7 @@ abstract final class LiveDetailBindings {
       'Dự kiến đến 19:40 - bước 2/3': 'Giờ hẹn ${o.time} · ${o.status}',
       'Đủ 15 hộp cơm gà': '${o.quantity} suất ${f.name}',
       'Cảm ơn bạn đã mang 15 suất cơm đến ':
-          'Cảm ơn bạn đã mang ${o.received} suất ${f.name} đến ',
+          'Cảm ơn bạn đã mang ${o.quantity} suất đến ',
       'với Mái ấm Hoa Sen đúng giờ.': 'với ${o.organization}.',
       if (frame == '6:1614') ...{
         '80 suất / ngày': 'Chưa cập nhật',
@@ -202,7 +206,7 @@ abstract final class LiveDetailBindings {
             'Mã có hiệu lực 10 phút · tối đa 5 lần thử',
       if (frame == '6:1573')
         'Chụp ảnh hàng nhận được để lưu lại minh chứng':
-            'Ảnh nhận hàng bắt buộc (JPG/PNG)',
+            'Ảnh nhận hàng không bắt buộc',
       if (frame == '6:1212')
         '6 kết quả trong bán kính 5 km - Gần nhất trước':
             '${s.searchFoods().length} món phù hợp',

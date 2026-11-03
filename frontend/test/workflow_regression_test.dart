@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'dart:ui' as ui;
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sharemeal/app/sharemeal_app.dart';
@@ -24,10 +27,10 @@ class WorkflowState extends FirebaseAppState {
         order['driver'] = 'Tình nguyện viên';
       }
     }
-    if (name == 'verifyHandover') {
+    if (name == 'confirmDemoHandover') {
       if (payload['stage'] == 'pickup') {
         order['status'] = 'pickedUp';
-        order['qtyPickedUp'] = payload['pickedUp'];
+        order['qtyPickedUp'] = order['quantity'];
       } else {
         order['deliveryConfirmed'] = true;
       }
@@ -91,30 +94,52 @@ void main() {
     return c;
   }
 
+  Future<void> capture(WidgetTester t, String frame) async {
+    final boundary = t.renderObject<RenderRepaintBoundary>(
+        find.byKey(ValueKey('figma/$frame')));
+    await t.runAsync(() async {
+      final output = Directory('build/visual-tests/demo')
+        ..createSync(recursive: true);
+      final image = await boundary.toImage();
+      final data = await image.toByteData(format: ui.ImageByteFormat.png);
+      File('${output.path}/${frame.replaceAll(':', '_')}.png')
+          .writeAsBytesSync(data!.buffer.asUint8List());
+      image.dispose();
+    });
+  }
+
   testWidgets('match success close returns to donor dashboard', (t) async {
     final s = WorkflowState()..applyView(workflow('donor', 'accepted'));
     s.selectOrder('seven');
     await open(t, s, '/user/donor/match-success');
-    expect(find.textContaining('Có hai mã khác nhau'), findsOneWidget);
-    await t.tap(find.byKey(const ValueKey('match/close')));
+    expect(find.byKey(const ValueKey('figma/6:3567')), findsOneWidget);
+    await capture(t, '6:3567');
+    await t.tap(
+        find.byWidgetPredicate((w) => w is FigmaBox && w.nodeId == '6:3569'));
     await t.pumpAndSettle();
     expect(find.byKey(const ValueKey('figma/6:319')), findsOneWidget);
   });
-  testWidgets('seven and additional two stay separate and can be selected for handover', (t) async {
+  testWidgets(
+      'seven and additional two stay separate and can be selected for handover',
+      (t) async {
     final data = workflow('donor', 'accepted');
     (data['orders'] as List).add(<String, Object>{
       ...(data['orders'] as List).single as Map<String, Object>,
-      'id': 'additional-two', 'quantity': 2, 'qtyRequested': 2,
+      'id': 'additional-two',
+      'quantity': 2,
+      'qtyRequested': 2,
     });
     final s = WorkflowState()..applyView(data);
     s.selectOrder('seven');
     await open(t, s, '/user/donor/order-tracking');
-    await t.scrollUntilVisible(find.byKey(const ValueKey('order/switch/additional-two')), 200);
+    await t.scrollUntilVisible(
+        find.byKey(const ValueKey('order/switch/additional-two')), 200);
     await t.tap(find.byKey(const ValueKey('order/switch/additional-two')));
     await t.pumpAndSettle();
     expect(s.selectedOrderId, 'additional-two');
     expect(s.selectedOrder.quantity, 2);
-    expect(s.rows('orders').firstWhere((o) => o['id'] == 'seven')['quantity'], 7);
+    expect(
+        s.rows('orders').firstWhere((o) => o['id'] == 'seven')['quantity'], 7);
   });
   testWidgets(
       'donor dashboard pending metric and request row both open live requests',
@@ -143,44 +168,53 @@ void main() {
     await t.tap(find.text('Xác nhận nhận việc').last);
     await t.pumpAndSettle();
     expect(s.selectedOrder.status, 'assigned');
-    await t.scrollUntilVisible(
-        find.text('Xác nhận lấy hàng từ người cho'), 180);
-    expect(find.text('Xác nhận lấy hàng từ người cho'), findsOneWidget);
+    expect(find.byKey(const ValueKey('figma/6:1971')), findsOneWidget);
     expect(find.textContaining('chờ admin'), findsNothing);
-    await t.scrollUntilVisible(find.text('Chuyến của tôi'), 180);
-    await t.tap(find.text('Chuyến của tôi'));
+    s.set('jobs.scope', 'mine');
+    final context = t.element(find.byKey(const ValueKey('figma/6:1971')));
+    Navigator.of(context).pushNamed('/user/volunteer/available-jobs');
     await t.pumpAndSettle();
     expect(find.byKey(const ValueKey('job/seven')), findsOneWidget);
     await t.tap(find.byKey(const ValueKey('job/seven')));
     await t.pumpAndSettle();
-    await t.scrollUntilVisible(
-        find.text('Xác nhận lấy hàng từ người cho'), 180);
-    expect(find.text('Xác nhận lấy hàng từ người cho'), findsOneWidget);
+    await t.tap(find.text('Tiếp tục chuyến'));
+    await t.pumpAndSettle();
+    expect(find.byKey(const ValueKey('figma/6:1971')), findsOneWidget);
   });
-  testWidgets(
-      'PIN pickup records seven then exposes the separate delivery confirmation',
+  testWidgets('Figma white shutter advances pickup and delivery without a PIN',
       (t) async {
     final s = WorkflowState()..applyView(workflow('volunteer', 'assigned'));
     s.selectOrder('seven');
-    final c = await open(t, s, '/shared/handover-scanner');
-    c.values['VariableID:80:1182'] = 'pickup';
-    await t.enterText(find.byKey(const ValueKey('handover/pin')), '123456');
-    await t.tap(find.byKey(const ValueKey('handover/verify')));
-    await t.pumpAndSettle();
-    await t.tap(find.text('Lưu'));
+    await open(t, s, '/user/volunteer/pickup-photo');
+    expect(find.byKey(const ValueKey('figma/6:2041')), findsOneWidget);
+    await capture(t, '6:2041');
+    expect(find.byType(TextField), findsNothing);
+    await t.tapAt(const Offset(201, 740));
     await t.pumpAndSettle();
     expect(s.selectedOrder.status, 'pickedUp');
-    expect(s.commands.single['pickedUp'], 7);
-    await t.scrollUntilVisible(
-        find.text('Xác nhận giao hàng tại tổ chức'), 180);
-    expect(find.text('Xác nhận giao hàng tại tổ chức'), findsOneWidget);
-    await t.tap(find.text('Xác nhận giao hàng tại tổ chức'));
+    expect(s.commands.single['command'], 'confirmDemoHandover');
+    expect(s.commands.single['stage'], 'pickup');
+    expect(find.byKey(const ValueKey('figma/6:2064')), findsOneWidget);
+    await t.tap(find.text('Đã đến nơi'));
     await t.pumpAndSettle();
-    await t.enterText(find.byKey(const ValueKey('handover/pin')), '654321');
-    await t.tap(find.byKey(const ValueKey('handover/verify')));
+    expect(find.text('Ảnh xác nhận giao hàng'), findsOneWidget);
+    await t.tapAt(const Offset(201, 740));
     await t.pumpAndSettle();
     expect(s.commands.last['stage'], 'receipt');
-    expect(s.selectedOrder.status, 'pickedUp');
-    expect(find.textContaining('Chờ tổ chức chụp ảnh'), findsOneWidget);
+    expect(find.byKey(const ValueKey('figma/6:2105')), findsOneWidget);
+    expect(find.text('Giao thành công!'), findsOneWidget);
+    await capture(t, '6:2105');
+    expect(s.rows('orders').single['deliveryConfirmed'], true);
+  });
+  testWidgets(
+      'remaining two appear on organization dashboard while food is unexpired',
+      (t) async {
+    final data = workflow('charity', 'accepted');
+    (data['foods'] as List).single['expiresAt'] =
+        DateTime.now().add(const Duration(hours: 1)).toUtc().toIso8601String();
+    final s = WorkflowState()..applyView(data);
+    await open(t, s, '/user/organization/dashboard');
+    expect(find.text('Cơm 9 suất · 2 suất'), findsOneWidget);
+    expect(s.searchFoods().single.quantity, 2);
   });
 }

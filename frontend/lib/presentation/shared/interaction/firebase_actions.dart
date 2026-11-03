@@ -6,7 +6,7 @@ import '../figma/figma_prototype_controller.dart';
 import 'app_navigation.dart';
 import 'frontend_actions.dart';
 import 'frontend_state.dart';
-import 'handover_confirmation.dart';
+import 'food_expiry.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Adapter for the existing Figma form controls. Server data never uses local
@@ -454,16 +454,9 @@ abstract final class FirebaseActions {
         final edit = action == 'editListing', f = s.selectedFood;
         final name = edit ? s.get('edit.name', f.name) : s.get('food.name', '');
         if (name.trim().isEmpty) throw StateError('Hãy nhập tên món ăn.');
-        final expiryText = s.get('food.expiry', '23:00');
-        final time = RegExp(r'^(\d{1,2}):(\d{2})$').firstMatch(expiryText);
-        if (time == null ||
-            int.parse(time[1]!) > 23 ||
-            int.parse(time[2]!) > 59) {
-          throw StateError('Hạn sử dụng cần định dạng HH:mm.');
-        }
-        final now = DateTime.now(),
-            expiry = DateTime(now.year, now.month, now.day, int.parse(time[1]!),
-                int.parse(time[2]!));
+        final now = DateTime.now();
+        final expiry = FoodExpiry.resolve(
+            s.get('food.expiry', FoodExpiry.defaultTime(now)), now);
         var photo = s.get('food.photo', edit ? f.photo : '');
         if ((s.values['food.photos'] as List? ?? (edit ? f.photos : []))
                 .isEmpty &&
@@ -586,11 +579,6 @@ abstract final class FirebaseActions {
         String? receiptNote;
         if (action == 'confirmReceipt') {
           final record = s.rows('orders').firstWhere((o) => o['id'] == id);
-          if (s.get('receipt.photo', '').isEmpty &&
-              '${record['receiptPhoto'] ?? ''}'.isEmpty) {
-            throw StateError(
-                'Hãy thêm ít nhất một ảnh nhận hàng trước khi hoàn tất.');
-          }
           final received = s.get('receipt.quantity', s.selectedOrder.quantity);
           if (record['receiptState'] != 'pending' &&
               (received != (record['qtyRequested'] ?? record['quantity']) ||
@@ -623,7 +611,7 @@ abstract final class FirebaseActions {
           s.selectOrder(id);
           s.set('jobs.scope', 'mine');
           message('Đã nhận chuyến. Hãy đến người cho để xác nhận lấy hàng.');
-          go('/user/volunteer/job-detail');
+          go('/user/volunteer/pickup');
         } else if (action == 'confirmReceipt') {
           go('/user/organization/order-tracking');
         } else {
@@ -646,30 +634,28 @@ abstract final class FirebaseActions {
         });
         go('/user/donor/match-success');
         return true;
+      case 'demoPickup':
+        s.set('demo.handover.stage', 'pickup');
+        go('/user/volunteer/pickup-photo');
+        return true;
+      case 'demoDelivery':
+        s.set('demo.handover.stage', 'receipt');
+        go('/user/volunteer/pickup-photo');
+        return true;
+      case 'cameraNext':
       case 'confirmPickup':
       case 'verifyPin':
-        final stage =
-            ['recipient', 'delivery'].contains(c.values['VariableID:80:1182'])
-                ? 'receipt'
-                : 'pickup';
-        if (!s.get('handover.verified', false) ||
-            s.get('handover.verified.stage', '') != stage) {
-          if (!await verifyWithPickupQuantity(
-              context, s, id, stage, s.get('handover.entered', ''))) {
-            return true;
-          }
-        }
-        s.set('handover.verified', true);
-        s.set('handover.verified.stage', stage);
-        if (s.role == 'charity') {
-          go('/user/organization/confirm-receipt');
-        } else {
-          go('/user/volunteer/job-detail');
-        }
+        final stage = s.get('demo.handover.stage', 'pickup');
+        await s.command('confirmDemoHandover', {'id': id, 'stage': stage});
+        s.values.remove('demo.handover.stage');
+        go(s.role == 'charity'
+            ? '/user/organization/confirm-receipt'
+            : stage == 'receipt'
+                ? '/user/volunteer/delivery-complete'
+                : '/user/volunteer/delivery-tracking');
         return true;
       case 'renewCode':
-        await s.loadHandover(s.role == 'charity' ? 'receipt' : 'pickup',
-            renew: true);
+        message('Mã QR dùng minh họa trong bản demo.');
         return true;
       case 'addNeed':
         await s.command('addNeed', {

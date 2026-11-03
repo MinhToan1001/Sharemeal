@@ -25,19 +25,14 @@ abstract final class OrderReceiptProtocol {
         o['organizationId'] == uid, 'Chỉ tổ chức nhận được xác nhận nhập kho.');
     if (o['status'] == 'completed') return o;
     if (o['receiptState'] == 'pending') {
-      if (validPhoto('${o['receiptPhoto'] ?? ''}')) return o;
-      check(validPhoto(photo),
-          'Hãy thêm ít nhất một ảnh nhận hàng JPG/PNG trước khi hoàn tất.');
-      // An E/legacy pending receipt may already have its inventory marker.
-      // Attach only missing evidence; keep all quantities and intent unchanged.
-      return {...o, 'receiptPhoto': photo, 'updatedAt': now};
+      return o;
     }
     check(
         o['status'] == 'pickedUp' &&
             (o['transport'] == 'Tự đến lấy' || o['deliveryConfirmed'] == true),
-        'Cần xác nhận mã bàn giao trước.');
-    check(validPhoto(photo),
-        'Hãy thêm ít nhất một ảnh nhận hàng JPG/PNG trước khi hoàn tất.');
+        'Cần hoàn tất bước giao hàng trước.');
+    check(photo.isEmpty || validPhoto(photo),
+        'Ảnh nhận hàng cần là JPG/PNG được tải lên Cloudinary.');
     check(received >= 0 && received <= requested(o),
         'Số thực nhận không hợp lệ.');
     final discrepancy = received != requested(o) || received != pickedUp(o);

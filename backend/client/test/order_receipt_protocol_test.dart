@@ -51,41 +51,29 @@ void main() {
         throwsStateError);
   });
   test(
-      'receipt evidence required for both modes; pending E receipt can attach only its missing photo',
+      'demo receipt accepts optional photo but validates supplied media and freezes intent',
       () {
     for (final mode in ['Tự đến lấy', 'Nhờ giao hộ']) {
       final o = {...order(), 'transport': mode, 'deliveryConfirmed': true};
-      for (final invalid in [
-        '',
-        'https://example.com/a.png',
-        'https://res.cloudinary.com/toanvip/raw/upload/a.pdf',
-        'https://res.cloudinary.com/toanvip/image/upload/a.pdf'
-      ]) {
-        expect(
-            () => OrderReceiptProtocol.begin(o, 'org', 10, '', invalid, 'now'),
-            throwsStateError);
-      }
+      final receipt = OrderReceiptProtocol.begin(o, 'org', 10, '', '', 'now');
+      expect(receipt['receiptState'], 'pending');
+      expect(OrderReceiptProtocol.credit({}, receipt)['received'], 10);
+      expect(
+          () => OrderReceiptProtocol.begin(
+              o, 'org', 10, '', 'https://example.com/a.png', 'now'),
+          throwsStateError);
       expect(
           OrderReceiptProtocol.begin(
               o, 'org', 10, '', photo, 'now')['receiptPhoto'],
           photo);
+      expect(
+          OrderReceiptProtocol.begin(
+              receipt, 'org', 1, 'changed', photo, 'later'),
+          same(receipt));
     }
-    final pending = {
-      ...order(),
-      'receiptState': 'pending',
-      'qtyReceived': 9,
-      'received': 9,
-      'qtyPickedUp': 10,
-      'discrepancyNote': 'Thiếu một suất'
-    };
-    expect(() => OrderReceiptProtocol.begin(pending, 'org', 10, '', '', 'now'),
+    expect(
+        () => OrderReceiptProtocol.begin(
+            {...order(), 'transport': 'Nhờ giao hộ'}, 'org', 10, '', '', 'now'),
         throwsStateError);
-    final fixed =
-        OrderReceiptProtocol.begin(pending, 'org', 10, 'changed', photo, 'now');
-    expect(fixed['qtyReceived'], 9);
-    expect(fixed['discrepancyNote'], 'Thiếu một suất');
-    expect(fixed['receiptPhoto'], photo);
-    expect(OrderReceiptProtocol.begin(fixed, 'org', 10, '', '', 'later'),
-        same(fixed));
   });
 }

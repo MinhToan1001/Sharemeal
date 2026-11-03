@@ -11,7 +11,7 @@ Mã tích hợp và nghiệp vụ nằm trong package [`backend/client`](../back
 | `backend/client/lib/src/firebase/sharemeal_client.dart` | Kết nối, truy vấn đúng quyền, listener, chuyển dữ liệu cho UI |
 | `backend/client/lib/src/modules/accounts.dart` | Hồ sơ, role, duyệt, khóa/mở, ca tình nguyện |
 | `backend/client/lib/src/modules/foods.dart` | Đăng/sửa/đóng/duyệt món và nhu cầu |
-| `backend/client/lib/src/modules/orders.dart` | Xin nhận, duyệt đơn, số lượng, giao nhận, PIN/QR, kho |
+| `backend/client/lib/src/modules/orders.dart` | Xin nhận, duyệt đơn, số lượng, xác nhận giao nhận demo, kho |
 | `backend/client/lib/src/modules/community.dart` | Chat, đánh giá, cảm ơn, hỗ trợ, thông báo |
 | `frontend/lib/presentation/shared/controllers/firebase_app_state.dart` | Trạng thái phiên và dữ liệu giao diện; xóa khi đăng xuất |
 | `backend/client/lib/src/media/cloudinary_storage.dart` | Multipart upload Cloudinary, kiểm tra loại và 8 MB trong app |
@@ -39,7 +39,7 @@ Mã tích hợp và nghiệp vụ nằm trong package [`backend/client`](../back
 | `demo/shifts/<uid_date>` | Ca tình nguyện |
 | `demo/inventory/<uid>` | Tổng nhận, đã phân phát và mã giao dịch cuối |
 | `demo/distributions/<id>` | Nhật ký phân phát |
-| `handover/<orderId>/<pickup hoặc receipt>` | PIN bàn giao 10 phút, số lần sai, người dùng mã |
+| `handover/<orderId>/<pickup hoặc receipt>` | Mã của luồng cũ, không bắt buộc trong luồng demo hiện tại |
 | `foodAccess/<foodId>/<uid>` | Cho các bên trong đơn tiếp tục đọc món đã đóng |
 
 Không cho client đọc root hoặc toàn bộ `demo`. Truy vấn hồ sơ/hỗ trợ/thông báo/ca theo UID; chat/đánh giá theo đơn có người tham gia; admin đọc qua kiểm tra UID singleton. Món/nhu cầu đã duyệt được truy vấn công khai trong nhóm tài khoản đã xác minh email và chưa khóa.
@@ -50,15 +50,23 @@ Hồ sơ: `draft → pending → approved / rejected / supplement`; hồ sơ c�
 
 Món và nhu cầu: `pending → open / rejected`; sửa nội dung trở lại pending, đóng tin thành closed. Đóng món đồng thời hủy yêu cầu còn chờ; các đơn đã chấp nhận vẫn được giữ để hoàn tất giao nhận.
 
-Đơn: `awaiting → accepted → assigned → pickedUp → completed`. Tự đến lấy bỏ qua assigned. Có nhánh rejected và cancelled trước lấy hàng. Giao hộ cần xác nhận mã nhận trước completed.
+Đơn: `awaiting → accepted → assigned → pickedUp → completed`. Tự đến lấy bỏ qua assigned. Có nhánh rejected và cancelled trước lấy hàng. Giao hộ cần `deliveryConfirmed` trước khi tổ chức hoàn tất nhập kho.
 
 Cùng một tổ chức có thể gửi đơn bổ sung cho món còn suất sau khi yêu cầu trước đã được chấp nhận. Chỉ chặn yêu cầu trùng khi vẫn còn một đơn `awaiting` của tổ chức đó cho cùng món. Ví dụ tin 9 suất, đơn 7 được chấp nhận thì còn 2 suất để tạo đơn mới; mỗi đơn vẫn có mã riêng và phải được người cho xét riêng.
 
-Tình nguyện viên mở lại các đơn của mình qua `Việc giao → Chuyến của tôi`. Mã `pickup` do người cho tạo và người lấy xác nhận ở điểm lấy; mã `receipt` do tổ chức tạo và tình nguyện viên xác nhận tại điểm giao. Xác nhận `receipt` đặt `deliveryConfirmed`, còn tổ chức phải ghi số thực nhận và ảnh nhận hàng để hoàn tất nhập kho. Luồng live dùng trạng thái Firebase để điều hướng, không chạy lại nhánh phê duyệt của prototype sau khi nhận chuyến.
+Tình nguyện viên mở lại các đơn của mình qua `Việc giao → Chuyến của tôi`. Tại người cho, mở màn camera Figma `6:2041` và bấm nút trắng; lệnh `confirmDemoHandover` với stage `pickup` đặt trạng thái `pickedUp` và số thực lấy bằng số đã đặt. Tới tổ chức, bấm `Đã đến nơi` rồi nút trắng để xác nhận stage `receipt`, đặt `deliveryConfirmed` và mở màn thành công Figma `6:2105`. Không cần PIN hoặc xác thực mã từ thiết bị thứ hai. Tổ chức ghi số thực nhận để nhập kho; ảnh là tùy chọn. Luồng live dùng trạng thái Firebase để điều hướng, không chạy lại nhánh phê duyệt của prototype sau khi nhận chuyến.
 
 Số suất hiển thị = quantity − reserved. Chấp nhận/hủy dùng một update nhiều vị trí cho đơn và số đã giữ; Rules đối chiếu thay đổi trước/sau và số suất của đơn, chặn cập nhật theo số cũ khi có tranh chấp. Nhận chuyến cập nhật nguyên tử người giao, trạng thái và quyền đọc món; Rules chỉ cho nhận khi trạng thái hiện tại còn accepted và chưa có người giao. Nhập kho/phân phát dùng update nguyên tử kèm mã đơn/giao dịch, Rules kiểm tra tổng và tồn. Khi thao tác cạnh tranh bị từ chối, làm mới dữ liệu và thao tác lại.
 
-Mã bàn giao nằm ngoài cây dữ liệu được truy vấn chung, có hạn 10 phút, tối đa 5 lần nhập mỗi mã, dùng một lần. Bản demo kiểm tra PIN bằng RTDB Rules và quyền các bên; không dùng máy chủ ký mã.
+Màn QR giữ bố cục để minh họa thiết kế. Nút trắng xác nhận quy trình demo, không chụp ảnh hoặc quét thật. Rules vẫn kiểm tra vai trò đã duyệt, người tham gia đơn, số lượng và thứ tự bước. Nguồn Rules đã đổi để cho phép xác nhận demo không cần mã; phải triển khai Rules tương ứng trước khi thử APK mới với Firebase dùng chung.
+
+Kiểm tra Rules trên emulator từ `backend` (cần Java 21+ và `npm ci` trong `backend/tools`):
+
+```sh
+firebase emulators:exec --only "auth,database" --project demo-sharemeal-workflow "node tools/demo_workflow_rules_test.cjs"
+```
+
+Script chỉ chạy khi hai biến môi trường emulator trỏ tới localhost, không ghi vào project dùng chung.
 
 ## Phạm vi demo
 
