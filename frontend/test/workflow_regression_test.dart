@@ -13,15 +13,22 @@ import 'firebase_app_state_test.dart' show TestServices, TestUser, view;
 class WorkflowState extends FirebaseAppState {
   WorkflowState() : super(TestServices()..auth.account = TestUser());
   final commands = <Map<String, dynamic>>[];
+  bool failReceipt = false;
   @override
   Future<Map<String, dynamic>> command(String name,
       [Map<String, dynamic> payload = const {}]) async {
     commands.add({'command': name, ...payload});
+    if (failReceipt && name == 'transitionOrder') {
+      throw StateError('Không thể đồng bộ nhận hàng. Hãy thử lại.');
+    }
     final records = rows('orders').map((o) => <String, dynamic>{...o}).toList();
     final order =
         records.firstWhere((o) => o['id'] == payload['id'], orElse: () => {});
     if (name == 'transitionOrder') {
       order['status'] = payload['status'];
+      if (payload['status'] == 'completed') {
+        order['received'] = payload['received'];
+      }
       if (payload['status'] == 'assigned') {
         order['volunteerId'] = user!.uid;
         order['driver'] = 'Tình nguyện viên';
@@ -40,7 +47,7 @@ class WorkflowState extends FirebaseAppState {
       'version': (snapshot['version'] as int) + 1,
       'orders': records
     });
-    return {};
+    return name == 'submitTicket' ? {'id': 'quality-issue'} : {};
   }
 }
 
@@ -108,6 +115,121 @@ void main() {
     });
   }
 
+  testWidgets(
+      'receipt footer confirms seven and reports success before thank-you',
+      (t) async {
+    final s = WorkflowState()..applyView(workflow('charity', 'pickedUp'));
+    s.selectOrder('seven');
+    await open(t, s, '/user/organization/confirm-receipt');
+    await capture(t, '6:1573');
+    final button =
+        find.byWidgetPredicate((w) => w is FigmaBox && w.nodeId == '6:1581');
+    await t.tap(
+        find.byWidgetPredicate((w) => w is FigmaBox && w.nodeId == '6:1613'));
+    await t.pumpAndSettle();
+    expect(s.commands, isEmpty);
+    await t.tap(button);
+    await t.pumpAndSettle();
+    expect(s.commands.single['command'], 'transitionOrder');
+    expect(s.commands.single['received'], 7);
+    expect(s.selectedOrder.status, 'completed');
+    expect(
+        find.textContaining('Xác nhận nhận hàng thành công'), findsOneWidget);
+    expect(find.byKey(const ValueKey('figma/6:1702')), findsOneWidget);
+  });
+  testWidgets(
+      'receipt issue opens Figma reconciliation directly and returns with draft',
+      (t) async {
+    final s = WorkflowState()..applyView(workflow('charity', 'pickedUp'));
+    s.selectOrder('seven');
+    s.set('receipt.quantity', 6);
+    s.set('receipt.note', 'Một hộp bị đổ');
+    await open(t, s, '/user/organization/confirm-receipt');
+    await t.tap(find.text('Có vấn đề'));
+    await t.pumpAndSettle();
+    expect(find.byKey(const ValueKey('figma/65:1172')), findsOneWidget);
+    expect(s.commands, isEmpty);
+    expect(find.text('Gửi đối soát & nhận 6 suất'), findsOneWidget);
+    await capture(t, '65:1172');
+    await t.tap(find.text('Quay lại kiểm tra'));
+    await t.pumpAndSettle();
+    expect(find.byKey(const ValueKey('figma/6:1573')), findsOneWidget);
+    expect(s.get('receipt.quantity', 0), 6);
+    expect(s.get('receipt.note', ''), 'Một hộp bị đổ');
+  });
+  testWidgets('reconciliation edits actual count and notes before submitting',
+      (t) async {
+    final s = WorkflowState()..applyView(workflow('charity', 'pickedUp'));
+    s.selectOrder('seven');
+    await open(t, s, '/user/organization/confirm-receipt');
+    await t.tap(find.text('Có vấn đề'));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Gửi đối soát & nhận 7 suất'));
+    await t.pumpAndSettle();
+    expect(s.commands, isEmpty);
+    expect(find.textContaining('Hãy mô tả vấn đề'), findsOneWidget);
+    await t.tap(
+        find.byWidgetPredicate((w) => w is FigmaBox && w.nodeId == '65:1187'));
+    await t.pumpAndSettle();
+    await t.enterText(
+        find.descendant(
+            of: find.byType(Dialog), matching: find.byType(TextField)),
+        '6');
+    await t.tap(find.text('Lưu'));
+    await t.pumpAndSettle();
+    await t.enterText(
+        find.byKey(const ValueKey('input/receipt.note')), 'Một hộp bị đổ');
+    await t.pumpAndSettle();
+    await t.tap(find.text('Gửi đối soát & nhận 6 suất'));
+    await t.pumpAndSettle();
+    expect(s.commands.single['received'], 6);
+    expect(s.commands.single['note'], 'Một hộp bị đổ');
+  });
+  testWidgets('reconciliation receives only good quantity and opens its case',
+      (t) async {
+    final s = WorkflowState()..applyView(workflow('charity', 'pickedUp'));
+    s.selectOrder('seven');
+    s.set('receipt.quantity', 6);
+    s.set('receipt.note', 'Một hộp bị đổ');
+    await open(t, s, '/user/organization/confirm-receipt');
+    await t.tap(find.text('Có vấn đề'));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Gửi đối soát & nhận 6 suất'));
+    await t.pumpAndSettle();
+    expect(s.commands.single['received'], 6);
+    expect(s.commands.single['note'], 'Một hộp bị đổ');
+    expect(s.get('support.ticketId', ''), 'receipt_seven');
+    expect(s.selectedOrder.received, 6);
+    expect(find.byKey(const ValueKey('figma/65:1213')), findsOneWidget);
+  });
+  testWidgets('quality issue with matching count still creates a support case',
+      (t) async {
+    final s = WorkflowState()..applyView(workflow('charity', 'pickedUp'));
+    s.selectOrder('seven');
+    s.set('receipt.note', 'Bao bì không đúng mô tả');
+    await open(t, s, '/user/organization/confirm-receipt');
+    await t.tap(find.text('Có vấn đề'));
+    await t.pumpAndSettle();
+    await t.tap(find.text('Gửi đối soát & nhận 7 suất'));
+    await t.pumpAndSettle();
+    expect(s.commands.map((c) => c['command']),
+        ['submitTicket', 'transitionOrder']);
+    expect(s.get('support.ticketId', ''), 'quality-issue');
+  });
+  testWidgets('failed receipt stays on the form without reporting success',
+      (t) async {
+    final s = WorkflowState()..applyView(workflow('charity', 'pickedUp'));
+    s.selectOrder('seven');
+    s.failReceipt = true;
+    await open(t, s, '/user/organization/confirm-receipt');
+    await t.tap(
+        find.byWidgetPredicate((w) => w is FigmaBox && w.nodeId == '6:1581'));
+    await t.pumpAndSettle();
+    expect(s.selectedOrder.status, 'pickedUp');
+    expect(find.textContaining('Không thể đồng bộ nhận hàng'), findsOneWidget);
+    expect(find.textContaining('Xác nhận nhận hàng thành công'), findsNothing);
+    expect(find.byKey(const ValueKey('figma/6:1573')), findsOneWidget);
+  });
   testWidgets('match success close returns to donor dashboard', (t) async {
     final s = WorkflowState()..applyView(workflow('donor', 'accepted'));
     s.selectOrder('seven');

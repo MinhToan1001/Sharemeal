@@ -75,12 +75,21 @@ abstract final class LiveDetailBindings {
           '6:2379': 'Đơn ${o.id}',
           '6:2387': '· ${f.name} · ${o.quantity} suất'
         },
+      '6:1573' => {
+          '6:1585': f.name,
+          '6:1586': 'Dự kiến ${o.quantity} suất · ${f.donor}',
+          '6:1589': '${o.id} · ${o.driver.isEmpty ? o.organization : o.driver}'
+        },
       '65:1172' => {
           '65:1178': '${o.id} · Ghi nhận số lượng thực tế',
           'I65:1183;60:567': '${o.quantity} suất',
           'I65:1187;60:567': '$quantity suất',
-          'I65:1187;60:568': s.get('receipt.note', ''),
-          'I65:1209;6:171': 'Gửi yêu cầu đối soát'
+          'I65:1187;60:568': 'Chạm để sửa số lượng',
+          '65:1194': 'Vấn đề khi nhận hàng',
+          '65:1201': s.get('receipt.photo', '').isEmpty
+              ? 'Chưa thêm ảnh · không bắt buộc trong demo'
+              : 'Đã thêm ảnh bằng chứng',
+          'I65:1209;6:171': 'Gửi đối soát & nhận $quantity suất'
         },
       '65:1512' => {
           '65:1518':
@@ -204,9 +213,6 @@ abstract final class LiveDetailBindings {
       if (frame == '6:2937')
         'Mã có hiệu lực thêm 09:42 - còn 3 lần thử':
             'Mã có hiệu lực 10 phút · tối đa 5 lần thử',
-      if (frame == '6:1573')
-        'Chụp ảnh hàng nhận được để lưu lại minh chứng':
-            'Ảnh nhận hàng không bắt buộc',
       if (frame == '6:1212')
         '6 kết quả trong bán kính 5 km - Gần nhất trước':
             '${s.searchFoods().length} món phù hợp',

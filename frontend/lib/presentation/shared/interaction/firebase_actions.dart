@@ -567,28 +567,79 @@ abstract final class FirebaseActions {
                   : '/user/organization/orders');
         }
         return true;
+      case 'openReceiptIssue':
+        s.set('receipt.condition', 'Có vấn đề');
+        go('/shared/report-discrepancy');
+        return true;
+      case 'editReceiptQuantity':
+        final value = await FrontendActions.edit(
+            context,
+            'Số suất thực nhận tốt',
+            '${s.get('receipt.quantity', s.selectedOrder.quantity)}',
+            keyboard: TextInputType.number);
+        if (value == null) return true;
+        final quantity = int.tryParse(value);
+        if (quantity == null ||
+            quantity < 0 ||
+            quantity > s.selectedOrder.quantity) {
+          throw StateError(
+              'Số thực nhận phải từ 0 đến ${s.selectedOrder.quantity}.');
+        }
+        s.set('receipt.quantity', quantity);
+        return true;
       case 'acceptOrder':
       case 'rejectOrder':
       case 'acceptJob':
       case 'confirmReceipt':
+      case 'confirmReceiptIssue':
         if (action == 'confirmReceipt' &&
             s.get('receipt.condition', 'Tốt, đúng mô tả') == 'Có vấn đề') {
           go('/shared/report-discrepancy');
           return true;
         }
+        final receipt =
+            ['confirmReceipt', 'confirmReceiptIssue'].contains(action);
+        final issue = action == 'confirmReceiptIssue';
         String? receiptNote;
-        if (action == 'confirmReceipt') {
+        String? issueTicket;
+        if (receipt) {
           final record = s.rows('orders').firstWhere((o) => o['id'] == id);
           final received = s.get('receipt.quantity', s.selectedOrder.quantity);
+          if (issue && s.get('receipt.note', '').trim().isEmpty) {
+            throw StateError('Hãy mô tả vấn đề trước khi gửi đối soát.');
+          }
           if (record['receiptState'] != 'pending' &&
               (received != (record['qtyRequested'] ?? record['quantity']) ||
                   received != (record['qtyPickedUp'] ?? record['quantity']))) {
-            receiptNote = await FrontendActions.edit(context,
-                'Ghi chú chênh lệch số lượng', s.get('receipt.note', ''));
+            receiptNote = s.get('receipt.note', '').trim();
+            if (receiptNote.isEmpty) {
+              receiptNote = await FrontendActions.edit(
+                  context, 'Ghi chú chênh lệch số lượng', '');
+            }
             if (receiptNote == null) return true;
             s.set('receipt.note', receiptNote);
             if (receiptNote.isEmpty) {
               throw StateError('Hãy nhập ghi chú chênh lệch số lượng.');
+            }
+          }
+          if (issue) {
+            if (received != (record['qtyRequested'] ?? record['quantity']) ||
+                received != (record['qtyPickedUp'] ?? record['quantity'])) {
+              // The receipt protocol creates this deterministic discrepancy case.
+              issueTicket = 'receipt_$id';
+            } else {
+              // Quality issues can exist even when the count matches.
+              issueTicket = s.get<String>('receipt.issue.ticketId', '');
+              if (issueTicket.isEmpty) {
+                final ticket = await s.command('submitTicket', {
+                  'orderId': id,
+                  'reason': 'Vấn đề khi nhận hàng',
+                  'detail': s.get('receipt.note', ''),
+                  'photo': await uploadPhoto('receipt.photo', 'proof')
+                });
+                issueTicket = '${ticket['id']}';
+                s.set('receipt.issue.ticketId', issueTicket);
+              }
             }
           }
         }
@@ -600,20 +651,27 @@ abstract final class FirebaseActions {
             'acceptJob' => 'assigned',
             _ => 'completed'
           },
-          if (action == 'confirmReceipt')
+          if (receipt)
             'received': s.get('receipt.quantity', s.selectedOrder.quantity),
-          if (action == 'confirmReceipt')
-            'photo': await uploadPhoto('receipt.photo', 'proof'),
-          if (action == 'confirmReceipt')
-            'note': receiptNote ?? s.get('receipt.note', ''),
+          if (receipt) 'photo': await uploadPhoto('receipt.photo', 'proof'),
+          if (receipt) 'note': receiptNote ?? s.get('receipt.note', ''),
         });
         if (action == 'acceptJob') {
           s.selectOrder(id);
           s.set('jobs.scope', 'mine');
           message('Đã nhận chuyến. Hãy đến người cho để xác nhận lấy hàng.');
           go('/user/volunteer/pickup');
-        } else if (action == 'confirmReceipt') {
-          go('/user/organization/order-tracking');
+        } else if (receipt) {
+          if (issue) {
+            s.set('support.ticketId', issueTicket);
+            message(
+                'Đã gửi đối soát và nhập kho ${s.selectedOrder.received} suất thực nhận.');
+            go('/shared/support-status');
+          } else {
+            message(
+                'Xác nhận nhận hàng thành công. Đã nhập kho ${s.selectedOrder.received} suất.');
+            go('/user/organization/thank-you');
+          }
         } else {
           if (action == 'acceptOrder') {
             s.selectOrder(id);

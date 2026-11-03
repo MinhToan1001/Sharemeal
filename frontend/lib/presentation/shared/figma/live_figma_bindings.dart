@@ -513,6 +513,28 @@ FigmaBox bindLiveScreen(FigmaBox root, String frame, FirebaseAppState s) {
         '77:1128': '${selected['note'] ?? ''}',
         '77:1132': s.get('admin.decision.note', '')
       });
+    case '6:1573':
+      // The prototype's confirmation hotspot overlaps the page title.
+      // Production confirmation belongs to the visible footer button.
+      controls['6:1611'] = {};
+      action('6:1581', 'confirmReceipt', {'label': 'Xác nhận đã nhận'});
+      action('6:1574', 'openReceiptIssue', {'label': 'Có vấn đề'});
+    case '65:1172':
+      action('65:1187', 'editReceiptQuantity');
+      controls['65:1195'] = {
+        'kind': 'input',
+        'key': 'receipt.note',
+        'initial': '',
+        'hint': 'Mô tả vấn đề, số suất bị thiếu hoặc hỏng...',
+        'mode': 'multiline',
+        'label': 'Mô tả vấn đề'
+      };
+      action('65:1196', 'pickImage', {'key': 'receipt.photo'});
+      action('65:1209', 'confirmReceiptIssue', {
+        'label':
+            'Gửi đối soát & nhận ${s.get('receipt.quantity', order.quantity)} suất'
+      });
+      action('65:1211', 'back', {'label': 'Quay lại kiểm tra'});
     case '6:3567':
       action('6:3568', 'route', {'route': '/user/donor/dashboard'});
       action('6:3569', 'route', {'route': '/user/donor/dashboard'});

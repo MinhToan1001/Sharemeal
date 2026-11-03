@@ -6,6 +6,8 @@ Luồng demo giữ màn QR, camera và kết quả theo Figma. Tình nguyện vi
 
 Tin 9 suất đã được giữ 7 vẫn còn 2 để xin thêm **khi tin còn hạn**. Giờ hết hạn hiển thị rõ hôm nay/ngày mai; mặc định khoảng hai giờ sau thời điểm tạo tin. Tin cũ đã hết hạn không tự gia hạn.
 
+Tại màn **Xác nhận đã nhận**, tổ chức bấm nút xanh **Xác nhận đã nhận** ở cuối màn để nhập kho. App chỉ báo thành công sau khi Firebase lưu xong, rồi mở màn gửi lời cảm ơn theo Figma. Bấm **Có vấn đề** để mở trang đối soát, sửa số suất thực nhận tốt và mô tả vấn đề; nút **Gửi đối soát & nhận … suất** lưu số thực nhận và mở vụ hỗ trợ cho admin.
+
 Ứng dụng được viết bằng Flutter, sử dụng Firebase Authentication, Realtime Database và Cloudinary. Flutter gọi Firebase trực tiếp; quyền dữ liệu được kiểm tra bằng Firebase Rules. `backend/client` là package nghiệp vụ chạy cùng app, không phải một máy chủ cần khởi động riêng.
 
 ## 1. Chuẩn bị môi trường
