@@ -97,7 +97,6 @@ class _FigmaScreenState extends State<FigmaScreen> {
   @override
   Widget build(BuildContext context) {
     final keyboardInset = MediaQuery.viewInsetsOf(context).bottom;
-    final viewport = MediaQuery.sizeOf(context);
     final state = FigmaPrototypeScope.of(context).frontend;
     if (state is FirebaseAppState) {
       if (['6:3798', '77:1321', '77:1384'].contains(widget.frameId)) {
@@ -133,11 +132,12 @@ class _FigmaScreenState extends State<FigmaScreen> {
               ),
             ),
           );
-          if (keyboardInset > 0) {
-            return SingleChildScrollView(
-                child: SizedBox(height: viewport.height, child: canvas));
-          }
-          return canvas;
+          // Keep the same ancestors when Android animates the keyboard. Adding
+          // a ScrollView only after an inset arrives disposes the focused input,
+          // closes the IME, and repeats the cycle on the next tap.
+          return SingleChildScrollView(
+              child: SizedBox(
+                  height: constraints.maxHeight + keyboardInset, child: canvas));
         }),
       ),
     );
